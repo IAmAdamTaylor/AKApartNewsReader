@@ -3,25 +3,25 @@
  */
 
 /**
- * Generate a media query for a $breakpoint in pixels.
+ * Generate a media query for a $breakpoint.
  * @param  integer $breakpoint
  * @param  property $attribute  Optional, The attribute to respond on. Defaults to max-width.
  * @content Allows CSS properties to be passed as rule content.
  */
 @mixin respond( $breakpoint, $attribute: max-width ) {
-  @media only screen and ( #{$attribute}: #{$breakpoint}px ) {
+  @media only screen and ( #{$attribute}: #{$breakpoint} ) {
     @content;
   }
 }
 
 /**
- * Generate a media query between 2 breakpoints in pixels.
+ * Generate a media query between 2 breakpoints.
  * @param  integer $min-breakpoint
  * @param  integer $max-breakpoint
  * @content Allows CSS properties to be passed as rule content.
  */
 @mixin respond-between( $min-breakpoint, $max-breakpoint ) {
-  @media only screen and ( min-width: #{$min-breakpoint}px ) and ( max-width: #{$max-breakpoint}px ) {
+  @media only screen and ( min-width: #{$min-breakpoint} ) and ( max-width: #{$max-breakpoint} ) {
     @content;
   }
 }

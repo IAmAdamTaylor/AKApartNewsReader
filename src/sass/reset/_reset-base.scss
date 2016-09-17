@@ -15,26 +15,5 @@
  * Box sizing reset
  */
 *, *:before, *:after { 
-  @include box-sizing(); 
-}
-
-/**
- * Reset link styles
- */
-a {
-	color: inherit;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-/**
- * Clearfix
- */
-%clearfix,
-.clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+  box-sizing: border-box;
 }

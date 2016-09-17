@@ -6,33 +6,13 @@
 
 
 /**
- * Asset Paths
- * Each of these variables should end with a trailing slash.
- */
-// - - - 
-$base-path: "/FOLDER_NAME/" !default; // The root directory of the project. Needs the folder name on localhost installs
-$assets-path: "../" !default; // Assets directory. Should be root for PHP installs and the theme directory for WordPress installs.
-
-
-/**
  * Colour Scheme
- * Every colour in this map requires a base.
- * Each base colour can have shades added (for hover, accent purposes).
- * Can be applied with the color() function.
+ * Using 2-step colour system, define base colours and then apply to parts of the interface
  */
-$colors: (
-	brand: (
-		base: #000,
-		hover: #666
-	),
-	grey: (
-		base: rgb(60,60,60),
-		light: #ccc
-	),
-	error: (
-		base: red
-	)
-);
+$light-blue: cadetblue;
+
+// Interface
+$body-background: $light-blue;
 
 
 /**
@@ -45,33 +25,11 @@ $colors: (
 	$sans-serif-fallback: "Soleil", "Avenir Next", "AvenirNext-SemiBold", "Futura-Medium", Futura, "Futura Std", "Droid Sans", "Trebuchet MS", Helvetica, Arial, sans-serif;
 	$serif-fallback: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
 
-	$body-stack: "WEBFONT", #{$sans-serif-fallback};
-	$heading-stack: "WEBFONT", #{$serif-fallback};
+	$body-stack: #{$sans-serif-fallback};
+	$heading-stack: #{$serif-fallback};
 
   /**
    * Font Sizes
-   * Can be applied with the size() function.
    */
-	$font-sizes: (
-		base: 16px,
-		small: .85em,
-		medium: 1.3em,
-		large: 1.9em,
-		extralarge: 2.5em
-	);
-
-
-/**
- * Grid layout
- * Spacing multiples can be applied with the spacing() function.
- */
-$spacing-unit: 15px;
-$grid-container-width: 1170px;
-$grid-column-denominators: 2, 3, 4;
-$grid-gutter: $spacing-unit * 2;
-
-
-/**
- * Third Party
- * Add any third party libraries (e.g. Slick, Bourbon) config here.
- */
+	$size-samll-print: .9em;
+	$size-titles: 1.3em;

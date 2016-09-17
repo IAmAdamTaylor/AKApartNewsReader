@@ -1,0 +1,39 @@
+/**
+ * Global layout styles
+ */
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+.ie8 body { // Fixed width for IE8
+	width: 1300px;
+	max-width: 1300px;
+
+	margin: 0 auto;
+}
+
+.container {
+	@extend %clearfix;
+	
+	width: 95%;
+	max-width: $grid-container-width;
+
+	margin: 0 auto;
+	padding: 0;
+}
+
+%row,
+.row {
+	@extend %clearfix;
+
+	width: 100%;
+}
+
+.u-image-block {
+	display: block;
+	width: 100%;
+	height: auto;
+}

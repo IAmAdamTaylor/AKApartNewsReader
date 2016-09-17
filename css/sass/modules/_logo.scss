@@ -1,0 +1,23 @@
+/**
+ * Logo
+ */
+
+.logo {
+	display: block;
+
+	position: relative;
+	z-index: 999;
+
+	margin: 0;
+}
+
+.logo__text { // Hide logo text off screen
+	position: absolute;
+	left: -9999px;
+}
+
+.logo__image {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}

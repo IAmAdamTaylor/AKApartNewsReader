@@ -1,0 +1,33 @@
+/**
+ * Pseudo Icons
+ */
+
+/**
+ * Include a pseudo element with a background image to act as an icon.
+ * @param  string $image     A URL for the background image.
+ * @param  number $width     The width of the image.
+ * @param  number $height    The height of the image
+ * @param  string $position  A valid pseudo element name, "before" or "after".
+ * @content Allows CSS properties to be passed as rule content.
+ */
+@mixin pseudo-icon( $image, $width, $height, $position: "before" ) {
+	@if $position == "before" or $position == "after" {
+	
+		&:#{$position} {
+			@include background-cover( $image );
+			
+			content: "";
+
+			display: inline-block;
+			width: $width;
+			height: $height;
+
+		  vertical-align: middle;
+
+		  @content;
+		}
+
+	} @else {
+		@warn "'#{$position}' is not a valid pseudo-element.";
+	}
+}

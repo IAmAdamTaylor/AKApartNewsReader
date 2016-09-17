@@ -1,0 +1,34 @@
+// // Typography - Extends
+// // Any abstracted typography placeholders go in here
+
+// %font-stack-body {
+// 	font-family: $font-stack;
+// }
+
+// %font-stack-heading {
+// 	font-family: $font-stack-heading;
+// }
+
+// %font-stack-title {
+// 	@extend %font-stack-heading;
+
+// 	font-weight: 700;
+// }
+
+// %type-heading-primary {
+// 	@extend %font-stack-title;
+
+// 	font-size: size(extralarge);
+// }
+
+// %type-heading-secondary {
+// 	@extend %font-stack-title;
+
+// 	font-size: size(large);
+// }
+
+// %type-heading-tertiary {
+// 	@extend %font-stack-title;
+
+// 	font-size: size(medium);
+// }

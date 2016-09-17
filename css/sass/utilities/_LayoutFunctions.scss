@@ -1,0 +1,22 @@
+/**
+ * Layout utilities
+ */
+
+/**
+ * Return an amount of spacing as a multiple of the global spacing unit.
+ * @param  integer $multiplier
+ * @return number
+ */
+@function spacing( $multiplier: 1 ) {
+	@return ( $spacing-unit * $multiplier );
+}
+
+/**
+ * Caclulate a percentage width based on a fraction.
+ * @param  integer $numerator
+ * @param  integer $denominator
+ * @return number
+ */
+@function percentage-width( $numerator, $denominator ) {
+	@return ( (100 / $denominator ) * $numerator ) * 1%;
+}

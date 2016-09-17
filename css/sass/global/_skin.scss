@@ -1,0 +1,20 @@
+/**
+ * Global project styling, colors
+ */
+
+body {
+	color: color( grey );
+}
+
+// Inside article scope only, inline a tags should have color.
+.s-article-content {
+	p a {
+		@include transition(color);
+		
+		color: color( brand );
+
+		&:hover { 
+			color: color( brand, hover );
+		}
+	}
+}

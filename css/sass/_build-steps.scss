@@ -1,0 +1,41 @@
+/**
+ * Run the @import processes to build the project.
+ * Separate file to the style sheet that uses this build process.
+ * This allows multiple stylesheets to be built from one project.
+ * E.g. you may want to build a critical and non-critical stylesheet by overriding some global variables.
+ */
+
+/**
+ * Import core settings & utilities
+ */
+@import "config";
+@import "utilities/**/*";
+
+/**
+ * Import cross browser resets and normalize.css library
+ */
+@import "reset/reset-base";
+@import "reset/normalize"; // normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css
+
+/**
+ * Import global project files
+ */
+@import "global/layout";
+@import "global/layout-grid";
+@import "global/skin";
+@import "global/typography";
+
+/**
+ * Import project components
+ */
+@import "modules/**/*";
+
+/**
+ * Import inbox styles
+ */
+@import "inbox";
+
+/**
+ * Import style overrides
+ */
+@import "global/importants"; // Last as they have the highest specifity

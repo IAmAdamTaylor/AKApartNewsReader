@@ -1,0 +1,38 @@
+/**
+ * Background cover & contain mixins.
+ * Applies the IE8 polyfill when used.
+ */
+
+/**
+ * Apply an image as the background to cover the element.
+ * @param  string $image The URL path to the image.
+ */
+@mixin background-cover( $image ) {
+  background-image: $image;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  .ie8 & {
+    position: relative;
+    z-index: 0;
+    -ms-behavior: url(#{$base-path}backgroundsize.min.htc);
+  }
+}
+
+/**
+ * Apply an image as the background to be contained within an element.
+ * @param  string $image The URL path to the image.
+ */
+@mixin background-contain( $image ) {
+  background-image: $image;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+
+  .ie8 & {
+    position: relative;
+    z-index: 0;
+    -ms-behavior: url(#{$base-path}backgroundsize.min.htc);
+  }
+}

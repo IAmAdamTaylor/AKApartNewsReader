@@ -1,0 +1,14 @@
+/**
+ * Typography Functions
+ */
+
+/**
+ * Return a font size declared in the global font sizes variable.
+ * @param  string $size
+ * @return number
+ */
+@function size( $size ) {
+	$font-size: map-get( $font-sizes, $size );
+
+	@return $font-size;
+}

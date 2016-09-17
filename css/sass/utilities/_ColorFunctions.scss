@@ -1,0 +1,49 @@
+/**
+ * Color Functions
+ */
+
+/**
+ * Adjust the lightness on a color.
+ * @param  string $color     The color to adjust.
+ * @param  number $lightness The amount to lighten or darken the color.
+ *                           		auto: Adjust the color based on how light it currently is.
+ *                           		positive number: Lighten the color.
+ *                           		negative number: Darken the color.	
+ * @return string
+ */
+@function adjust_lightness( $color, $lightness ) {
+	@if $lightness == auto {
+
+		@if lightness( $color ) > 50 {
+			$color: darken($color, 10%);
+		} @else {
+			$color: lighten($color, 10%);
+		}
+
+	} @else {
+
+		@if $lightness < 0 {
+			$color: darken( $color, abs($lightness) );
+		}
+
+		@if $lightness > 0 {
+			$color: lighten( $color, $lightness );
+		}
+		
+	}
+
+	@return $color;
+}
+
+/**
+ * Get a color from the global color scheme variable.
+ * @param  string $key      The colors base name.
+ * @param  string $shade    The shade of the color.
+ * @return string
+ */
+@function color( $key, $shade: base ) {
+	$color: map-get( $colors, $key );
+	$color: map-get( $color, $shade );
+
+	@return $color;
+}

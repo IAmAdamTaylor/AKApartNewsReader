@@ -128,10 +128,10 @@ gulp.task('clean', function() {
  */
 gulp.task('watch', function() {
   // Watch .scss files
-  gulp.watch( 'src/css/sass/**/*.scss', ['styles'] );
+  gulp.watch( 'src/sass/**/*.scss', ['styles'] );
   
   // Watch .js files
-  gulp.watch( 'src/scripts/**/*.js', ['scripts'] );
+  gulp.watch( 'src/js/**/*.js', ['scripts'] );
 });
 
 /**

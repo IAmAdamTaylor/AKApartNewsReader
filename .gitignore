@@ -6,8 +6,16 @@
 *.bak
 *.sql
 
+# Ignore built Gulp fles
+public/
+
+# Ignore User generated files
+form-uploads/
+
+# 	Ignore built Sass/CSS files
+.sass-cache
+
 # 	Ignore WordPress specific files
-.htaccess
 wp-config.php
 wp-content/uploads/
 wp-content/blogs.dir/
@@ -19,5 +27,6 @@ sitemap.xml
 *.log
 wp-content/cache/
 wp-content/backups/
+wp-content/sedlex/
 sitemap.xml
 sitemap.xml.gz

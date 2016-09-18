@@ -1,27 +1,18 @@
 <?php 
 
-/**
- * The home page of the site.
- *
- * META
- * Page Title: Home
- * Page Description: This is the home page of the site.
- */
+require_once 'framework/init.php';
 
-// Include the framework
-define( 'PAGE_PATH', __FILE__ );
-require_once 'framework/_init.php';
+// Set up home page
+$model = new WebApp\Home\Model();
+$controller = new WebApp\Home\Controller( $model );
+$view = new WebApp\Home\View( $model );
 
-?>
+// Check if a search query has been entered
+if ( isset( $_GET['search'] ) && '' !== $_GET['search'] ) {
+	
+	// Search query entered, process it
+	$controller->processSearch( $_GET['search'] );
 
-<?php get_header(); ?>
+}
 
-<main class="content" role="main">
-	<div class="container">
-		
-		
-		
-	</div>
-</main>
-
-<?php get_footer(); ?>
+$view->output();

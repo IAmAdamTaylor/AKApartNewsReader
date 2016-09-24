@@ -66,6 +66,11 @@ class Controller implements CacheInterface
 	{
 		$cacheFile = $this->_getCacheFilePath( $key );
 
+		// Check the cache file exists
+		if ( !is_readable( $cacheFile ) ) {
+			return false;
+		}
+
 		unlink( $cacheFile );
 
 		return $this;

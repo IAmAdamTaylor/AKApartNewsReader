@@ -9,8 +9,8 @@
 # Ignore built Gulp fles
 public/
 
-# Ignore User generated files
-form-uploads/
+# Ignore cache files
+cache/
 
 # 	Ignore built Sass/CSS files
 .sass-cache

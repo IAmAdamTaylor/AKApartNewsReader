@@ -1,6 +1,7 @@
 <?php
 
 namespace WebApp\Home;
+use Search\Controller as SearchController;
 
 class Controller
 {
@@ -19,12 +20,8 @@ class Controller
 	{
 		$model = $this->_model;
 
-		// $searchController = new FeedReader\SearchController();
-		// $results = $searchController->getResults( $search_terms );
-
-		// Fake it!
-		$results = array( '1', '2', '3' );
-		// $results = array();
+		$searchController = new SearchController( $search_terms );
+		$results = $searchController->getResults();
 
 		if ( 0 === count( $results ) ) {
 			

@@ -23,6 +23,7 @@ define( 'FRAMEWORK_PATH', dirname( __FILE__ ) . '/' );
 define( 'ROOT_PATH', dirname( FRAMEWORK_PATH ) . '/' );
 
 define( 'INCLUDES_PATH', FRAMEWORK_PATH . 'includes/' );
+define( 'CACHE_PATH', ROOT_PATH . 'cache/' );
 
 // Include global functions
 require_once INCLUDES_PATH . 'functions-general.php';
@@ -36,12 +37,15 @@ $loader = new Autoloader();
 $loader->register();
 
 // Register the base directories for each namespace prefix
+$namespace_dirs = array(
+	// WebApp: Handles the request response cycle and loads templates.
+	'WebApp',
+	// Search: Handles processing the search terms, caching and getting results
+	'Search',
+	// FeedReader: Gets the feed items based on the user query
+	'FeedReader',
+);
 
-// WebApp: Handles the request response cycle and loads templates.
-$loader->addNamespace('WebApp', INCLUDES_PATH . '/WebApp');
-
-// FeedReader: Gets the feed items based on the user query
-$loader->addNamespace('FeedReader', INCLUDES_PATH . '/FeedReader');
-
-// SimplePie: External library included to read RSS feeds
-// $loader->addNamespace('SimplePie', 'includes/SimplePie');
+foreach ($namespace_dirs as $namespace) {
+	$loader->addNamespace( $namespace, INCLUDES_PATH . '/' . $namespace );
+}

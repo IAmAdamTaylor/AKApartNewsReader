@@ -1,8 +1,8 @@
 <?php
 
-namespace WebApp;
+namespace WebApp\Page;
 
-interface PageModelInterface
+interface ModelInterface
 {
 		const STATE_BLANK = '0';
 		const STATE_SUCCESS = '1';

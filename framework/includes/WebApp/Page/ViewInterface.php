@@ -1,8 +1,8 @@
 <?php
 
-namespace WebApp;
+namespace WebApp\Page;
 
-interface PageViewInterface
+interface ViewInterface
 {
 		public function output();
 

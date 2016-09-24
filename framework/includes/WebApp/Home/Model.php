@@ -1,10 +1,10 @@
 <?php
 
 namespace WebApp\Home;
-use WebApp\PageModelInterface;
+use WebApp\Page\ModelInterface;
 use StdClass;
 	
-class Model implements PageModelInterface
+class Model implements ModelInterface
 {
 	/**
 	 * The current UI state of the model.

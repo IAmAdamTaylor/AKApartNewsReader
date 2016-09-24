@@ -1,9 +1,9 @@
 <?php
 
 namespace WebApp\Home;
-use WebApp\PageViewInterface;
+use WebApp\Page\ViewInterface;
 
-class View implements PageViewInterface
+class View implements ViewInterface
 {
 	/**
 	 * The model for this page.

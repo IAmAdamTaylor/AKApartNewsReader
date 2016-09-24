@@ -17,7 +17,8 @@ class Controller implements CacheInterface
 
 	const CACHE_LOCATION = 'results/';
 
-	public function __construct() {
+	public function __construct() 
+	{
 		$this->_cacheFolder = CACHE_PATH . self::CACHE_LOCATION;
 	}
 
@@ -28,6 +29,7 @@ class Controller implements CacheInterface
 	 */
 	public function get( $key ) 
 	{
+		date_default_timezone_set('Europe/London');
 		$cacheFile = $this->_getCacheFilePath( $key );
 
 		// Check the cache file exists
@@ -38,7 +40,12 @@ class Controller implements CacheInterface
 		// Get the contents
 		$results = json_decode( file_get_contents( $cacheFile ), true );
 
-		return $results;
+		if ( date('U') >= $results['expires'] ) {
+			$this->invalidate( $key );
+			return false;
+		}
+
+		return $results['value'];
 	}
 
 	/**
@@ -49,7 +56,14 @@ class Controller implements CacheInterface
 	 */
 	public function store( $key, $value ) 
 	{
+		date_default_timezone_set('Europe/London');
 		$cacheFile = $this->_getCacheFilePath( $key );
+
+		// Add an expires timestamp to the cache
+		$value = array( 
+			'expires' => date('U') + $this->_getExpiryPeriod(),
+			'value' => $value,
+		);
 
 		// Update the cache file
 		file_put_contents( $cacheFile , json_encode( $value ) );
@@ -76,17 +90,25 @@ class Controller implements CacheInterface
 		return $this;
 	}
 
+	private function _getExpiryPeriod()
+	{
+		// 2 hours in seconds
+		return 2 * 60 * 60;
+	}
+
 	/**
 	 * Get the full file path from a key.
 	 * @param  string $key The name of the file.
 	 * @return string      The full file path.
 	 */
-	private function _getCacheFilePath( $key ) {
+	private function _getCacheFilePath( $key ) 
+	{
 		$key = $this->_sanitiseFileName( $key );
 		return $this->_cacheFolder . $key . '.json';
 	}
 
-	private function _sanitiseFileName( $file_name ) {
+	private function _sanitiseFileName( $file_name ) 
+	{
 		$file_name = trim( $file_name );
 		$file_name = strtolower( $file_name );
 		$file_name = str_replace( ' ', '_', $file_name );

@@ -44,7 +44,6 @@ class Controller implements ControllerInterface
 	{
 		// Check cached results
 		$cache = new ResultsCache();
-		$cache->invalidate( $this->_search_terms );
 		$results = $cache->get( $this->_search_terms );
 
 		// Cache will return false if the results don't exist or are out of date

@@ -30,14 +30,9 @@ class Controller implements ControllerInterface
 		if ( !is_string( $search_terms ) ) {
 			return;
 		}
-
-		$cache = new TermsCache();
 		
 		$search_terms = strtolower( $search_terms );
 		$this->_search_terms = $search_terms;
-
-		// Cache that these terms have been searched for
-		$cache->store( $search_terms );
 
 		return $this;
 	}
@@ -50,8 +45,8 @@ class Controller implements ControllerInterface
 	public function getResults()
 	{
 		// Check cached results
-		$cache = new ResultsCache();
-		$results = $cache->get( $this->_search_terms );
+		$resultsCache = new ResultsCache();
+		$results = $resultsCache->get( $this->_search_terms );
 
 		// Cache will return false if the results don't exist or are out of date
 		if ( $results ) {
@@ -66,8 +61,12 @@ class Controller implements ControllerInterface
 		$results = $parser->getResults( $feed_items );
 		
 		// If we've got something, cache it
+		// Also cache the search terms, as a search that returns results
 		if ( 0 !== count( $results ) ) {
-			$cache->store( $this->_search_terms, $results );
+			$termsCache = new TermsCache();
+			$termsCache->store( $this->_search_terms );
+
+			$resultsCache->store( $this->_search_terms, $results );
 		}
 
 		// Return the results

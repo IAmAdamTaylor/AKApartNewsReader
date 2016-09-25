@@ -1,10 +1,6 @@
-/**
- * Global typography styles
- */
+// Global typography styles
 
-/**
- * General typography
- */
+// General typography
 body {
 	font-family: $body-stack;
 	line-height: 1.4;
@@ -16,7 +12,7 @@ body {
 
 // Scale the main content @ small breakpoint
 main {
-	@include respond( 28.125em, "max-width" ) {
+	@include respond( 28.125rem, "max-width" ) {
 		font-size: 14px;
 	}
 }

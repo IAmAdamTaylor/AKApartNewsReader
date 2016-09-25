@@ -1,19 +1,13 @@
-/**
- * Cross Browser standard resets
- */
+// Cross Browser standard resets
 
-/**
- * Viewport Rules - Mainly for IE11
- */
+// Viewport Rules - Mainly for IE11
 @-webkit-viewport{width:device-width}
 @-moz-viewport{width:device-width}
 @-ms-viewport{width:device-width}
 @-o-viewport{width:device-width}
 @viewport{width:device-width}
 
-/**
- * Box sizing reset
- */
+// Box sizing reset
 *, *:before, *:after { 
   box-sizing: border-box;
 }

@@ -26,7 +26,7 @@
   	flex: 1;
   }
 
-  @include respond( 28.125em - $em-pixel, "max-width" ) {
+  @include respond( 28.125rem - $em-pixel, "max-width" ) {
   	font-size: 1.1em;
   }
 }
@@ -151,7 +151,7 @@
 .feed-item__link {
 	margin-top: .5em;
 
-	@include respond( 37.5em ) {
+	@include respond( 37.5rem ) {
 		width: 1px; 
 	  height: 1px; 
 	  

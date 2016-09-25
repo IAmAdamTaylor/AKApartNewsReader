@@ -1,16 +1,11 @@
-/**
- * Configuration
- * Global project variables
- * No classes or CSS logic should be added here.
- */
+// Configuration
+// Global project variables
+// No classes or CSS logic should be added here.
 
 
-/**
- * Colour Scheme
- * Using 2-step colour system, define base colours and then apply to parts of the interface
- */
+// Colour Scheme
+// Using 2-step colour system, define base colours and then apply to parts of the interface
 $light-blue: #E3F2FD;
-// $golden-orange: #E87E04;
 $purple: #639;
 
 $grey: rgb(65,65,65);
@@ -39,26 +34,18 @@ $button-background: $purple;
 $focus-ring-color: $purple;
 
 
-/**
- * Typography
- */
-  /**
-   * Font Families
-   */
+// Typography
+  // Font Families
 	$sans-serif-fallback: "Avenir Next", "AvenirNext-SemiBold", "Futura", "Roboto", "Droid Sans", "Ubuntu", "Liberation Sans", "Trebuchet MS", "Helvetica Neue" Helvetica, Arial, "Lucida Grande", Tahoma, Verdana, sans-serif;
 
   $body-stack: #{$sans-serif-fallback};
 	$body-stack-lazyloaded: "PT Sans", #{$sans-serif-fallback};
   $heading-stack: #{$sans-serif-fallback};
 
-/**
- * Layout
- */
+// Layout
 $container-max-width: 70em;
 
-/**
- * Breakpoints
- */
-$em-pixel: .0625em;
-$feed-item-grid-breakpoint: 63.5em;
+// Breakpoints
+$em-pixel: .0625rem;
+$feed-item-grid-breakpoint: 63.5rem;
 

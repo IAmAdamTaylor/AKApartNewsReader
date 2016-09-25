@@ -45,7 +45,7 @@
     width: calc( 100% - 1.8em );
   }
 
-  @include respond( 40em ) {
+  @include respond( 40rem ) {
     min-width: 250px;
   }
 }

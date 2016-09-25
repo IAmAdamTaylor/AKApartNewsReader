@@ -14,27 +14,9 @@
 		font-size: 1.2em;
 	}
 
-	@media (min-height: 41rem) and (min-width: 40rem) {
-		width: 100%;
-
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		z-index: 0;
-	}
-
   @include respond( 18.125rem, "max-width" ) {
   	text-align: center;
   }
-
-	.home-success-php & {
-		@include respond( $feed-item-grid-breakpoint - $em-pixel, "max-width" ) {
-			position: relative;
-		}
-	}
-	.about & {
-		position: relative;
-	}
 }
 
 .header__right {

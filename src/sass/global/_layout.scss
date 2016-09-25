@@ -7,25 +7,13 @@ body {
 
 body {
 	padding-bottom: 2em;
-	
-	@include respond( 40rem ) {
-		padding-bottom: 6em;
-
-		&.home-success-php {
-			padding-bottom: 2em;
-		}
-	}	
-
-	&.about {
-		padding-bottom: 2em;
-	}
 }
 
 main {
 	text-align: center;
 
 	@include respond( 40rem ) {
-		padding: 1.5em;
+		padding: 1.5em 0;
 		
 		.home-success-php & {
 			padding: 0;

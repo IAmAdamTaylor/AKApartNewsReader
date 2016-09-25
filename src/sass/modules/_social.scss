@@ -8,9 +8,82 @@
 		margin-left: .75em;
 	}
 }
+.social--with-tooltip {
+	position: relative;
+	z-index: 0;
+}
 
 .social__icon {
 	width: 1em;
 	height: 1em;
 	fill: #fff;
+}
+.social__icon--dark {
+	fill: $text-color;
+}
+.social__icon--facebook {
+	fill: $brand-facebook-color;
+}
+.social__icon--twitter {
+	fill: $brand-twitter-color;
+}
+.social__icon--medium {
+	width: 1.2em;
+	height: 1.2em;
+}
+.social__icon--large {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.social__tooltip {
+	display: none;
+
+	position: absolute;
+	bottom: 100%;
+	left: -.25em;
+	z-index: 0;
+
+	margin-bottom: .75em;
+	padding: .5em 1em;
+	border-radius: .25em;
+
+	background-color: $tooltip-background;
+	color: #fff;
+
+	opacity: 0;
+
+	font-size: .8em;
+	white-space: nowrap;
+
+	animation: fadeIn forwards .2s;
+
+	&:after {
+		content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    
+    position: absolute;
+    top: 100%;
+    left: .5em;
+    z-index: 1;
+    
+    border: .5em solid transparent;
+    border-top-color: $tooltip-background;
+	}
+}
+.social:hover {
+	.social__tooltip {
+		display: inline-block;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }

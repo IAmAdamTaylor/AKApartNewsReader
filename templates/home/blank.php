@@ -29,17 +29,15 @@ get_header( $this );
 
 				<div class="tags">
 
-					<div class="grid wrapped tags">
+					<div class="grid wrapped">
 						
 						<?php foreach ($terms as $term => $term_amount): ?>
 							<?php $term = ucwords( $term ); ?>
 
-							<!-- <div class=""> -->
-								<a class="grid__item tag" href="index.php?search=<?php echo esc_attr( urlencode( $term ) ) ?>">
-									<svg class="tag__icon" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#plus"></use></svg>
-									<?php echo esc_html( $term ) ?>
-								</a>
-							<!-- </div> -->
+							<a class="grid__item tag" href="index.php?search=<?php echo esc_attr( urlencode( $term ) ) ?>">
+								<svg class="tag__icon" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#plus"></use></svg>
+								<?php echo esc_html( $term ) ?>
+							</a>
 						<?php endforeach ?>
 					
 					</div>

@@ -1,0 +1,14 @@
+// Footer
+
+.footer {
+	display: none;
+	margin-top: 2em;
+
+	@include respond( $feed-item-grid-breakpoint - $em-pixel, "max-width" ) {
+		display: block;
+	}
+}
+
+.footer__social {
+	margin-top: .5em;
+}

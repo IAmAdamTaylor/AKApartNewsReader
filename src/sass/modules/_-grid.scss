@@ -1,12 +1,5 @@
 // Grid system
 
-.container {
-	width: 95%;
-	max-width: $container-max-width;
-
-	margin: 0 auto;
-}
-
 .grid {
 	display: flex;
 	justify-content: space-between;

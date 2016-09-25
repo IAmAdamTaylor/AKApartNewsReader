@@ -7,14 +7,22 @@
 	position: relative;
 	z-index: 0;
 
-	padding: .2em 6.5em .2em 0.7em;
+	padding: 0 6.5em 0 0.7em;
 	border-radius: .2em;
 
 	background-color: #fff;
 
   @include respond( 25rem, "max-width" ) {
+    width: 100%;
     padding-right: .7em;
   }
+}
+.search-form + p {
+  margin-top: 1em;
+}
+
+.search-form * {
+  margin-top: 0;
 }
 
 .search-form__icon {
@@ -30,9 +38,16 @@
 }
 
 .search-form__input {
-	padding: .5em;
+	padding: .7em;
 	border: none;
-  outline-color: $focus-ring-color;
+
+  @include respond( 25rem, "max-width" ) {
+    width: calc( 100% - 1.8em );
+  }
+
+  @include respond( 40em ) {
+    min-width: 250px;
+  }
 }
 
 .search-form__button {

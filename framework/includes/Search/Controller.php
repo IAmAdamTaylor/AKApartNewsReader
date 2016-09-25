@@ -3,6 +3,7 @@
 namespace Search;
 use Search\Results\Cache\Controller as ResultsCache;
 use Search\Terms\Cache\Controller as TermsCache;
+use Search\Parser;
 use Feed\Reader as FeedReader;
 	
 class Controller implements ControllerInterface
@@ -12,6 +13,12 @@ class Controller implements ControllerInterface
 	 * @var string
 	 */
 	var $_search_terms;
+
+	/**
+	 * The maximum amount of results to be returned from the parser.
+	 * @var integer
+	 */
+	const RESULTS_LIMIT = 5;
 
 	function __construct( $search_terms )
 	{
@@ -54,10 +61,10 @@ class Controller implements ControllerInterface
 		// Get the feed items from the reader
 		$reader = new FeedReader();
 		$feed_items = $reader->getItems();
-
-		$parser = new Parser( $this->_search_terms );
-		$results = $parser->getResults();
-
+		
+		$parser = new Parser( $this->_search_terms, self::RESULTS_LIMIT );
+		$results = $parser->getResults( $feed_items );
+		
 		// If we've got something, cache it
 		if ( 0 !== count( $results ) ) {
 			$cache->store( $this->_search_terms, $results );

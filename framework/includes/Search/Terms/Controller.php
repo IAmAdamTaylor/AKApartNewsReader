@@ -39,10 +39,12 @@ class Controller
 		$amount = 0;
 
 		return array(
+			'nahid hattar killed' => $amount--,
 			'terence crutcher' => $amount--,
 			'syria'  => $amount--,
 			'aleppo' => $amount--,
 			'new york explosion' => $amount--,
+			'strike action' => $amount--,
 			'presidential race' => $amount--,
 			'donald trump' => $amount--,
 			'jeremy corbyn' => $amount--,

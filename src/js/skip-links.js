@@ -7,11 +7,9 @@
 	$skipLink.addEventListener('click', transferFocus);
 
 	function transferFocus( e ) {
-		console.log(this, e);
     var target = this.getAttribute( 'href' ),
     		$target = document.getElementById( target.substring( 1 ) );
 		
-		console.log( target, $target );
     if ( $target.length ) {
     	$target.focus();
     }

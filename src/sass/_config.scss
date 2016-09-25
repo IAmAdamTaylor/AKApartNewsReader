@@ -14,12 +14,26 @@ $light-blue: #E3F2FD;
 $purple: #639;
 
 $grey: rgb(65,65,65);
+$mid-grey: #888;
+$mid-grey: #a2b1b9;
+$light-grey: #ccc;
+$lightest-grey: #e8e8e8;
+
+// Brands
+$brand-facebook-color: #3b5998;
+$brand-twitter-color: #1da1f2;
 
 // Interface
 $body-background: $light-blue;
 $header-background: $purple;
+$tooltip-background: $grey;
+$thumbnail-placeholder-background: $light-grey;
+
+$border-color: $lightest-grey;
 
 $text-color: $grey;
+$text-deemphasised-color: $mid-grey;
+
 $link-color: $purple;
 $button-background: $purple;
 $focus-ring-color: $purple;
@@ -44,3 +58,10 @@ $focus-ring-color: $purple;
  * Layout
  */
 $container-max-width: 70em;
+
+/**
+ * Breakpoints
+ */
+$em-pixel: .0625em;
+$feed-item-grid-breakpoint: 63.5em;
+

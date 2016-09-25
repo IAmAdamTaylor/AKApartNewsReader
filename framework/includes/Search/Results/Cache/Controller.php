@@ -15,6 +15,10 @@ class Controller implements CacheInterface
 	 */
 	var $_cacheFolder;
 
+	/**
+	 * The cache location relative to the base cache folder.
+	 * @var string
+	 */
 	const CACHE_LOCATION = 'results/';
 
 	public function __construct() 

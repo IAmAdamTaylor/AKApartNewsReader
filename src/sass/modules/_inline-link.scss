@@ -6,7 +6,9 @@
 
 	transition: color .1s;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: lighten( $link-color, 10% );
+		text-decoration: underline;
 	}
 }

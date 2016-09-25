@@ -43,8 +43,8 @@ $namespace_dirs = array(
 	'WebApp',
 	// Search: Handles processing the search terms, caching and getting results
 	'Search',
-	// FeedReader: Gets the feed items based on the user query
-	'FeedReader',
+	// Feed: Gets the feed items and parses them based on the user query
+	'Feed',
 );
 
 foreach ($namespace_dirs as $namespace) {

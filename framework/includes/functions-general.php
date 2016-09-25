@@ -94,3 +94,12 @@ function untrailingslashit( $string ) {
 function trailingslashit( $string ) {
   return untrailingslashit( $string ) . '/';
 }
+
+/**
+ * Dynamically insert the &nbsp; trick to prevent typographic widows.
+ * @param  string $string
+ * @return string
+ */
+function remove_widows( $string ) {
+  return preg_replace( '/([^\s])\s+([^\s]+)\s*$/', '$1&nbsp;$2', $string );
+}

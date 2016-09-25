@@ -8,4 +8,5 @@ interface ViewInterface
 
 		public function getPageTitle();
 		public function getMetaDescription();
+		public function getBodyClass( $class = '' );
 }

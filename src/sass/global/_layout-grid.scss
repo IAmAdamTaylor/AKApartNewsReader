@@ -1,0 +1,27 @@
+// Grid system
+
+.container {
+	width: 95%;
+	max-width: $container-max-width;
+
+	margin: 0 auto;
+}
+
+.grid {
+	display: flex;
+	justify-content: space-between;
+}
+.grid.wrapped {
+	flex-wrap: wrap;	
+}
+
+.grid__item {
+	flex: 1 0 auto;
+	margin-top: 0;
+
+	@include respond( 25rem, "max-width" ) {
+		min-width: 100%;
+		// iOS Bug Fix: Doesn't base flex-basis on min-width, so set both
+		flex-basis: 100%;
+	}
+}

@@ -11,6 +11,12 @@ class View implements ViewInterface
 	 */
 	var $_model;
 
+	/**
+	 * The template file being loaded for the current state.
+	 * @var string
+	 */
+	var $_template;
+
 	const TEMPLATE_BLANK = 'home/blank.php';
 	const TEMPLATE_SUCCESS = 'home/success.php';
 	const TEMPLATE_ERROR = 'home/error.php';
@@ -35,7 +41,9 @@ class View implements ViewInterface
 		}
 
 		if ( '' !== $template ) {
+			$this->_template = $template;
 			$template = 'templates/' . $template;
+
 			include $template;
 		}
 	}
@@ -48,5 +56,24 @@ class View implements ViewInterface
 	public function getMetaDescription()
 	{
 		return $this->_model->head->meta_description;
+	}
+
+	public function getBodyClass( $class = '' )
+	{
+		// Add page class
+		$class .= ' home';
+
+		// Add template class
+		$class .= ' ' . preg_replace( '/[^a-z0-9]/', '-', $this->_template );
+
+		return $class;
+	}
+
+	function getProperty( $name ) {
+		if ( isset( $this->_model->{$name} ) ) {
+			return $this->_model->{$name};
+		} else {
+			return '';
+		}
 	}
 }

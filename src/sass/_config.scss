@@ -9,10 +9,20 @@
  * Colour Scheme
  * Using 2-step colour system, define base colours and then apply to parts of the interface
  */
-$light-blue: cadetblue;
+$light-blue: #E3F2FD;
+// $golden-orange: #E87E04;
+$purple: #639;
+
+$grey: rgb(65,65,65);
 
 // Interface
 $body-background: $light-blue;
+$header-background: $purple;
+
+$text-color: $grey;
+$link-color: $purple;
+$button-background: $purple;
+$focus-ring-color: $purple;
 
 
 /**
@@ -22,14 +32,15 @@ $body-background: $light-blue;
    * Font Families
    * You can remove either fallback as necessary.
    */
-	$sans-serif-fallback: "Soleil", "Avenir Next", "AvenirNext-SemiBold", "Futura-Medium", Futura, "Futura Std", "Droid Sans", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	$sans-serif-fallback: "Avenir Next", "AvenirNext-SemiBold", "Droid Sans", "Trebuchet MS", "Helvetica Neue" Helvetica, Arial, sans-serif;
 	$serif-fallback: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
 
-	$body-stack: #{$sans-serif-fallback};
-	$heading-stack: #{$serif-fallback};
+  $body-stack: #{$sans-serif-fallback};
+	$body-stack-lazyloaded: "Source Sans Pro", #{$sans-serif-fallback};
+  $heading-stack: #{$serif-fallback};
+	$heading-stack: "Source Serif Pro", #{$serif-fallback};
 
-  /**
-   * Font Sizes
-   */
-	$size-samll-print: .9em;
-	$size-titles: 1.3em;
+/**
+ * Layout
+ */
+$container-max-width: 70em;

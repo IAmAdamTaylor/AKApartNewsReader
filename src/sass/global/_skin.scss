@@ -2,4 +2,7 @@
  * Global project styling, colors
  */
 
-
+body {
+	background-color: $body-background;
+	color: $text-color;
+}

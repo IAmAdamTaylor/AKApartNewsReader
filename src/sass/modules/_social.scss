@@ -1,0 +1,16 @@
+// Social icons
+
+.social {
+	color: inherit;
+	text-decoration: none;
+
+	& + & {
+		margin-left: .75em;
+	}
+}
+
+.social__icon {
+	width: 1em;
+	height: 1em;
+	fill: #fff;
+}

@@ -1,0 +1,44 @@
+// Header styles
+
+.header {
+	position: relative;
+	z-index: 0;
+
+	margin-top: 0;
+	padding: .5em .8em;
+
+	background-color: $header-background;
+	color: #fff;
+
+	@include respond( 25rem ) {
+		font-size: 1.2em;
+	}
+
+	@include respond( 31.25rem ) {
+		font-size: 1.6em;
+	}
+
+	@media (min-height: 41rem) and (min-width: 40rem) {
+		width: 100%;
+
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		z-index: 0;
+	}
+}
+
+.header__right {
+  display: inline-block;
+
+  position: absolute;
+  top: 50%;
+  right: .8em;
+  z-index: 2;
+
+  margin-top: 0;
+
+  transform: translateY(-50%);
+
+  line-height: 1;
+}

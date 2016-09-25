@@ -102,7 +102,7 @@ gulp.task('scripts', function() {
     .pipe( jshint() )
     .pipe( jshint.reporter('default') )
     .pipe( sourcemaps.init() )
-    .pipe( concat( 'all.js' ) )
+    .pipe( concat( 'script.js' ) )
     .pipe( gulp.dest( paths.scripts.out ) )
     .pipe( rename( {suffix: '.min'} ) )
     .pipe( uglify() )
@@ -131,7 +131,7 @@ gulp.task('watch', function() {
   gulp.watch( 'src/sass/**/*.scss', ['styles'] );
   
   // Watch .js files
-  gulp.watch( 'src/js/**/*.js', ['scripts'] );
+  gulp.watch( 'src/js/*.js', ['scripts'] );
 });
 
 /**

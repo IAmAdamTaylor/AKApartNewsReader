@@ -21,8 +21,8 @@ class Controller
 		}
 
 		// Include faux terms if below the limit
-		if ( $terms < $limit ) {
-			$terms = array_merge( $terms, $this->_getFauxTerms() );
+		if ( count( $terms ) < $limit ) {
+			$terms = array_merge( $this->_getFauxTerms(), $terms );
 		}
 
 		arsort( $terms );
@@ -46,7 +46,7 @@ class Controller
 			'presidential race' => $amount--,
 			'donald trump' => $amount--,
 			'jeremy corbyn' => $amount--,
-			'icloud hacked' => $amount--,
+			'royal family' => $amount--,
 			'brangelina' => $amount--,
 			'manhunt' => $amount--,
 		);

@@ -1,0 +1,47 @@
+// Tag cloud
+
+.tags {
+	max-width: 50em;
+	margin: -1em auto 0;
+}
+
+.tag {
+	@include material-box-shadow(1);
+
+	display: inline-block;
+	
+	margin: 1.5em .5em 0;
+	padding: .8em 1.6em; 
+	border-radius: .2em;
+	outline-color: $focus-ring-color;
+
+	color: inherit;
+	background-color: #fff;
+
+	text-decoration: none;
+
+	transition: background-color .1s;
+
+	@include respond( 25rem, "max-width" ) {
+		margin: 1em 0 0;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: #f7f7f7;
+	}
+}
+
+.tag__icon {
+	width: 1em;
+	height: 1em;
+
+	position: relative;
+	top: 2px;
+
+	margin-right: .3em;
+
+	line-height: 1;
+
+	fill: lighten( $text-color, 5% );
+}

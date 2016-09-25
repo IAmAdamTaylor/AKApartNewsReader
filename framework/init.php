@@ -28,6 +28,7 @@ define( 'CACHE_PATH', ROOT_PATH . 'cache/' );
 // Include global functions
 require_once INCLUDES_PATH . 'functions-general.php';
 require_once INCLUDES_PATH . 'functions-templates.php';
+require_once INCLUDES_PATH . 'functions-sanitisers.php';
 
 fix_server_vars();
 

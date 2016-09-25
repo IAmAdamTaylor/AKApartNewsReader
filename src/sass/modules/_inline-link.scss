@@ -1,0 +1,12 @@
+// Inline Links
+
+.inline-link {
+	color: $link-color;
+	font-weight: 500;
+
+	transition: color .1s;
+
+	&:hover {
+		color: lighten( $link-color, 10% );
+	}
+}

@@ -8,7 +8,7 @@
  * @param  property $attribute  Optional, The attribute to respond on. Defaults to max-width.
  * @content Allows CSS properties to be passed as rule content.
  */
-@mixin respond( $breakpoint, $attribute: max-width ) {
+@mixin respond( $breakpoint, $attribute: min-width ) {
   @media only screen and ( #{$attribute}: #{$breakpoint} ) {
     @content;
   }

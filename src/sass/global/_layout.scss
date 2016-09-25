@@ -2,3 +2,35 @@
  * Global layout styles
  */
 
+html,
+body {
+	min-height: 100%;
+}
+
+body {
+	padding-bottom: 2em;
+	
+	@include respond( 40rem ) {
+		padding-bottom: 6em;
+	}	
+}
+
+main {
+	text-align: center;
+
+	@include respond( 40rem ) {
+		padding: 1.5em;
+	}
+}
+
+* + * {
+	margin-top: 1.5em;
+}
+
+.content {
+	margin-top: 2em;
+
+	@include respond( 40rem ) {
+		margin-top: 3em;
+	}
+}

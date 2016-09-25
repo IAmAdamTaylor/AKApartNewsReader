@@ -15,8 +15,18 @@ body {
 	font-family: $body-stack;
 }
 
-// For screen readers only, Hides the element visually.
-.sr-only {
-	
+.small {
+	margin-top: 1em;
+	font-size: .9em;
 }
 
+// For screen readers only, Hides the element visually.
+.sr-only {
+	width: 1px; 
+  height: 1px; 
+  
+  position: absolute !important;
+  
+  overflow: hidden; 
+	clip: rect(1px, 1px, 1px, 1px); 
+}

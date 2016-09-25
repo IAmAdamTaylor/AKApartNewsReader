@@ -99,7 +99,10 @@
 }
 
 .feed-item__excerpt {
+  max-width: 46em;
+  
 	flex-grow: 1;
+
 	margin-top: 1em;
 }
 

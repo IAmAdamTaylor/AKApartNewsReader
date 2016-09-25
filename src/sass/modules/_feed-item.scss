@@ -55,10 +55,18 @@
 
 	@include respond-between( 37.5rem, $feed-item-grid-breakpoint - $em-pixel ) {
 		padding-right: calc( 1.8em + 20% );
+
+		&.feed-item__inner--no-image {
+			padding-right: .8em;
+		}
 	}
 
   @include respond( $feed-item-grid-breakpoint ) {
 		padding-top: 105px;
+
+		&.feed-item__inner--no-image {
+			padding-top: .8em;
+		}
 	}
 }
 
@@ -133,6 +141,10 @@
 		border-top-right-radius: .2em;
 
 		overflow: hidden;
+	}
+
+	.feed-item__inner--no-image & {
+		display: none !important;
 	}
 }
 

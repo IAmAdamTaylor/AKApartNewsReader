@@ -23,10 +23,17 @@
 		z-index: 0;
 	}
 
+  @include respond( 18.125rem, "max-width" ) {
+  	text-align: center;
+  }
+
 	.home-success-php & {
 		@include respond( $feed-item-grid-breakpoint - $em-pixel, "max-width" ) {
 			position: relative;
 		}
+	}
+	.about & {
+		position: relative;
 	}
 }
 
@@ -43,6 +50,10 @@
   transform: translateY(-50%);
 
   line-height: 1;
+
+  @include respond( 18.125rem, "max-width" ) {
+  	display: none;
+  }
 
   a {
   	display: inline-block;

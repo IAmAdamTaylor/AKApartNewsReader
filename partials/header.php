@@ -18,6 +18,122 @@
 	<meta name="description" content="<?php echo $view->getMetaDescription() ?>">
 
 	<style type="text/css"><?php include 'public/css/style.min.css'; ?></style>
+
+	<?php if ( 'about.php' === $view->getTemplate() ): ?>
+		<?php // Include styles only used on the about page here ?>
+
+		<?php // Expanded styles here, output into buffer ?>
+		<?php ob_start(); ?>
+			
+			<style type="text/css">
+				p a {
+					color: #639;
+					font-weight: 700;
+
+					text-decoration: none;
+
+					transition: color .1s;
+
+				}
+				p a:hover,
+				p a:focus {
+					color: #8040bf;
+				  text-decoration: underline;
+				}
+
+				section {
+					padding-top: 1em;
+				}
+
+				.title {
+					font-weight: 600;
+					letter-spacing: .1em;
+				}
+
+				.article {
+					text-align: left;
+				}
+
+				.article__demo {
+					margin-top: 2em;
+				}
+
+				.social-section__clearer {
+					display: none;
+				}
+
+				.social > * {
+					display: inline-block;
+					vertical-align: middle;
+				}
+
+				.social ~ .social {
+					margin-left: 1.5em;
+				}
+
+				.social--badge {
+					display: inline-block;
+
+					margin-top: 0;
+					padding: .5em 1em;
+					border-radius: .2em;
+
+					color: #fff;
+
+					-webkit-transition: background-color .1s;
+					-ms-transition: background-color .1s;
+					transition: background-color .1s;
+				}
+				.social--badge:hover {
+					color: #fff;
+					text-decoration: none;
+				}
+
+				.social--twitter {
+					background-color: #1da1f2;
+				}
+				.social--twitter:hover {
+					background-color: #1383c7;
+				}
+
+				.social--github {
+					background-color: #333;
+				}
+				.social--github:hover {
+					background-color: #0e0e0e;
+				}
+
+				.social__title {
+					margin-top: 0;
+					margin-left: .5em;
+					font-size: 1.1em;
+				}
+
+				@media only screen and (max-width: 34.375rem) {
+					.social-section__clearer {
+						display: block;
+					}
+					.social ~ .social {
+						margin-left: 0;
+						margin-top: 1em;
+					}
+				}
+			</style>
+
+		<?php
+			// Output minified CSS
+			$buffer = ob_get_clean();
+			// Remove comments
+			$buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
+			// Remove space after colons
+			$buffer = str_replace(': ', ':', $buffer);
+			// Remove whitespace
+			$buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
+
+			echo $buffer;
+		?>
+			
+	<?php endif ?>
 </head>
 
 <body class="<?php echo $view->getBodyClass(); ?>">
@@ -37,7 +153,9 @@
 		</a>
 
 		<div class="header__right">
-			<a class="header__how small" href="about.php">How was this made?</a>
+			<?php if ( 'about.php' !== $view->getTemplate() ): ?>
+				<a class="header__how small" href="about.php">How was this made?</a>
+			<?php endif ?>
 			<a class="social" href="https://www.twitter.com/IAmAdamTaylor">
 				<svg class="social__icon" fill="#ffffff" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#twitter"></use></svg>
 				<span class="sr-only">Follow me on Twitter</span>

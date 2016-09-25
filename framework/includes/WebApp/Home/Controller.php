@@ -7,7 +7,7 @@ class Controller
 {
 	/**
 	 * The model for this page.
-	 * @var HomeModel
+	 * @var Home\Model
 	 */
 	var $_model;
 	

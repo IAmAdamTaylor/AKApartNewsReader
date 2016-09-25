@@ -17,6 +17,10 @@ body {
 			padding-bottom: 2em;
 		}
 	}	
+
+	&.about {
+		padding-bottom: 2em;
+	}
 }
 
 main {
@@ -38,6 +42,16 @@ body * {
 }
 body * + * {
 	margin-top: 1.5em;
+}
+
+// Favour less margin for elements directly after headings, so that the content connects with the heading
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
+	margin-top: .5em;
 }
 
 // Remove the default margin bottom on these elements in favour of the lobotomised owl selector

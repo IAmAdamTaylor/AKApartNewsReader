@@ -7,7 +7,7 @@ class View implements ViewInterface
 {
 	/**
 	 * The model for this page.
-	 * @var HomeModel
+	 * @var Home\Model
 	 */
 	var $_model;
 
@@ -46,6 +46,11 @@ class View implements ViewInterface
 
 			include $template;
 		}
+	}
+
+	public function getTemplate()
+	{
+		return $this->_template;
 	}
 
 	public function getPageTitle()

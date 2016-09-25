@@ -25,13 +25,14 @@ var cwd = process.cwd(),
         out: 'public/css'
       },
       scripts: {
-        in: 'src/js/*.js',
-        out: 'public/js'
+        in: 'src/js',
+        out: 'public/js',
+        lintFolders: [ 'main', 'search' ]
       },
       images: {
         in: 'src/images/**/*',
         out: 'public/images'
-      },
+      }
     },
 
     /**
@@ -66,12 +67,24 @@ var cwd = process.cwd(),
       return '/' + cwd.split(/[\\/]/).pop() + '/' + path;
     },
 
+    /**
+     * Get subfolders of a parent folder.
+     * @param  string dir
+     * @return array (I think? :P)
+     */
+    getFolders = function( dir ) {
+      return fs.readdirSync(dir)
+        .filter( function(file) {
+          return fs.statSync( nodePath.join( dir, file ) ).isDirectory();
+        } );
+    };
+
 
 /**
  * Process all Sass files into CSS.
  * Uses autoprefixer for browser prefixes:
  *   Last 2 major versions of browsers,
- *   Any browser that has more than 1% global usage
+ *   Any browser that has more than 5% global usage
  *   IE 9 specifically
  * Creates:
  *     Main .css file
@@ -81,7 +94,7 @@ var cwd = process.cwd(),
 gulp.task('styles', function() {
   return sass( paths.sass.in, { style: 'expanded', require: 'sass-globbing', sourcemap: true } )
     .pipe( autoprefixer( {
-        browsers: ['last 2 versions', '> 1%', 'IE 9']
+        browsers: ['last 2 versions', '> 1%', 'IE 9', 'IE 8']
     } ) )
     .pipe( gulp.dest( paths.sass.out ) )
     .pipe( rename( {suffix: '.min'} ) )
@@ -102,21 +115,23 @@ gulp.task('styles', function() {
  *     Sourcemap for each minified file created
  */
 gulp.task('scripts', function() {
-  return gulp.src( paths.scripts.in )
-    .pipe( jshint() )
+  return getFolders( paths.scripts.in ).map( function( folder ) {
+    return gulp.src( nodePath.join( paths.scripts.in, folder, '/**/*.js' ) )
+    .pipe( gulpIf( ( -1 !== paths.scripts.lintFolders.indexOf( folder ) ), jshint() ) )
     .pipe( jshint.reporter('default') )
     .pipe( sourcemaps.init() )
-    .pipe( concat( 'script.js' ) )
+    .pipe( concat( folder + '.js' ) )
     .pipe( gulp.dest( paths.scripts.out ) )
     .pipe( rename( {suffix: '.min'} ) )
     .pipe( uglify() )
     .pipe( gulp.dest( paths.scripts.out ) )
     .pipe( sourcemaps.write( 'maps', {
-      includeContent: false,
-      sourceRoot: rootDir( paths.scripts.in )
+        includeContent: false,
+        sourceRoot: rootDir( nodePath.join( paths.scripts.in, folder ) )
     } ) )
     .pipe( gulp.dest( paths.scripts.out ) )
-    .pipe( notify( { message: 'Scripts task complete', onLast: true } ) );
+    .pipe( notify( { message: 'Scripts task [' + folder + '] complete', onLast: true } ) );
+  } );
 });
 
 /**
@@ -141,11 +156,12 @@ gulp.task('clean', function() {
  * Watch for any changes to the src files, and run tasks needed.
  */
 gulp.task('watch', function() {
+
   // Watch .scss files
   gulp.watch( 'src/sass/**/*.scss', ['styles'] );
-  
+
   // Watch .js files
-  gulp.watch( 'src/js/*.js', ['scripts'] );
+  gulp.watch( 'src/js/**/*.js', ['scripts'] );
 });
 
 /**
@@ -154,4 +170,8 @@ gulp.task('watch', function() {
  */
 gulp.task('default', ['clean'], function() {
   gulp.start( 'styles', 'scripts', 'images' );
+});
+
+gulp.task('not-images', function() {
+  gulp.start( 'styles', 'scripts' );
 });

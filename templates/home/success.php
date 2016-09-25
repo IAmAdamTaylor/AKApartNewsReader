@@ -31,7 +31,7 @@ $results = $this->getProperty( 'results' );
 				<?php $permalink = esc_attr( $item->get_permalink() ) ?>
 				<article class="grid__item feed-item">
 
-					<div class="feed-item__inner">
+					<div class="feed-item__inner feed-item__inner--no-image">
 
 						<h3 class="feed-item__title"><a href="<?php echo $permalink; ?>"><?php echo esc_html( $item->get_title() ); ?></a></h3>
 						<p class="feed-item__attribution small"><a href="http://www.bbc.co.uk">bbc.co.uk</a></p>

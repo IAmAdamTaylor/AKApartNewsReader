@@ -7,6 +7,8 @@
 			
 			insertImage( _this );
 			_this.style.paddingBottom = 0;
+
+			_this.parentNode.classList.remove( 'feed-item__inner--no-image' );
 		}
 	}
 

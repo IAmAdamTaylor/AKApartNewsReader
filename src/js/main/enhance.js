@@ -70,9 +70,7 @@
 	});
 
 	font.load().then(function () {
-	  if ( "undefined" !== typeof docElem.classList ) {
-    	docElem.classList.add( 'fonts-loaded' );
-  	}
+  	docElem.classList.add( 'fonts-loaded' );
 	});
 
 }( this ));

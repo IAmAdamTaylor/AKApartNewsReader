@@ -11,8 +11,13 @@ class Controller
 	 */
 	var $_cache;
 
-	public function getTrendingTerms( $limit = 10 )
+	public function getTrendingTerms( $limit = 10, $exclude_terms = array() )
 	{
+		// Convert param to array
+		if ( is_string( $exclude_terms ) ) {
+			$exclude_terms = array( $exclude_terms );
+		}
+
 		$terms = $this->_getCache()->get();
 
 		// Check if cache returned values
@@ -20,9 +25,16 @@ class Controller
 			$terms = array();
 		}
 
-		// Include faux terms if below the limit
-		if ( count( $terms ) < $limit ) {
-			$terms = array_merge( $this->_getFauxTerms(), $terms );
+		// Include faux terms, will get sliced out later if there are enough cached terms
+		$terms = array_merge( $this->_getFauxTerms(), $terms );
+
+		// Exclude any specific terms passed
+		foreach ($exclude_terms as $exclude_term) {
+			$exclude_term = strtolower( $exclude_term );
+
+			if ( isset( $terms[ $exclude_term ] ) ) {
+				unset( $terms[ $exclude_term ] );
+			}
 		}
 
 		arsort( $terms );

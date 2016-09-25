@@ -63,7 +63,7 @@
 }
 
 .feed-item__title {
-	font-size: 1.1em;
+	font-size: 1em;
 	color: inherit;
 
 	transition: color .1s;
@@ -71,6 +71,10 @@
 	&:hover,
 	&:focus {
 		color: $link-color;
+	}
+
+	.fonts-loaded & {
+		font-size: 1.1em;
 	}
 }
 
@@ -136,7 +140,13 @@
 	margin-top: .5em;
 
 	@include respond( 37.5em ) {
-		display: none;
+		width: 1px; 
+	  height: 1px; 
+	  
+	  position: absolute !important;
+	  
+	  overflow: hidden; 
+		clip: rect(1px, 1px, 1px, 1px); 
 	}
 }
 

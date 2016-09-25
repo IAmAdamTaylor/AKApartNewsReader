@@ -27,7 +27,11 @@ var cwd = process.cwd(),
       scripts: {
         in: 'src/js/*.js',
         out: 'public/js'
-      }
+      },
+      images: {
+        in: 'src/images/**/*',
+        out: 'public/images'
+      },
     },
 
     /**
@@ -116,11 +120,21 @@ gulp.task('scripts', function() {
 });
 
 /**
+ * Process any images and optimise them.
+ */
+gulp.task('images', function() {
+  return gulp.src( paths.images.in )
+    .pipe( cache( imagemin( { optimizationLevel: 5, progressive: true, interlaced: true } ) ) )
+    .pipe( gulp.dest( paths.images.out ) )
+    .pipe( notify( { message: 'Images task complete', onLast: true } ) );
+});
+
+/**
  * Clean up the production folders.
  * Deletes the specified directories, leaving the folder clean for next run.
  */
 gulp.task('clean', function() {
-  return del( ['public/css', 'public/js'] );
+  return del( ['public/css', 'public/js', 'public/images'] );
 });
 
 /**
@@ -139,5 +153,5 @@ gulp.task('watch', function() {
  * Cleans the destination directory, then runs each task async.
  */
 gulp.task('default', ['clean'], function() {
-  gulp.start( 'styles', 'scripts' );
+  gulp.start( 'styles', 'scripts', 'images' );
 });

@@ -8,6 +8,10 @@
 body {
 	font-family: $body-stack;
 	line-height: 1.4;
+
+	.fonts-loaded & {
+		font-family: $body-stack-lazyloaded;
+	}
 }
 
 // Scale the main content @ small breakpoint

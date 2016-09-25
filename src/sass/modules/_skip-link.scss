@@ -5,9 +5,9 @@
 		width: auto; 
 	  height: auto; 
 
-		top: .5em;
-		left: .5em;
-		z-index: 999;	  
+		position: relative !important;
+
+		margin: .5em;  
 	  
 	  overflow: visible; 
 		clip: auto;

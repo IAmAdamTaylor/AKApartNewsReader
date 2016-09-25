@@ -8,7 +8,7 @@
  * The site name.
  * @var string
  */
-define('SITE_NAME', '10KB News');
+define('SITE_NAME', 'Byte-Sized News');
 
 /**
  * Whether to enable debug messages throughout the site.

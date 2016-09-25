@@ -16,7 +16,7 @@ $results = $this->getProperty( 'results' );
 	
 		<div class="container">
 			<?php get_template_part( $this, 'search-form' ); ?>
-			<h2 class="title title--secondary"><?php echo count( $results ) ?> Results for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;</h2>
+			<h2 class="title title--secondary">Results for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;</h2>
 		</div>
 
 		<div class="grid feed-items">

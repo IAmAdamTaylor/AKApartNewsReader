@@ -16,6 +16,9 @@ $results = $this->getProperty( 'results' );
 	
 		<div class="container">
 			<?php get_template_part( $this, 'search-form' ); ?>
+			<p>
+				<a class="inline-link" href="index.php">Show trending searches</a>
+			</p>
 			<h2 class="title title--secondary">Results for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;</h2>
 		</div>
 

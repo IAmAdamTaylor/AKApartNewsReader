@@ -24,7 +24,7 @@ get_header( $this );
 
 			<?php 
 				$termsController = new TermsController();
-				$terms = $termsController->getTrendingTerms( 6 );
+				$terms = $termsController->getTrendingTerms( 12, $this->getProperty( 'search_terms' ) );
 			?>
 			<?php if ( count( $terms ) > 0 ): ?>
 				

@@ -36,7 +36,7 @@ $results = $this->getProperty( 'results' );
 						<h3 class="feed-item__title"><a href="<?php echo $permalink; ?>"><?php echo esc_html( $item->get_title() ); ?></a></h3>
 						<p class="feed-item__attribution small"><a href="http://www.bbc.co.uk">bbc.co.uk</a></p>
 
-						<a class="feed-item__thumbnail js-lazy-load" href="<?php echo $permalink; ?>" data-image-object='<?php echo $this->getImageJSON( $item ) ?>'>
+						<a class="feed-item__thumbnail js-lazy-load" href="<?php echo $permalink; ?>" data-image-object="<?php echo esc_attr_json( $this->getImageJSON( $item ) ) ?>">
 							<?php // img to be inserted here dynamically ?>
 						</a>
 

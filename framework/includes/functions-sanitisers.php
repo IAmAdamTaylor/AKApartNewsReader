@@ -57,8 +57,10 @@ function _esc_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = fal
 		return $string;
 
 	// Account for the previous behaviour of the function when the $quote_style is not an accepted value
+	// Check if param is empty
 	if ( empty( $quote_style ) )
 		$quote_style = ENT_NOQUOTES;
+	// Check if param is one of the 3 accepted flags (0, 2, 3), single or double
 	elseif ( ! in_array( $quote_style, array( 0, 2, 3, 'single', 'double' ), true ) )
 		$quote_style = ENT_QUOTES;
 
@@ -95,9 +97,9 @@ function _esc_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = fal
  * @param string $text
  * @return string
  */
-function esc_string( $string ) {
+function esc_string( $string, $quote_style = ENT_NOQUOTES ) {
 	$string = check_invalid_utf_8( $string );
-	$string = _esc_specialchars( $string );
+	$string = _esc_specialchars( $string, $quote_style );
 
 	return $string;
 }
@@ -119,6 +121,10 @@ function esc_textarea( $text ) {
 function esc_attr( $text ) {
 	return esc_string( $text );
 }	
+
+function esc_attr_json( $text ) {
+	return esc_string( $text, ENT_QUOTES );
+}
 
 /**
  * Sanitise HTML output.

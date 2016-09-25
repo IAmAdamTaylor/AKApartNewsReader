@@ -16,7 +16,7 @@ get_header( $this );
 			<h2 class="title title--secondary">About this project</h2>
 
 			<p>This project was created as a contest entry for the <a href="https://a-k-apart.com/">A K Apart contest</a>. Every page on the project loads 10KB (or under) of data and is fully usable without JavaScript. Lazy loaded media, like the images in the search results, were specifically excluded from the contest rules and don't count towards the 10KB limit.</p>
-			<p>This project should be usable in any browser on any device. It's compatible with Internet Explorer 8+, Chrome, Firefox, Opera and Microsoft Edge. It's also fully responsive down to 270px, which means it <a href="http://www.macrumors.com/2014/11/18/apple-watch-resolutions/">should even fit on the Apple Watch</a>!</p>
+			<p>This project was made to be usable in any browser on any device. It's compatible with Internet Explorer 8+, Chrome, Firefox, Opera and Microsoft Edge. It's also fully responsive down to 270px, which means it <a href="http://www.macrumors.com/2014/11/18/apple-watch-resolutions/">should fit on even the Apple Watch</a>!</p>
 
 			<div class="article__content">
 				
@@ -81,7 +81,7 @@ get_header( $this );
 
 					<?php get_template_part( $this, 'search-form' ); ?>
 					<p>
-						<a href="index.php">View trending searches</a>
+						<a href="index.php">Show trending searches</a>
 					</p>
 
 				</section>

@@ -7,10 +7,10 @@
 *.sql
 
 # Ignore built Gulp fles
-public/
+/public/
 
 # Ignore cache files
-cache/
+/cache/
 
 # 	Ignore built Sass/CSS files
 .sass-cache

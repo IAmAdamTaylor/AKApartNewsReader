@@ -99,7 +99,7 @@
 }
 
 .feed-item__excerpt {
-  max-width: 46em;
+  max-width: $container-narrow-max-width;
   
 	flex-grow: 1;
 

@@ -119,11 +119,11 @@ function esc_textarea( $text ) {
  * @return string
  */
 function esc_attr( $text ) {
-	return esc_string( $text );
+	return esc_string( $text, ENT_COMPAT );
 }	
 
 function esc_attr_json( $text ) {
-	return esc_string( $text, ENT_QUOTES );
+	return esc_string( $text, ENT_COMPAT );
 }
 
 /**

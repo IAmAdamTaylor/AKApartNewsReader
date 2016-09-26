@@ -96,10 +96,16 @@ function trailingslashit( $string ) {
 }
 
 /**
- * Dynamically insert the &nbsp; trick to prevent typographic widows.
- * @param  string $string
- * @return string
+ * Get the singular or plural form based on the value.
+ * @param  string $singular 
+ * @param  string $plural   
+ * @param  integer $value    
+ * @return string           
  */
-function remove_widows( $string ) {
-  return preg_replace( '/([^\s])\s+([^\s]+)\s*$/', '$1&nbsp;$2', $string );
+function _n( $singular, $plural, $value ) {
+	if ( 1 === $value ) {
+		return $singular;
+	}
+
+	return $plural;
 }

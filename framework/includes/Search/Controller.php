@@ -55,9 +55,9 @@ class Controller implements ControllerInterface
 
 		// Get the feed items from the reader
 		$reader = new FeedReader();
-		$feed_items = $reader->getItems();
+		$feed_items = $reader->getUniqueItems();
 		
-		$parser = new Parser( $this->_search_terms, self::RESULTS_LIMIT );
+		$parser = new Parser( $this->_search_terms );
 		$results = $parser->getResults( $feed_items );
 		
 		// If we've got something, cache it
@@ -65,6 +65,9 @@ class Controller implements ControllerInterface
 		if ( 0 !== count( $results ) ) {
 			$termsCache = new TermsCache();
 			$termsCache->store( $this->_search_terms );
+
+			// Cut the results down to their maximum amount
+			$results = array_slice( $results, 0, self::RESULTS_LIMIT, true );
 
 			$resultsCache->store( $this->_search_terms, $results );
 		}

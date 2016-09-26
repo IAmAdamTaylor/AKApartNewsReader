@@ -107,46 +107,4 @@ class View implements ViewInterface
 			return '';
 		}
 	}
-
-	/**
-	 * Get a JSON representation of the thumbnail image.
-	 * @param  SimplePie_Item $item The feed item.
-	 * @return string               The JSON representation of the image.
-	 */
-	public function getImageJSON( $item ) {
-		// Get the image data for the item
-		$image_attributes = $item->get_item_tags( SIMPLEPIE_NAMESPACE_MEDIARSS, 'thumbnail' );
-
-		if ( null === $image_attributes ) {
-			$image_attributes = array(
-				'url' => 'public/images/thumbnail-default.jpg',
-				'width' => 976,
-				'height' => 549,
-				'alt' => 'Close up of a newspaper',
-			);
-		} else {
-			$image_attributes = $image_attributes[0]['attribs'][''];
-			$image_attributes['alt'] = $item->get_title() . ' thumbnail';
-		}
-
-		// Alias url to src
-		$image_attributes['src'] = $image_attributes['url'];
-		unset( $image_attributes['url'] );
-
-		return json_encode( $image_attributes );
-	}
-
-	public function formatBaseUrlForDisplay( $baseURL )
-	{
-		$url_parts = parse_url( $baseURL );
-		$baseURL = sprintf( '%s%s', $url_parts[ 'host' ], $url_parts[ 'path' ] );
-
-		// If the URL contains the www subdomain, remove it
-		$subdomain = 'www.';
-		if ( 0 === strpos( $baseURL, $subdomain ) ) {
-			$baseURL = substr( $baseURL, strlen( $subdomain ) );
-		}
-
-		return $baseURL;
-	}
 }

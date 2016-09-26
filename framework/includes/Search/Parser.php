@@ -11,22 +11,15 @@ class Parser implements ParserInterface
 	var $_terms;
 
 	/**
-	 * The maximum amount of results to return, when ordered by relevance.
-	 * @var integer
-	 */
-	var $_relevance_limit;
-
-	/**
 	 * How relevant a search term is when found in different places in the feed item.
 	 * @var integer
 	 */
 	const TITLE_WEIGHTING = 1.0;
 	const DESCRIPTION_WEIGHTING = 0.5;
 	
-	function __construct( $terms, $limit )
+	function __construct( $terms )
 	{
 		$this->setTerms( $terms );
-		$this->_relevance_limit = $limit;
 	}
 
 	public function getResults( $items )
@@ -36,6 +29,12 @@ class Parser implements ParserInterface
 		if ( count( $results ) > 0 ) {
 			// Sort by relevance
 			usort( $results, array( $this, 'usortByRelevance' ) );
+		}
+
+		// Remove relevance key once it has been used to avoid leaking internal data back into other classes
+		foreach ($results as &$result) {
+			$result = $result['item'];
+			unset( $result );
 		}
 
 		return $results;
@@ -122,18 +121,4 @@ class Parser implements ParserInterface
 	{
 		return $this->_terms;
 	}
-
-	public function setRelevanceLimit( $limit )
-	{
-		if ( $this->_relevance_limit !== $limit ) {
-			$this->_relevance_limit = $limit;
-		}
-
-		return $this;
-	}
-
-	public function getRelevanceLimit()
-	{
-		return $this->_relevance_limit;
-	}	
 }

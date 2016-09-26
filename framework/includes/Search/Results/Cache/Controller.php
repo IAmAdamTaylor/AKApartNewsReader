@@ -53,7 +53,7 @@ class Controller implements CacheInterface
 		// Convert the results into Feed\Item objects
 		$results = $results['value'];
 		foreach ($results as &$result) {
-			$result = new FeedItem( $result['item'] );
+			$result = new FeedItem( $result );
 			unset( $result );
 		}
 

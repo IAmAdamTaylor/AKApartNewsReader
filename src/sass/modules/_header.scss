@@ -19,6 +19,11 @@
   }
 }
 
+.header__inner {
+  position: relative;
+  z-index: 0;
+}
+
 .header__right {
   display: inline-block;
 

@@ -47,8 +47,7 @@ $result_count = count( $results );
 							<?php // img to be inserted here dynamically ?>
 						</a>
 
-						<!-- <p class="feed-item__excerpt small"><?php echo esc_html( $result->description ); ?></p> -->
-						<p class="feed-item__excerpt small"><?php echo $result->description; ?></p>
+						<p class="feed-item__excerpt small"><?php echo esc_html( $result->description ); ?></p>
 						<a class="inline-link feed-item__link small" href="<?php echo $permalink; ?>">Read on <?php echo $result->feedData->displayBaseURL ?></a>
 
 						<footer class="feed-item__footer">

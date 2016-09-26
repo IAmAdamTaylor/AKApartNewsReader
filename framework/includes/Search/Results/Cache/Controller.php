@@ -2,6 +2,7 @@
 
 namespace Search\Results\Cache;
 use Search\CacheInterface;
+use Feed\Item as FeedItem;
 
 /**
  * Cache handler for the search results.
@@ -49,7 +50,14 @@ class Controller implements CacheInterface
 			return false;
 		}
 
-		return $results['value'];
+		// Convert the results into Feed\Item objects
+		$results = $results['value'];
+		foreach ($results as &$result) {
+			$result = new FeedItem( $result['item'] );
+			unset( $result );
+		}
+
+		return $results;
 	}
 
 	/**

@@ -1,6 +1,7 @@
 <?php
 
 namespace Feed;
+use Feed\Item as FeedItem;
 use SimplePie_Autoloader;
 use SimplePie;
 
@@ -58,7 +59,17 @@ class Reader implements ReaderInterface
 		$start = ( $paged * self::PAGE_SIZE ) - self::PAGE_SIZE;
 		$length = self::PAGE_SIZE;
 
-		return $this->_feed->get_items( $start, $length );
+		$items = $this->_feed->get_items( $start, $length );
+
+		// Parse each item into a separate smaller class, so that we can cache it
+		// For each by reference is faster than $array[ $key ] = $value or array_map
+		foreach ($items as &$item) {
+			$item = new FeedItem( $item );
+			// Gotcha: Make sure to unset the item when looping through to prevent trailing values
+			unset( $item );
+		}
+
+		return $items;
 	}
 
 	/**

@@ -30,7 +30,13 @@ class Item implements ItemInterface
 		// Remove any read more, continue reading tags specific to each feed.
 		$this->description = $this->_removeReadMore( $this->description );
 		
+		// Trim the description to a usable length
 		$this->description = $this->_trimLength( $this->description );
+
+		// Clone the description and clean it for output
+		$this->rawDescription = $this->description;
+
+		$this->description = str_replace( '&amp;', '&', esc_html( $this->description ) );
 	}
 
 	/**

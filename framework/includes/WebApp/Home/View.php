@@ -20,6 +20,9 @@ class View implements ViewInterface
 	const TEMPLATE_BLANK = 'home/blank.php';
 	const TEMPLATE_SUCCESS = 'home/success.php';
 	const TEMPLATE_ERROR = 'home/error.php';
+
+	const PAGE_TITLE_BLANK = 'Home';
+	const PAGE_TITLE_ERROR = 'No Results Found';
 	
 	function __construct( $model )
 	{
@@ -35,9 +38,13 @@ class View implements ViewInterface
 		$template = self::TEMPLATE_BLANK;
 
 		if ( $model_state === $model::STATE_SUCCESS ) {
+
 			$template = self::TEMPLATE_SUCCESS;
+
 		} else if ( $model_state === $model::STATE_ERROR ) {
+
 			$template = self::TEMPLATE_ERROR;
+
 		}
 
 		if ( '' !== $template ) {
@@ -55,7 +62,26 @@ class View implements ViewInterface
 
 	public function getPageTitle()
 	{
-		return $this->_model->head->page_title;
+		$model = $this->_model;
+		$model_state = $model->getState();
+
+		// Detect which state we are in and return appropriate title
+
+		// Assume blank state
+		$title = self::PAGE_TITLE_BLANK;
+
+		if ( $model_state === $model::STATE_SUCCESS ) {
+
+			$title = $this->getProperty( 'search_terms' );
+			$title = ucwords( $title );
+
+		} else if ( $model_state === $model::STATE_ERROR ) {
+
+			$title = self::PAGE_TITLE_ERROR;
+
+		}
+
+		return $title;
 	}
 
 	public function getMetaDescription()

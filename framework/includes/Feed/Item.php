@@ -19,6 +19,11 @@ class Item implements ItemInterface
 			$this->mapArray( $item );
 		}
 		
+		// Clone the properties and clean them for output
+		$this->rawDescription = $this->description;
+		$this->rawTitle = $this->title;
+
+
 		// Strip any HTML tags found in the feed
 		$this->title = strip_tags( $this->title );
 
@@ -32,9 +37,6 @@ class Item implements ItemInterface
 		
 		// Trim the description to a usable length
 		$this->description = $this->_trimLength( $this->description );
-
-		// Clone the description and clean it for output
-		$this->rawDescription = $this->description;
 
 		$this->description = str_replace( '&amp;', '&', esc_html( $this->description ) );
 	}

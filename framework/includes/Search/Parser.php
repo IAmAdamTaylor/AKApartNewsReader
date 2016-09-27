@@ -65,8 +65,8 @@ class Parser implements ParserInterface
 
 	private function _calculateRelevance( $item )
 	{
-		$title = strtolower( $item->title );
-		$description = strtolower( $item->description );
+		$title = strtolower( $item->rawTitle );
+		$description = strtolower( $item->rawDescription );
 
 		$title_relevance = 0;
 		$description_relevance = 0;

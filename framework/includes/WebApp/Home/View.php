@@ -72,8 +72,7 @@ class View implements ViewInterface
 
 		if ( $model_state === $model::STATE_SUCCESS ) {
 
-			$title = $this->getProperty( 'search_terms' );
-			$title = ucwords( $title );
+			$title = esc_html( $this->getProperty( 'search_terms' ) );
 
 		} else if ( $model_state === $model::STATE_ERROR ) {
 

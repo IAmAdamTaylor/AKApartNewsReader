@@ -11,6 +11,41 @@ class Controller
 	 */
 	var $_cache;
 
+	public function maybeUcwords( $value )
+	{
+		// Uppercase the words of the value passed if it doesn't meet the conditions
+		$specific_case = array(
+			'iphone' => 'iPhone',
+			'ipad' => 'iPad',
+			'iwatch' => 'iWatch',
+			'isense' => 'iSense',
+			'curl' => 'cURL',
+		);
+
+		// Get each word from value
+		$value_parts = explode( ' ', $value );
+		foreach ($value_parts as $key => &$value_part) {
+
+			// Check if the exact word is in the array
+			if ( isset( $specific_case[ $value_part ] ) ) {
+
+				$value_part = $specific_case[ $value_part ];
+
+			// Else, just uppercase the first letter
+			} else {
+				
+				$value_part = ucfirst( $value_part );
+
+			}
+					
+			unset( $value_part );
+
+		}
+
+		// Combine words back together
+		return implode( ' ', $value_parts );
+	}
+
 	public function getTrendingTerms( $limit = 10, $exclude_terms = array() )
 	{
 		// Convert param to array

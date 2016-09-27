@@ -29,6 +29,7 @@ define( 'CACHE_PATH', ROOT_PATH . 'cache/' );
 require_once INCLUDES_PATH . 'functions-general.php';
 require_once INCLUDES_PATH . 'functions-templates.php';
 require_once INCLUDES_PATH . 'functions-sanitisers.php';
+require_once INCLUDES_PATH . 'functions-minifiers.php';
 
 fix_server_vars();
 

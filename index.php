@@ -15,4 +15,10 @@ if ( isset( $_GET['search'] ) && '' !== $_GET['search'] ) {
 
 }
 
+
+ob_start();
+
 $view->output();
+
+$html = ob_get_clean();
+echo minify_html( $html );

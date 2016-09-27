@@ -135,8 +135,12 @@
 			
 	<?php endif ?>
 </head>
+<?php
+	
+	$supportsExpandedView = ( method_exists( $view, 'isExpanded' ) );
 
-<body class="<?php echo $view->getBodyClass(); ?>">
+?>
+<body class="<?php echo $view->getBodyClass( ( $supportsExpandedView ? 'has-expanded-view' : '' ) ); ?>">
 
 	<a class="skip-link button sr-only" id="skip-to-content" href="#content">Skip to content</a>
 

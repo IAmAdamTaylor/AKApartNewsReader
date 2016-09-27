@@ -181,7 +181,7 @@ class Item implements ItemInterface
 		return trim( $string );
 	}
 
-	private function _trimLength( $string, $num_words = 30 )
+	private function _trimLength( $string, $num_words = 25 )
 	{
 		$string_words = explode( ' ', $string );
 		// echo '<pre style="text-align:left;">'; 

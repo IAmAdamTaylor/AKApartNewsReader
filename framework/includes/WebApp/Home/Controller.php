@@ -21,7 +21,7 @@ class Controller
 		$model = $this->_model;
 
 		// Add the search terms as a property on the model
-		$this->_model->search_terms = $search_terms;
+		$this->_model->search_terms = esc_html( $search_terms );
 
 		// Try to get results for these search terms
 		$searchController = new SearchController( $search_terms );

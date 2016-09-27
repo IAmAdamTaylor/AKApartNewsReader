@@ -41,4 +41,9 @@ class Controller
 
 		$this->_model->results = $results;
 	}
+
+	public function enableExpandedView()
+	{
+		$this->_model->_isExpanded = true;
+	}
 }

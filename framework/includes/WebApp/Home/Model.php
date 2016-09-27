@@ -13,6 +13,13 @@ class Model implements ModelInterface
 	var $_state;
 
 	/**
+	 * Whether or not the template should be shown in an expanded state or not.
+	 * Some elements will be hidden and dyanmically included on page load.
+	 * @var boolean
+	 */
+	var $_isExpanded;
+
+	/**
 	 * Contains meta data related to the page.
 	 * @var StdClass
 	 */
@@ -27,6 +34,7 @@ class Model implements ModelInterface
 	function __construct()
 	{
 		$this->_state = self::STATE_BLANK;
+		$this->_isExpanded = false;
 
 		$this->head = new StdClass();
 		$this->head->page_title = 'Home';

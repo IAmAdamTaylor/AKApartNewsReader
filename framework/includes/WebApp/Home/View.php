@@ -107,4 +107,9 @@ class View implements ViewInterface
 			return '';
 		}
 	}
+
+	public function isExpanded()
+	{
+		return $this->_model->_isExpanded;
+	}
 }

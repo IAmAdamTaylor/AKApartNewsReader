@@ -16,7 +16,7 @@ main {
 		font-size: 14px;
 	}
 
-	@include respond( 87.5rem ) {
+	@include respond( 93.75rem ) {
 		font-size: 18px;
 	}
 }

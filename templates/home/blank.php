@@ -35,7 +35,7 @@ get_header( $this );
 							<?php $term = maybeUcwords( $term ); ?>
 
 							<a class="grid__item tag" href="index.php?search=<?php echo esc_attr( urlencode( $term ) ) ?>">
-								<svg class="tag__icon" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#plus"></use></svg>
+								<svg class="tag__icon" width="32" height="32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#plus"></use></svg>
 								<?php echo esc_html( $term ) ?>
 							</a>
 						<?php endforeach ?>

@@ -1,6 +1,10 @@
 // Feed items - success state
 
 .feed-item {
+	display: flex;
+	flex: 1 0 auto;
+	flex-direction: column;
+
 	flex-basis: 290px;
 	max-width: 100%;
 
@@ -11,8 +15,6 @@
 
 .feed-item__inner {
 	display: flex;
-	height: 100%;
-
 	flex: 1 0 auto;
   flex-direction: column;
 
@@ -97,6 +99,7 @@
 }
 
 .feed-item__link {
+	display: block;
 	margin-top: .5em;
 }
 

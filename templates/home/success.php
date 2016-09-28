@@ -41,8 +41,10 @@ $isExpanded = $this->isExpanded();
 
 				<div class="feed-item__inner <?php echo ( ( !$isExpanded ) ? 'feed-item__inner--no-image' : '' ) ?>">
 
-					<h3 class="feed-item__title"><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h3>
-					<p class="feed-item__attribution small"><a href="<?php echo esc_attr( $result->feedData->baseURL ) ?>"><?php echo $result->feedData->displayBaseURL ?></a></p>
+					<header class="feed-item__header">
+						<h3 class="feed-item__title"><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h3>
+						<p class="feed-item__attribution small"><a href="<?php echo esc_attr( $result->feedData->baseURL ) ?>"><?php echo $result->feedData->displayBaseURL ?></a></p>
+					</header>
 
 					<a class="feed-item__thumbnail <?php echo ( ( !$isExpanded ) ? 'js-lazy-load' : '' ) ?> " href="<?php echo $permalink; ?>" data-image-object="<?php echo esc_attr_json( $result->imageJSON ) ?>">
 
@@ -52,8 +54,10 @@ $isExpanded = $this->isExpanded();
 
 					</a>
 
-					<p class="feed-item__excerpt small"><?php echo $result->description; ?></p>
-					<a class="inline-link feed-item__link small" href="<?php echo $permalink; ?>">Read on <?php echo $result->feedData->displayBaseURL ?></a>
+					<p class="feed-item__excerpt small">
+						<span><?php echo $result->description; ?></span>
+						<a class="inline-link feed-item__link small" href="<?php echo $permalink; ?>">Read on <?php echo $result->feedData->displayBaseURL ?></a>
+					</p>
 						
 					<?php if ( $isExpanded ): ?>
 

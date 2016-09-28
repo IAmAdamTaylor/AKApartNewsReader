@@ -12,4 +12,11 @@
 
   text-transform: uppercase;
   letter-spacing: 1px;
+
+  transition: background-color .1s;
+
+  &:hover,
+  &:focus {
+    background-color: lighten( $button-background, 10% );
+  }
 }

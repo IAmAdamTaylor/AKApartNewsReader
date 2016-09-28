@@ -11,10 +11,6 @@
 
 .tag {
 	padding-left: 1em;
-
-	@include respond( 25rem, "max-width" ) {
-		margin-top: 1em;
-	}
 }
 
 .tag__inner {
@@ -24,7 +20,6 @@
 	
 	padding: .8em 1.6em; 
 	border-radius: .2em;
-	outline-color: $focus-ring-color;
 
 	color: inherit;
 	background-color: #fff;

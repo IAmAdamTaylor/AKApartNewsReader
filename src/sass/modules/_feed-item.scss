@@ -15,10 +15,6 @@
 
 	flex: 1 0 auto;
   flex-direction: column;
-  align-items: flex-start;
-	
-  position: relative;
-  z-index: 0;
 
 	padding: $feed-item-padding;
   border-radius: .2em;
@@ -81,7 +77,7 @@
 
 	background-color: $thumbnail-placeholder-background;
 
-	@include respond( 37.5rem ) {
+	@include respond( $feed-show-image-breakpoint ) {
 		display: block;
 		width: calc( 100% + 1.6em );
 		order: -1;
@@ -95,12 +91,6 @@
 		overflow: hidden;
 	}
 
-	img {
-		display: block;
-		width: 100%;
-		height: auto;
-	}
-
 	.feed-item__inner--no-image & {
 		display: none !important;
 	}
@@ -111,8 +101,6 @@
 }
 
 .feed-item__footer {
-	width: 100%;
-
 	margin-top: 1em;
 	padding-top: 1em;
 	border-top: 1px solid $border-color;

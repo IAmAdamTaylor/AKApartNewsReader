@@ -5,13 +5,5 @@
   
   margin: 0;
 
-  font-family: $heading-stack;
-  font-weight: 400;
 	font-size: 1em;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-
-	@include respond( 25rem ) {
-		letter-spacing: .2em;
-	}
 }

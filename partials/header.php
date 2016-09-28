@@ -44,8 +44,11 @@
 				}
 
 				.title {
-					font-weight: 500;
 					letter-spacing: .1em;
+				}
+
+				.site-name {
+					letter-spacing: .2em;
 				}
 
 				.article {
@@ -150,10 +153,10 @@
 	</svg>
 
 	<header class="header">
-		<div class="container header__inner">
+		<div class="container">
 			
 			<a href="index.php">
-				<h1 class="site-name">Byte-Sized News</h1>
+				<h1 class="site-name title">Byte-Sized News</h1>
 			</a>
 
 			<div class="header__right">

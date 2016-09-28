@@ -10,6 +10,7 @@ html {
 body {
   margin: 0;
 }
+
 // HTML5 display definitions
 // ==========================================================================
 
@@ -19,11 +20,6 @@ header,
 main,
 section {
   display: block;
-}
-
-progress {
-  display: inline-block;
-  vertical-align: baseline;
 }
 
 [hidden] {
@@ -53,11 +49,6 @@ strong {
 // Add the correct font weight in Chrome, Edge, and Safari.
 strong {
   font-weight: bolder;
-}
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
 }
 
 sub,

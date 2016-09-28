@@ -14,5 +14,5 @@ $search_terms = $view->getProperty( 'search_terms' );
 		<span class="sr-only">Search for:</span>
 	</label>
 	<input class="search-form__input" id="search" name="search" type="search" value="<?php echo esc_attr( $search_terms ); ?>" placeholder="Search&hellip;">
-	<button class="search-form__button" type="submit">Search</button>
+	<button class="search-form__button button" type="submit">Search</button>
 </form>

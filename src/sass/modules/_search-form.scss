@@ -54,23 +54,10 @@
   right: 0;
   
   padding: 0 0.8em;
-  border: none;
-  border-top-right-radius: .2em;
-  border-bottom-right-radius: .2em;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: $button-background;
-  color: #fff;
-
-  transition: background-color .1s;
-
   @include respond( 25rem, "max-width" ) {
     display: none;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: lighten( $button-background, 10% );
   }
 }

@@ -117,8 +117,35 @@ class Item implements ItemInterface
 			// If still nothing use the default image
 			$imageData = $this->_getDefaultImageData();
 		} else {
-			$imageData = $imageData[0]['attribs'][''];
+
+			// If there is only one image, use it
+			if ( 1 === count( $imageData ) ) {
+				$imageData = $imageData[0]['attribs'][''];
+			} else {
+
+				// Else, check for the largest image and use that
+				$largestImageWidthKey = false;
+				$largestImageWidth = 0;
+				foreach ($imageData as $key => $imageDataPart) {
+					$imageDataPart = $imageDataPart['attribs'][''];
+					if ( $imageDataPart['width'] > $largestImageWidth ) {
+						$largestImageWidth = $imageDataPart['width'];
+						$largestImageWidthKey = $key;
+					}
+				}
+
+				// If we found the largest image use that, else use first
+				if ( $largestImageWidthKey ) {
+					$imageData = $imageData[ $largestImageWidthKey ]['attribs'][''];
+				} else {
+					$imageData = $imageData[0]['attribs'][''];
+				}
+
+			}
+
+			// Add alt text
 			$imageData['alt'] = $item->get_title() . ' thumbnail';
+
 		}
 
 		// Alias url to src

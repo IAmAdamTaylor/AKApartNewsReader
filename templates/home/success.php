@@ -14,17 +14,20 @@ $isExpanded = $this->isExpanded();
 
 ?>
 
-<main>
+<main>	
 	<div class="container">
 	
-		<div class="container">
-			<?php get_template_part( $this, 'search-form' ); ?>
-			<p>
-				<a class="inline-link" href="index.php">Show trending searches</a>
-			</p>
-			<h2 class="title title--secondary"><?php echo sprintf( _n( '%d result', '%d results', $result_count ), $result_count ) ?> for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;</h2>
-		</div>
-
+		<?php get_template_part( $this, 'search-form' ); ?>
+		<p>
+			<a class="inline-link" href="index.php">Show trending searches</a>
+		</p>
+		<h2 class="title title--secondary">
+			<?php if ( !$this->isExpanded() && 5 === $result_count ): ?>
+				Top 
+			<?php endif ?>
+			<?php echo sprintf( _n( '%d result', '%d results', $result_count ), $result_count ) ?> for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;
+		</h2>
+		
 		<div class="grid feed-items">
 
 			<?php

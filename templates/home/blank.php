@@ -5,7 +5,7 @@
  * Initial page load, no interaction yet.
  */
 
-use Search\Terms\Controller as TermsController;
+use Search\Terms\Trending\Controller as TrendingController;
 
 get_header( $this );
 
@@ -20,8 +20,8 @@ get_header( $this );
 		<div class="content">
 
 			<?php 
-				$termsController = new TermsController();
-				$terms = $termsController->getTrendingTerms( 12 );
+				$trendingController = new TrendingController();
+				$terms = $trendingController->getTerms( 12 );
 			?>
 			<?php if ( count( $terms ) > 0 ): ?>
 				
@@ -32,7 +32,7 @@ get_header( $this );
 					<div class="grid wrapped">
 						
 						<?php foreach ($terms as $term => $term_amount): ?>
-							<?php $term = $termsController->maybeUcwords( $term ); ?>
+							<?php $term = maybeUcwords( $term ); ?>
 
 							<a class="grid__item tag" href="index.php?search=<?php echo esc_attr( urlencode( $term ) ) ?>">
 								<svg class="tag__icon" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#plus"></use></svg>

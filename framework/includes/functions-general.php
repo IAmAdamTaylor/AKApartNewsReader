@@ -109,3 +109,38 @@ function _n( $singular, $plural, $value ) {
 
 	return $plural;
 }
+
+function maybeUcwords( $value ) {
+	// Uppercase the words of the value passed if it doesn't meet the conditions
+	$specific_case_words = array(
+		'iphone' => 'iPhone',
+		'ipad' => 'iPad',
+		'iwatch' => 'iWatch',
+		'isense' => 'iSense',
+		'curl' => 'cURL',
+	);
+
+	// Get each word from value
+	$value_parts = explode( ' ', $value );
+	foreach ($value_parts as $key => &$value_part) {
+
+		// Check if the exact word is in the array
+		if ( isset( $specific_case_words[ $value_part ] ) ) {
+
+			$value_part = $specific_case_words[ $value_part ];
+
+		// Else, uppercase the first letter
+		} else {
+			
+			$value_part = ucfirst( $value_part );
+
+		}
+		
+		// Unset by ref var
+		unset( $value_part );
+
+	}
+
+	// Combine the words back together
+	return implode( ' ', $value_parts );
+}

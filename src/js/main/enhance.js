@@ -4,16 +4,8 @@
 	// Enable JS strict mode
 	"use strict";
 
-  var setTimeout = window.setTimeout;
-
 	// Define some variables to be used throughout this file
-	var doc = window.document,
-		docElem = doc.documentElement,
-		head = doc.head || doc.getElementsByTagName( "head" )[ 0 ],
-		// this references a meta tag's name whose content attribute should define the path to the custom fonts file for the site (delivered to qualified browsers)
-		fontsKey = "https://fonts.googleapis.com/css?family=PT+Sans:400,700";
-
-	/* Some commonly used functions - delete anything you don't need! */
+	var fontsKey = "https://fonts.googleapis.com/css?family=PT+Sans:400,700";
 
 	// loadCSS: load a CSS file asynchronously. Included from https://github.com/filamentgroup/loadCSS/
 	function loadCSS( href, before, media ){
@@ -64,13 +56,13 @@
 		loadCSS( fontsKey );
 	}
 
-	// Font Face Observer
+	// Include Font Face Observer
   var font = new FontFaceObserver('PT Sans', {
 	  weight: 400
 	});
 
 	font.load().then(function () {
-  	docElem.classList.add( 'fonts-loaded' );
+  	window.document.documentElement.classList.add( 'fonts-loaded' );
 	});
 
 }( this ));

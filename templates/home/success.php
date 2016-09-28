@@ -23,7 +23,7 @@ $isExpanded = $this->isExpanded();
 			<a class="inline-link" href="index.php">Show trending searches</a>
 		</p>
 
-		<section id="results">
+		<section class="content" id="results">
 			
 			<h2 class="title title--secondary">
 				<?php if ( $rawResultsCount !== $resultsCount ): ?>

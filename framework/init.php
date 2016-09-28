@@ -23,7 +23,7 @@ define( 'FRAMEWORK_PATH', dirname( __FILE__ ) . '/' );
 define( 'ROOT_PATH', dirname( FRAMEWORK_PATH ) . '/' );
 
 define( 'INCLUDES_PATH', FRAMEWORK_PATH . 'includes/' );
-define( 'CACHE_PATH', ROOT_PATH . 'cache/' );
+define( 'CACHE_BASE_PATH', ROOT_PATH . 'cache/' );
 
 // Include global functions
 require_once INCLUDES_PATH . 'functions-general.php';
@@ -40,6 +40,10 @@ $loader->register();
 
 // Register the base directories for each namespace prefix
 $namespace_dirs = array(
+	// CustomException: Abstract for easily creating custom exception objects.
+	'CustomException',
+	// Cache: Handles cache storage and retrieval. Other objects may implement the ControllerInterface
+	'Cache',
 	// WebApp: Handles the request response cycle and loads templates.
 	'WebApp',
 	// Search: Handles processing the search terms, caching and getting results
@@ -49,5 +53,11 @@ $namespace_dirs = array(
 );
 
 foreach ($namespace_dirs as $namespace) {
-	$loader->addNamespace( $namespace, INCLUDES_PATH . '/' . $namespace );
+	$loader->addNamespace( $namespace, INCLUDES_PATH . $namespace );
+}
+
+// Check if base cache folder exists, if not create it
+$cacheManager = Cache\Manager::instance();
+if ( !$cacheManager->doesFolderExist( '' ) ) {
+	$cacheManager->createFolder( '' );
 }

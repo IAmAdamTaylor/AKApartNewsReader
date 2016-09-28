@@ -2,6 +2,7 @@
 
 namespace Feed;
 use Feed\Item as FeedItem;
+use Cache\Manager as CacheManager;
 use SimplePie_Autoloader;
 use SimplePie;
 
@@ -49,11 +50,19 @@ class Reader implements ReaderInterface
 	
 	function __construct()
 	{
-		$this->_cacheFolder = CACHE_PATH . self::CACHE_LOCATION;
+		$cacheManager = CacheManager::instance();
+
+		// If the cache folder does not exist, create it
+		if ( !$cacheManager->doesFolderExist( self::CACHE_LOCATION ) ) {
+			$cacheManager->createFolder( untrailingslashit( self::CACHE_LOCATION ) );
+		}
+
+		$this->_cacheFolder = trailingslashit( CACHE_BASE_PATH ) . self::CACHE_LOCATION;
+
 		$this->_usePaging = false;
 		
 		// Require the SimplePie Autoloader
-		require_once INCLUDES_PATH . '/SimplePie/autoloader.php';
+		require_once trailingslashit( INCLUDES_PATH ) . '/SimplePie/autoloader.php';
 
 		// Create SimplePie feed instance
 		$this->_feed = new SimplePie();

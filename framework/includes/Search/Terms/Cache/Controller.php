@@ -1,7 +1,7 @@
 <?php
 
 namespace Search\Terms\Cache;
-use Search\CacheInterface;
+use Cache\ControllerInterface as CacheInterface;
 
 /**
  * Cache handler for the search terms.
@@ -24,7 +24,7 @@ class Controller implements CacheInterface
 	const CACHE_LIMIT = 30;
 
 	public function __construct() {
-		$this->_cacheFile = CACHE_PATH . self::CACHE_LOCATION;
+		$this->_cacheFile = CACHE_BASE_PATH . self::CACHE_LOCATION;
 	}
 
 	public function get( $key = '' ) 

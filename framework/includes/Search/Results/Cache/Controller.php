@@ -1,7 +1,8 @@
 <?php
 
 namespace Search\Results\Cache;
-use Search\CacheInterface;
+use Cache\ControllerInterface as CacheInterface;
+use Cache\Manager as CacheManager;
 use Feed\Item as FeedItem;
 
 /**
@@ -24,7 +25,14 @@ class Controller implements CacheInterface
 
 	public function __construct() 
 	{
-		$this->_cacheFolder = CACHE_PATH . self::CACHE_LOCATION;
+		$cacheManager = CacheManager::instance();
+
+		// If the cache folder does not exist, create it
+		if ( !$cacheManager->doesFolderExist( self::CACHE_LOCATION ) ) {
+			$cacheManager->createFolder( untrailingslashit( self::CACHE_LOCATION ) );
+		}
+
+		$this->_cacheFolder = trailingslashit( CACHE_BASE_PATH ) . self::CACHE_LOCATION;
 	}
 
 	/**

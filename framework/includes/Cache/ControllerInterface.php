@@ -1,8 +1,8 @@
 <?php
 
-namespace Search;
+namespace Cache;
 
-interface CacheInterface
+interface ControllerInterface
 {
 	public function get( $key );
 	public function store( $key, $value );

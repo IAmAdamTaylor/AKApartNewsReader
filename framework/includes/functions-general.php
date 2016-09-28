@@ -5,6 +5,28 @@
  */
 
 /**
+ * Recursive rmdir() function.
+ * Removes the folder and any subfolders or files contained.
+ * @param  string $src The folder path to remove.
+ */
+function rrmdir($src) {
+  $dir = opendir($src);
+  while(false !== ( $file = readdir($dir)) ) {
+    if (( $file != '.' ) && ( $file != '..' )) {
+      $full = $src . '/' . $file;
+      if ( is_dir($full) ) {
+        rrmdir($full);
+      }
+      else {
+        unlink($full);
+      }
+    }
+  }
+  closedir($dir);
+  rmdir($src);
+}
+
+/**
  * Send the HTTP headers to redirect a page to another, and then end the current process.
  * @param  string $url The absolute URL to redirect to. Must be an absolute path.
  */

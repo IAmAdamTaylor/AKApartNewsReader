@@ -25,6 +25,7 @@ class Item implements ItemInterface
 
 		// Strip any HTML tags found in the feed
 		$this->title = strip_tags( $this->title );
+		$this->title = str_replace( '&amp;', '&', esc_html( $this->title ) );
 
 		// Replace line breaks with spaces before stripping description
 		$this->description = str_replace( array( '</p><p>' ) , '. ', $this->description );
@@ -59,7 +60,7 @@ class Item implements ItemInterface
 
 		// Add the feed information as a generic structure
 		$feed = $item->get_feed();
-		
+
 		$feedData = new StdClass();
 		$feedData->name = $feed->get_title();
 		$feedData->subscribeURL = $feed->subscribe_url();

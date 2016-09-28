@@ -44,7 +44,7 @@ $isExpanded = $this->isExpanded();
 
 						<div class="feed-item__inner <?php echo ( ( !$isExpanded ) ? 'feed-item__inner--no-image' : '' ) ?>">
 
-							<h3 class="feed-item__title"><a href="<?php echo $permalink; ?>"><?php echo esc_html( $title ); ?></a></h3>
+							<h3 class="feed-item__title"><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h3>
 							<p class="feed-item__attribution small"><a href="<?php echo esc_attr( $result->feedData->baseURL ) ?>"><?php echo $result->feedData->displayBaseURL ?></a></p>
 
 							<a class="feed-item__thumbnail <?php echo ( ( !$isExpanded ) ? 'js-lazy-load' : '' ) ?> " href="<?php echo $permalink; ?>" data-image-object="<?php echo esc_attr_json( $result->imageJSON ) ?>">

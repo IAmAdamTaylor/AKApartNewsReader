@@ -68,7 +68,7 @@
 					vertical-align: middle;
 				}
 
-				.social ~ .social {
+				.social--badge ~ .social--badge {
 					margin-left: 1.5em;
 				}
 
@@ -113,7 +113,7 @@
 					.social-section__clearer {
 						display: block;
 					}
-					.social ~ .social {
+					.social--badge ~ .social--badge {
 						margin-left: 0;
 						margin-top: 1em;
 					}

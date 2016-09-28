@@ -73,7 +73,7 @@ class Controller implements CacheInterface
 
 		// Add an expires timestamp to the cache
 		$value = array( 
-			'expires' => date('U') + $this->_getExpiryPeriod(),
+			'expires' => date('U') + $this->_getCacheDuration(),
 			'value' => $value,
 		);
 
@@ -102,10 +102,10 @@ class Controller implements CacheInterface
 		return $this;
 	}
 
-	private function _getExpiryPeriod()
+	private function _getCacheDuration()
 	{
-		// 2 hours in seconds
-		return 2 * 60 * 60;
+		// 1 day in seconds
+		return 60 * 60 * 24;
 	}
 
 	/**

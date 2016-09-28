@@ -170,8 +170,8 @@ class Reader implements ReaderInterface
 	 */
 	private function _setCacheDuration()
 	{
-		// 2 hours in seconds
-		$duration = 2 * 60 * 60;
+		// 1 day in seconds
+		$duration = 60 * 60 * 24;
 		$this->_feed->set_cache_duration( $duration );
 	}
 }

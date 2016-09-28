@@ -14,12 +14,6 @@ class Controller implements ControllerInterface
 	 */
 	var $_search_terms;
 
-	/**
-	 * The maximum amount of results to be returned from the parser.
-	 * @var integer
-	 */
-	const RESULTS_LIMIT = 5;
-
 	function __construct( $search_terms )
 	{
 		$this->setSearchTerms( $search_terms );
@@ -65,9 +59,6 @@ class Controller implements ControllerInterface
 		if ( 0 !== count( $results ) ) {
 			$termsCache = new TermsCache();
 			$termsCache->store( $this->_search_terms );
-
-			// Cut the results down to their maximum amount
-			$results = array_slice( $results, 0, self::RESULTS_LIMIT, true );
 
 			$resultsCache->store( $this->_search_terms, $results );
 		}

@@ -8,7 +8,8 @@
 get_header( $this );
 
 $results = $this->getProperty( 'results' );
-$result_count = count( $results );
+$resultsCount = $this->getProperty( 'resultsCount' );
+$rawResultsCount = $this->getProperty( 'rawResultsCount' );
 
 $isExpanded = $this->isExpanded();
 
@@ -22,10 +23,10 @@ $isExpanded = $this->isExpanded();
 			<a class="inline-link" href="index.php">Show trending searches</a>
 		</p>
 		<h2 class="title title--secondary">
-			<?php if ( !$this->isExpanded() && 5 === $result_count ): ?>
+			<?php if ( $rawResultsCount !== $resultsCount ): ?>
 				Top 
 			<?php endif ?>
-			<?php echo sprintf( _n( '%d result', '%d results', $result_count ), $result_count ) ?> for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;
+			<?php echo sprintf( _n( '%d result', '%d results', $resultsCount ), $resultsCount ) ?> for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;
 		</h2>
 		
 		<div class="grid feed-items">

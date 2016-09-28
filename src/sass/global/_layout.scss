@@ -1,10 +1,5 @@
 // Global layout styles
 
-html,
-body {
-	min-height: 100%;
-}
-
 body {
 	padding-bottom: 2em;
 }
@@ -54,9 +49,5 @@ h6 + * {
 }
 
 .content {
-	margin-top: 2em;
-
-	@include respond( 40rem ) {
-		margin-top: 3em;
-	}
+	margin-top: 3em;
 }

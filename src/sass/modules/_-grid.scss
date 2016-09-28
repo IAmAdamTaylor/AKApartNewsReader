@@ -5,7 +5,7 @@
 	justify-content: space-between;
 	flex-wrap: wrap;	
 
-	// Allow each grid__item to have it's own margin-top so that wrapping is neat
+	// Replace wrapper margin with item margins
 	margin-top: 0;
 	// Create space for first left gutter to sit inside
 	margin-left: -1.5em;

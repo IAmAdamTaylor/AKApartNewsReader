@@ -175,3 +175,7 @@
 
 		</div>
 	</header>
+
+	<main id="content">
+		<div class="container">
+			<?php // Tags are closed in footer.php ?>

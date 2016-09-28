@@ -14,85 +14,79 @@ $rawResultsCount = $this->getProperty( 'rawResultsCount' );
 $isExpanded = $this->isExpanded();
 
 ?>
-
-<main>	
-	<div class="container">
 	
-		<?php get_template_part( $this, 'search-form' ); ?>
-		<p>
-			<a class="inline-link" href="index.php">Show trending searches</a>
-		</p>
+<?php get_template_part( $this, 'search-form' ); ?>
+<p>
+	<a class="inline-link" href="index.php">Show trending searches</a>
+</p>
 
-		<section class="content" id="results">
-			
-			<h2 class="title title--secondary">
-				<?php if ( $rawResultsCount !== $resultsCount ): ?>
-					Top 
-				<?php endif ?>
-				<?php echo sprintf( _n( '%d result', '%d results', $resultsCount ), $resultsCount ) ?> for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;
-			</h2>
-			
-			<div class="grid feed-items">
+<section class="content" id="results">
+	
+	<h2 class="title title--secondary">
+		<?php if ( $rawResultsCount !== $resultsCount ): ?>
+			Top 
+		<?php endif ?>
+		<?php echo sprintf( _n( '%d result', '%d results', $resultsCount ), $resultsCount ) ?> for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;
+	</h2>
+	
+	<div class="grid feed-items">
 
-				<?php foreach ($results as $result): ?>				
+		<?php foreach ($results as $result): ?>				
 
-					<?php 
-						$title = $result->title;
-						$permalink = esc_attr( $result->permalink );
-					?>
-					<article class="grid__item feed-item">
+			<?php 
+				$title = $result->title;
+				$permalink = esc_attr( $result->permalink );
+			?>
+			<article class="grid__item feed-item">
 
-						<div class="feed-item__inner <?php echo ( ( !$isExpanded ) ? 'feed-item__inner--no-image' : '' ) ?>">
+				<div class="feed-item__inner <?php echo ( ( !$isExpanded ) ? 'feed-item__inner--no-image' : '' ) ?>">
 
-							<h3 class="feed-item__title"><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h3>
-							<p class="feed-item__attribution small"><a href="<?php echo esc_attr( $result->feedData->baseURL ) ?>"><?php echo $result->feedData->displayBaseURL ?></a></p>
+					<h3 class="feed-item__title"><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h3>
+					<p class="feed-item__attribution small"><a href="<?php echo esc_attr( $result->feedData->baseURL ) ?>"><?php echo $result->feedData->displayBaseURL ?></a></p>
 
-							<a class="feed-item__thumbnail <?php echo ( ( !$isExpanded ) ? 'js-lazy-load' : '' ) ?> " href="<?php echo $permalink; ?>" data-image-object="<?php echo esc_attr_json( $result->imageJSON ) ?>">
+					<a class="feed-item__thumbnail <?php echo ( ( !$isExpanded ) ? 'js-lazy-load' : '' ) ?> " href="<?php echo $permalink; ?>" data-image-object="<?php echo esc_attr_json( $result->imageJSON ) ?>">
 
-								<?php if ( $isExpanded ): ?>
-									<img src="<?php echo $result->imageData['src'] ?>" alt="<?php echo $result->imageData['alt'] ?>" width="<?php echo $result->imageData['width'] ?>" height="<?php echo $result->imageData['height'] ?>">								
-								<?php endif ?>
+						<?php if ( $isExpanded ): ?>
+							<img src="<?php echo $result->imageData['src'] ?>" alt="<?php echo $result->imageData['alt'] ?>" width="<?php echo $result->imageData['width'] ?>" height="<?php echo $result->imageData['height'] ?>">								
+						<?php endif ?>
 
-							</a>
+					</a>
 
-							<p class="feed-item__excerpt small"><?php echo $result->description; ?></p>
-							<a class="inline-link feed-item__link small" href="<?php echo $permalink; ?>">Read on <?php echo $result->feedData->displayBaseURL ?></a>
-								
-							<?php if ( $isExpanded ): ?>
+					<p class="feed-item__excerpt small"><?php echo $result->description; ?></p>
+					<a class="inline-link feed-item__link small" href="<?php echo $permalink; ?>">Read on <?php echo $result->feedData->displayBaseURL ?></a>
+						
+					<?php if ( $isExpanded ): ?>
 
-								<footer class="feed-item__footer">
+						<footer class="feed-item__footer">
 
-									<time class="feed-item__date small" datetime="2016-12-31">31<sup>st</sup> December 2016</time>
+							<time class="feed-item__date small" datetime="2016-12-31">31<sup>st</sup> December 2016</time>
 
-									<div class="feed-item__share">
-										<a class="social social--with-tooltip" href="https://facebook.com/sharer/sharer.php?u=<?php echo urlencode( $permalink ) ?>">
-											<svg class="social__icon social__icon--medium social__icon--facebook" fill="#414141" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#facebook"></use></svg>
-											<span class="social__tooltip">Share on Facebook</span>
-										</a>
-										<a class="social social--with-tooltip" href="https://twitter.com/intent/tweet/?text=<?php echo urlencode( esc_attr( $title ) ) ?>&url=<?php echo urlencode( $permalink ) ?>">
-											<svg class="social__icon social__icon--medium social__icon--twitter" fill="#414141" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#twitter"></use></svg>
-											<span class="social__tooltip">Share on Twitter</span>
-										</a>
-										<a class="social social--with-tooltip" href="<?php echo $result->feedData->subscribeURL ?>">
-											<svg class="social__icon social__icon--medium social__icon--rss" fill="#414141" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#rss"></use></svg>
-											<span class="social__tooltip">Subscribe to RSS Feed</span>
-										</a>
-									</div>
-								</footer>
+							<div class="feed-item__share">
+								<a class="social social--with-tooltip" href="https://facebook.com/sharer/sharer.php?u=<?php echo urlencode( $permalink ) ?>">
+									<svg class="social__icon social__icon--medium social__icon--facebook" fill="#414141" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#facebook"></use></svg>
+									<span class="social__tooltip">Share on Facebook</span>
+								</a>
+								<a class="social social--with-tooltip" href="https://twitter.com/intent/tweet/?text=<?php echo urlencode( esc_attr( $title ) ) ?>&url=<?php echo urlencode( $permalink ) ?>">
+									<svg class="social__icon social__icon--medium social__icon--twitter" fill="#414141" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#twitter"></use></svg>
+									<span class="social__tooltip">Share on Twitter</span>
+								</a>
+								<a class="social social--with-tooltip" href="<?php echo $result->feedData->subscribeURL ?>">
+									<svg class="social__icon social__icon--medium social__icon--rss" fill="#414141" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#rss"></use></svg>
+									<span class="social__tooltip">Subscribe to RSS Feed</span>
+								</a>
+							</div>
+						</footer>
 
-							<?php endif ?>
+					<?php endif ?>
 
-						</div>
+				</div>
 
-					</article>
+			</article>
 
-				<?php endforeach; ?>
-
-			</div>
-
-		</section>
+		<?php endforeach; ?>
 
 	</div>
-</main>
+
+</section>
 
 <?php get_footer( $this ); ?>

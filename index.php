@@ -8,10 +8,10 @@ $controller = new WebApp\Home\Controller( $model );
 $view = new WebApp\Home\View( $model );
 
 // Check if a search query has been entered
-if ( isset( $_GET['search'] ) && '' !== $_GET['search'] ) {
+if ( isset( $_GET['search'] ) ) {
 	
 	// Search query entered, process it
-	$controller->processSearch( $_GET['search'] );
+	$controller->handleSearch( $_GET['search'] );
 
 }
 

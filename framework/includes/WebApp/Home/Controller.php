@@ -16,9 +16,16 @@ class Controller
 		$this->_model = $model;
 	}
 
-	function processSearch( $search_terms ) 
+	function handleSearch( $search_terms ) 
 	{
 		$model = $this->_model;
+
+		// Check for blank search
+		if ( '' === $search_terms ) {
+			$this->_model->setState( $model::STATE_ERROR );
+			$this->_model->results = array();
+			return;
+		}
 
 		// Add the search terms as a property on the model
 		$this->_model->search_terms = esc_html( $search_terms );

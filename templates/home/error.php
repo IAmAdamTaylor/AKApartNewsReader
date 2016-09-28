@@ -9,6 +9,8 @@ use Search\Terms\Trending\Controller as TrendingController;
 
 get_header( $this );
 
+$search_terms = $this->getProperty( 'search_terms' );
+
 ?>
 
 <main id="content">
@@ -17,14 +19,22 @@ get_header( $this );
 		<?php get_template_part( $this, 'search-form' ); ?>
 		
 		<h2 class="title title--secondary">No results found</h2>
-		<p>We couldn't find any results for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;.</p>
-		<p class="u-no-margin">Please check for spelling mistakes, or try searching for different terms.</p>
+		<?php if ( '' === $search_terms ): ?>
+			
+			<p class="small container">Enter some search terms and we&rsquo;ll find the latest&nbsp;news&nbsp;for&nbsp;you.</p>
+
+		<?php else: ?>
+
+			<p>We couldn't find any results for &ldquo;<?php echo esc_html( $search_terms ); ?>&rdquo;.</p>
+			<p class="u-no-margin">Please check for spelling mistakes, or try searching for different terms.</p>
+				
+		<?php endif ?>
 
 		<div class="content">
 
 			<?php 
 				$trendingController = new TrendingController();
-				$terms = $trendingController->getTrendingTerms( 12, $this->getProperty( 'search_terms' ) );
+				$terms = $trendingController->getTerms( 12, $this->getProperty( 'search_terms' ) );
 			?>
 			<?php if ( count( $terms ) > 0 ): ?>
 				

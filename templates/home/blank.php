@@ -15,7 +15,7 @@ get_header( $this );
 	<div class="container">
 	
 		<?php get_template_part( $this, 'search-form' ); ?>
-		<p class="small container">Enter your search terms and we&rsquo;ll find the latest&nbsp;news&nbsp;for&nbsp;you.</p>
+		<p class="small container">Enter some search terms and we&rsquo;ll find the latest&nbsp;news&nbsp;for&nbsp;you.</p>
 
 		<div class="content">
 

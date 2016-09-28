@@ -44,10 +44,11 @@ $focus-ring-color: $purple;
   $heading-stack: #{$sans-serif-fallback};
 
 // Layout
-$container-max-width: 70rem;
+$container-max-width: 73.125rem;
 $container-narrow-max-width: 46rem;
+
+$feed-item-padding: .8em;
 
 // Breakpoints
 $em-pixel: .0625rem;
-$feed-item-grid-breakpoint: 63.5rem;
-
+$feed-show-image-breakpoint: 37.5rem;

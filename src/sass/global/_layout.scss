@@ -11,16 +11,21 @@ body {
 
 main {
 	text-align: center;
-
-	@include respond( 40rem ) {
-		padding: 1.5em 0;
-		
-		.home-success-php & {
-			padding: 0;
-		}
-	}
 }
 
+// Remove the default margin bottom on these elements in favour of the lobotomised owl selector
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+form {
+	margin-bottom: 0;
+}
 
 // Lobotomised owl selector to add margin between each sibling element
 body * {
@@ -40,18 +45,12 @@ h6 + * {
 	margin-top: .5em;
 }
 
-// Remove the default margin bottom on these elements in favour of the lobotomised owl selector
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-form {
-	margin-bottom: 0;
+.container {
+	width: 95%;
+	max-width: $container-max-width;
+
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .content {
@@ -60,13 +59,4 @@ form {
 	@include respond( 40rem ) {
 		margin-top: 3em;
 	}
-}
-
-
-.container {
-	width: 95%;
-	max-width: $container-max-width;
-
-	margin-left: auto;
-	margin-right: auto;
 }

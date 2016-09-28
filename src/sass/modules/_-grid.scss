@@ -3,14 +3,19 @@
 .grid {
 	display: flex;
 	justify-content: space-between;
-}
-.grid.wrapped {
 	flex-wrap: wrap;	
+
+	// Allow each grid__item to have it's own margin-top so that wrapping is neat
+	margin-top: 0;
+	// Create space for first left gutter to sit inside
+	margin-left: -1.5em;
 }
 
 .grid__item {
 	flex: 1 0 auto;
-	margin-top: 0;
+
+	margin-top: 1.5em;
+	padding-left: 1.5em;
 
 	@include respond( 25rem, "max-width" ) {
 		min-width: 100%;

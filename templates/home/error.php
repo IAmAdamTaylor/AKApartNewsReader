@@ -42,7 +42,7 @@ $search_terms = $this->getProperty( 'search_terms' );
 
 				<div class="tags">
 
-					<div class="grid wrapped">
+					<div class="grid">
 						
 						<?php foreach ($terms as $term => $term_amount): ?>
 							<?php $term = maybeUcwords( $term ); ?>

@@ -8,7 +8,7 @@
 
 	<?php if ( 'home/success.php' === $view->getTemplate() ): ?>
 		
-		<div class="footer u-text-center">
+		<div class="footer content u-text-center">
 			<a class="small inline-link" href="about.php">How was this made?</a>
 
 			<div class="footer__social">

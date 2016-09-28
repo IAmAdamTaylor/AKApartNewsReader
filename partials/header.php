@@ -30,8 +30,6 @@
 					color: #639;
 					font-weight: 700;
 
-					text-decoration: none;
-
 					transition: color .1s;
 
 				}
@@ -86,7 +84,6 @@
 				}
 				.social--badge:hover {
 					color: #fff;
-					text-decoration: none;
 				}
 
 				.social--twitter {

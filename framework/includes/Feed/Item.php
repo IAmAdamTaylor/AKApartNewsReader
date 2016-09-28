@@ -153,6 +153,19 @@ class Item implements ItemInterface
 		$imageData['src'] = $imageData['url'];
 		unset( $imageData['url'] );
 
+		// Check all properties are set
+		$properties = array( 
+			'src' => '',
+			'width' => 0,
+			'height' => 0,
+			'alt' => '',
+		);
+		foreach ($properties as $property_key => $property) {
+			if ( !isset( $imageData[ $property_key ] ) ) {
+				$imageData[ $property_key ] = $property;
+			}
+		}
+
 		return $imageData;
 	}
 

@@ -24,7 +24,7 @@ get_header( $this );
 			<h4 class="title title--tertiary">The Idea</h4>
 
 			<p>I knew that I wanted to aim for something that continued to be useful after the contest had finished. I also wanted to create something that would showcase my full range of skills, both front and back end.</p>
-			<p>Since I wanted an interactive element, rather than a static page, my first thought was a search form. Once I decided that I wanted to display large, colourful images, it evolved into the idea to let people search for news articles and show them the most relevant results.</p>
+			<p>Since I wanted an interactive element, rather than a static page, my first thought was a search form. Once I decided that I wanted to display large, colourful images, it evolved into the idea to let users search for news articles and show them the most relevant results.</p>
 
 		</section>
 
@@ -49,11 +49,9 @@ get_header( $this );
 			
 			<h4 class="title title--tertiary">Adding the Polish</h4>
 
-			<p>Once the core functionality had been created, I tested everything and fixed any pressure points.</p>
-			
-			<p>To help keep under the limit, I added the <a href="http://gulpjs.com/">Gulp task runner</a> to optimise the assets as much as possible, and <a href="https://gist.github.com/tovic/d7b310dea3b33e4732c0">a PHP function</a> to minify the HTML before output.</p>
+			<p>Once the core functionality had been created, I tested everything and fixed any pressure points. To help keep under the limit, I added the <a href="http://gulpjs.com/">Gulp task runner</a> to optimise the assets as much as possible, and <a href="https://gist.github.com/tovic/d7b310dea3b33e4732c0">a PHP function</a> to minify the HTML before output.</p>
 
-			<p>The grid of results adapts it's layout to accomodate any number of results from 1 to 101. Behind the scenes, it uses Flexbox with a flex-basis to prevent the items getting too small and a simple container queries implementation to switch the layout as needed.</p>
+			<p>The grid of results adapts it's layout to accomodate any number of results from 1 to 101. Behind the scenes, it uses Flexbox with a flex-basis to prevent the items from getting too small and a simple container queries implementation to switch the layout as needed.</p>
 
 			<p>Results already loaded very quickly, but to help speed up the perceived performance I added skeleton screens that would load as the search was made and then fill with content as it was receieved.</p>
 

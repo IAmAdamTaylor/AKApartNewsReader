@@ -62,6 +62,8 @@ $isExpanded = $this->isExpanded();
 
 								<footer class="feed-item__footer">
 
+									<time class="feed-item__date small" datetime="2016-12-31">31<sup>st</sup> December 2016</time>
+
 									<div class="feed-item__share">
 										<a class="social social--with-tooltip" href="https://facebook.com/sharer/sharer.php?u=<?php echo urlencode( $permalink ) ?>">
 											<svg class="social__icon social__icon--medium social__icon--facebook" fill="#414141" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#facebook"></use></svg>

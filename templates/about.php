@@ -11,7 +11,7 @@ get_header( $this );
 <main id="content">
 	<div class="container">
 
-		<article class="article">
+		<article class="content article">
 	
 			<h2 class="title title--secondary">About this project</h2>
 

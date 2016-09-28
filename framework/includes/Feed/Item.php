@@ -23,7 +23,6 @@ class Item implements ItemInterface
 		$this->rawDescription = $this->description;
 		$this->rawTitle = $this->title;
 
-
 		// Strip any HTML tags found in the feed
 		$this->title = strip_tags( $this->title );
 
@@ -60,8 +59,9 @@ class Item implements ItemInterface
 
 		// Add the feed information as a generic structure
 		$feed = $item->get_feed();
-
+		
 		$feedData = new StdClass();
+		$feedData->name = $feed->get_title();
 		$feedData->subscribeURL = $feed->subscribe_url();
 		$feedData->baseURL = $feed->get_base();
 		$feedData->displayBaseURL = $this->_formatBaseUrlForDisplay( $feedData->baseURL );

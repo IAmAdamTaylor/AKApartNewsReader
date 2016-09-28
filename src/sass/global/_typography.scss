@@ -15,6 +15,10 @@ main {
 	@include respond( 28.125rem, "max-width" ) {
 		font-size: 14px;
 	}
+
+	@include respond( 87.5rem ) {
+		font-size: 18px;
+	}
 }
 
 .small {

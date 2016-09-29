@@ -1,0 +1,10 @@
+// Jacket mixin
+
+// Mixin to output specific CSS to specific files.
+// The @content will only be output if the global $jacket matches the local jacket.
+// @param $local_jacket string The local scope for this content.
+@mixin jacket( $local_jacket ) {
+	@if $jacket == $local_jacket {
+		@content;
+	}
+}

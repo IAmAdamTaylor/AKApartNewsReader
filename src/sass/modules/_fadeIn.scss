@@ -1,0 +1,14 @@
+// Fade animation keyframes
+
+@include jacket( "main" ) {
+	
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+}

@@ -1,47 +1,51 @@
 // Tag cloud
 
-.tags {
-	max-width: $container-narrow-max-width;
-	margin: 0 auto;
+@include jacket( "feed" ) {
 
-	.grid {
-		margin-left: -1em;
+	.tags {
+		max-width: $container-narrow-max-width;
+		margin: 0 auto;
+
+		.grid {
+			margin-left: -1em;
+		}
 	}
-}
 
-.tag {
-	padding-left: 1em;
-}
-
-.tag__inner {
-	@include material-box-shadow(1);
-
-	display: block;
-	
-	padding: .8em 1.6em; 
-	border-radius: .2em;
-
-	color: inherit;
-	background-color: #fff;
-
-	transition: background-color .1s;
-
-	&:hover,
-	&:focus {
-		background-color: #f7f7f7;
+	.tag {
+		padding-left: 1em;
 	}
-}
 
-.tag__icon {
-	width: 1em;
-	height: 1em;
+	.tag__inner {
+		@include material-box-shadow(1);
 
-	position: relative;
-	top: 2px;
+		display: block;
+		
+		padding: .8em 1.6em; 
+		border-radius: .2em;
 
-	margin-right: .3em;
+		color: inherit;
+		background-color: #fff;
 
-	line-height: 1;
+		transition: background-color .1s;
 
-	fill: lighten( $text-color, 5% );
+		&:hover,
+		&:focus {
+			background-color: #f7f7f7;
+		}
+	}
+
+	.tag__icon {
+		width: 1em;
+		height: 1em;
+
+		position: relative;
+		top: 2px;
+
+		margin-right: .3em;
+
+		line-height: 1;
+
+		fill: lighten( $text-color, 5% );
+	}
+
 }

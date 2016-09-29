@@ -1,14 +1,18 @@
 // Inline Links
 
-.inline-link {
-	color: $link-color;
-	font-weight: 700;
+@include jacket( "feed" ) {
 
-	transition: color .1s;
+	.inline-link {
+		color: $link-color;
+		font-weight: 700;
 
-	&:hover,
-	&:focus {
-		color: lighten( $link-color, 10% );
-		text-decoration: underline;
+		transition: color .1s;
+
+		&:hover,
+		&:focus {
+			color: lighten( $link-color, 10% );
+			text-decoration: underline;
+		}
 	}
+
 }

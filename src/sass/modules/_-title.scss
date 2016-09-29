@@ -1,17 +1,21 @@
 // Titles
 
-.title {
-  font-family: $heading-stack;
-  text-transform: uppercase;
-  letter-spacing: .2em;
-  font-weight: 400;
-}
-.title--primary {
-	font-size: 1.8em;
-}
-.title--secondary {
-	font-size: 1.4em;
-}
-.title--tertiary {
-	font-size: 1.2em;
+@include jacket( "main" ) {
+
+	.title {
+	  font-family: $heading-stack;
+	  text-transform: uppercase;
+	  letter-spacing: .2em;
+	  font-weight: 400;
+	}
+	.title--primary {
+		font-size: 1.8em;
+	}
+	.title--secondary {
+		font-size: 1.4em;
+	}
+	.title--tertiary {
+		font-size: 1.2em;
+	}
+
 }

@@ -1,25 +1,29 @@
 // Grid system
 
-.grid {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;	
+@include jacket( "feed" ) {
 
-	// Replace wrapper margin with item margins
-	margin-top: 0;
-	// Create space for first left gutter to sit inside
-	margin-left: -1.5em;
-}
+	.grid {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;	
 
-.grid__item {
-	flex: 1 0 auto;
-
-	margin-top: 1.5em;
-	padding-left: 1.5em;
-
-	@include respond( 25rem, "max-width" ) {
-		min-width: 100%;
-		// iOS Bug Fix: Doesn't base flex-basis on min-width, so set both
-		flex-basis: 100%;
+		// Replace wrapper margin with item margins
+		margin-top: 0;
+		// Create space for first left gutter to sit inside
+		margin-left: -1.5em;
 	}
+
+	.grid__item {
+		flex: 1 0 auto;
+
+		margin-top: 1.5em;
+		padding-left: 1.5em;
+
+		@include respond( 25rem, "max-width" ) {
+			min-width: 100%;
+			// iOS Bug Fix: Doesn't base flex-basis on min-width, so set both
+			flex-basis: 100%;
+		}
+	}
+
 }

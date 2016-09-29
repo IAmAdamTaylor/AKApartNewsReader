@@ -1,164 +1,168 @@
 // Feed items - success state
 
-.feed-item {
-	display: flex;
-	flex: 1 0 auto;
-	flex-direction: column;
+@include jacket( "feed" ) {
 
-	flex-basis: 290px;
+	.feed-item {
+		display: flex;
+		flex: 1 0 auto;
+		flex-direction: column;
 
-	// Feature first 2 items - only if there is more than 4 items
-	&:nth-last-child(n + 5):first-child, &:nth-last-child(n + 5):first-child + & {
-		min-width: 50%;
-	}
+		flex-basis: 290px;
 
-	@include respond( $feed-show-image-breakpoint) {
-		// Sometimes individual items can drop onto a row on their own.
-		// This constraint stops them becoming too massive
-		max-width: 40rem;
+		// Feature first 2 items - only if there is more than 4 items
+		&:nth-last-child(n + 5):first-child, &:nth-last-child(n + 5):first-child + & {
+			min-width: 50%;
+		}
 
-		// If the constraint above is applied, center the item
-		margin-left: auto;
-		margin-right: auto;
-	}
+		@include respond( $feed-show-image-breakpoint) {
+			// Sometimes individual items can drop onto a row on their own.
+			// This constraint stops them becoming too massive
+			max-width: 40rem;
 
-  @include respond( 28.125rem - $em-pixel, "max-width" ) {
-  	font-size: 1.1em;
-  }
+			// If the constraint above is applied, center the item
+			margin-left: auto;
+			margin-right: auto;
+		}
 
-	// Optimise display for only 1 element on a row. Class will be toggled by JS container queries
-	// Not using only-child for IE8 compatibility
-	&.one {
-		// Turn off constraint above if JS is optimising it
-		max-width: 100%;
+	  @include respond( 28.125rem - $em-pixel, "max-width" ) {
+	  	font-size: 1.1em;
+	  }
 
-		.feed-item__inner {
-			position: relative;
-			z-index: 0;
+		// Optimise display for only 1 element on a row. Class will be toggled by JS container queries
+		// Not using only-child for IE8 compatibility
+		&.one {
+			// Turn off constraint above if JS is optimising it
+			max-width: 100%;
 
-			padding-top: $feed-item-padding;
-			padding-right: 21%;
+			.feed-item__inner {
+				position: relative;
+				z-index: 0;
 
-			@include respond( $feed-show-image-breakpoint - $em-pixel, "max-width" ) {
-				padding-right: $feed-item-padding;
+				padding-top: $feed-item-padding;
+				padding-right: 21%;
+
+				@include respond( $feed-show-image-breakpoint - $em-pixel, "max-width" ) {
+					padding-right: $feed-item-padding;
+				}
+			}
+
+			.feed-item__thumbnail {
+				width: 18%;
+
+				position: absolute;
+				top: $feed-item-padding;
+				right: $feed-item-padding;
+				z-index: 1;
 			}
 		}
+	}
 
-		.feed-item__thumbnail {
-			width: 18%;
+	.feed-item__inner {
+		display: flex;
+		flex: 1 0 auto;
+	  flex-direction: column;
 
-			position: absolute;
-			top: $feed-item-padding;
-			right: $feed-item-padding;
-			z-index: 1;
+		padding: $feed-item-padding;
+	  border-radius: .2em;
+	  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+
+	  background-color: #fff;
+
+	  text-align: left;
+
+	  @include respond( $feed-show-image-breakpoint ) {
+			padding-top: 0;
 		}
 	}
-}
-
-.feed-item__inner {
-	display: flex;
-	flex: 1 0 auto;
-  flex-direction: column;
-
-	padding: $feed-item-padding;
-  border-radius: .2em;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-
-  background-color: #fff;
-
-  text-align: left;
-
-  @include respond( $feed-show-image-breakpoint ) {
-		padding-top: 0;
-	}
-}
-.feed-item__inner--no-image {
-	padding-top: $feed-item-padding;
-}
-
-.feed-item__title {
-	font-size: 1em;
-	color: inherit;
-
-	transition: color .1s;
-
-	&:hover,
-	&:focus {
-		color: $link-color;
+	.feed-item__inner--no-image {
+		padding-top: $feed-item-padding;
 	}
 
-	.fonts-loaded & {
-		font-size: 1.1em;
+	.feed-item__title {
+		font-size: 1em;
+		color: inherit;
+
+		transition: color .1s;
+
+		&:hover,
+		&:focus {
+			color: $link-color;
+		}
+
+		.fonts-loaded & {
+			font-size: 1.1em;
+		}
 	}
-}
 
-.feed-item__attribution,
-.feed-item__date {
-	margin-top: 0;
-	color: $text-deemphasised-color;
+	.feed-item__attribution,
+	.feed-item__date {
+		margin-top: 0;
+		color: $text-deemphasised-color;
 
-}
-.feed-item__attribution a {
-	&:hover,
-	&:focus {
-		text-decoration: underline;
 	}
-}
+	.feed-item__attribution a {
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
 
-.feed-item__date {
-	float: right;
-}
+	.feed-item__date {
+		float: right;
+	}
 
-.feed-item__excerpt {
-  max-width: $container-narrow-max-width;
-  
-	flex-grow: 1;
+	.feed-item__excerpt {
+	  max-width: $container-narrow-max-width;
+	  
+		flex-grow: 1;
 
-	margin-top: 1em;
-}
+		margin-top: 1em;
+	}
 
-.feed-item__thumbnail {
-	display: none;
+	.feed-item__thumbnail {
+		display: none;
 
-	margin-top: 0;
+		margin-top: 0;
 
-	background-color: $thumbnail-placeholder-background;
+		background-color: $thumbnail-placeholder-background;
 
-	@include respond( $feed-show-image-breakpoint ) {
+		@include respond( $feed-show-image-breakpoint ) {
+			display: block;
+			width: calc( 100% + 1.6em );
+			order: -1;
+
+			margin-left: ( 0 - $feed-item-padding );
+			margin-bottom: $feed-item-padding;
+
+			border-top-left-radius: .2em;
+			border-top-right-radius: .2em;
+
+			overflow: hidden;
+		}
+
+		.feed-item__inner--no-image & {
+			display: none !important;
+		}
+	}
+
+	.feed-item__link {
 		display: block;
-		width: calc( 100% + 1.6em );
-		order: -1;
-
-		margin-left: ( 0 - $feed-item-padding );
-		margin-bottom: $feed-item-padding;
-
-		border-top-left-radius: .2em;
-		border-top-right-radius: .2em;
-
-		overflow: hidden;
+		margin-top: .5em;
 	}
 
-	.feed-item__inner--no-image & {
-		display: none !important;
+	.feed-item__footer {
+		margin-top: 1em;
+		padding-top: 1em;
+		border-top: 1px solid $border-color;
 	}
-}
 
-.feed-item__link {
-	display: block;
-	margin-top: .5em;
-}
+	.feed-item__share {
+		float: left;
 
-.feed-item__footer {
-	margin-top: 1em;
-	padding-top: 1em;
-	border-top: 1px solid $border-color;
-}
+		&,
+	  & a {
+	  	margin-top: 0;
+	  }
+	}
 
-.feed-item__share {
-	float: left;
-
-	&,
-  & a {
-  	margin-top: 0;
-  }
 }

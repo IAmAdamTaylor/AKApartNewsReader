@@ -1,15 +1,19 @@
 // Skip Links
 
-.skip-link {
-	&:focus {
-		width: auto; 
-	  height: auto; 
+@include jacket( "main" ) {
 
-		position: relative !important;
+	.skip-link {
+		&:focus {
+			width: auto; 
+		  height: auto; 
 
-		margin: .5em;  
-	  
-	  overflow: visible; 
-		clip: auto;
+			position: relative !important;
+
+			margin: .5em;  
+		  
+		  overflow: visible; 
+			clip: auto;
+		}
 	}
+
 }

@@ -1,122 +1,126 @@
-// normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css
-// Optimised for this specific project, by removing tags not used
+@include jacket( "main" ) {
 
-html {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
+  // normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css
+  // Optimised for this specific project, by removing tags not used
 
-body {
-  margin: 0;
-}
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
 
-// HTML5 display definitions
-// ==========================================================================
+  body {
+    margin: 0;
+  }
 
-article,
-footer,
-header,
-main,
-section {
-  display: block;
-}
+  // HTML5 display definitions
+  // ==========================================================================
 
-[hidden] {
-  display: none;
-}
+  article,
+  footer,
+  header,
+  main,
+  section {
+    display: block;
+  }
 
-// Links
-// ==========================================================================
+  [hidden] {
+    display: none;
+  }
 
-a {
-  background-color: transparent;
-}
+  // Links
+  // ==========================================================================
 
-a:active,
-a:hover {
-  outline-width: 0;
-}
+  a {
+    background-color: transparent;
+  }
 
-// Text-level semantics
-// ==========================================================================
+  a:active,
+  a:hover {
+    outline-width: 0;
+  }
 
-// Prevent the duplicate application of `bolder` by the next rule in Safari 6.
-strong {
-  font-weight: inherit;
-}
+  // Text-level semantics
+  // ==========================================================================
 
-// Add the correct font weight in Chrome, Edge, and Safari.
-strong {
-  font-weight: bolder;
-}
+  // Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+  strong {
+    font-weight: inherit;
+  }
 
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
+  // Add the correct font weight in Chrome, Edge, and Safari.
+  strong {
+    font-weight: bolder;
+  }
 
-sub {
-  bottom: -0.25em;
-}
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
 
-sup {
-  top: -0.5em;
-}
+  sub {
+    bottom: -0.25em;
+  }
 
-// Embedded content
-// ==========================================================================
+  sup {
+    top: -0.5em;
+  }
 
-img {
-  border-style: none;
-}
+  // Embedded content
+  // ==========================================================================
 
-svg:not(:root) {
-  overflow: hidden;
-}
+  img {
+    border-style: none;
+  }
 
-// Forms
-// ==========================================================================
+  svg:not(:root) {
+    overflow: hidden;
+  }
 
-button,
-input {
-  margin: 0;
-  
-  font: inherit;
-  
-  overflow: visible;
-}
+  // Forms
+  // ==========================================================================
 
-button {
-  text-transform: none;
-}
+  button,
+  input {
+    margin: 0;
+    
+    font: inherit;
+    
+    overflow: visible;
+  }
 
-button,
-[type="button"]
-[type="submit"] {
-  cursor: pointer;
-}
+  button {
+    text-transform: none;
+  }
 
-[disabled] {
-  cursor: not-allowed;
-}
+  button,
+  [type="button"]
+  [type="submit"] {
+    cursor: pointer;
+  }
 
-button,
-html [type="button"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
+  [disabled] {
+    cursor: not-allowed;
+  }
 
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
+  button,
+  html [type="button"],
+  [type="submit"] {
+    -webkit-appearance: button;
+  }
 
-button:-moz-focusring,
-input:-moz-focusring {
-  outline: 1px dotted ButtonText;
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  button:-moz-focusring,
+  input:-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+
 }

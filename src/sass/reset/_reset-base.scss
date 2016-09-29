@@ -1,24 +1,28 @@
 // Cross Browser standard resets
 
-// Viewport Rules - Mainly for IE11
-@-webkit-viewport{width:device-width}
-@-moz-viewport{width:device-width}
-@-ms-viewport{width:device-width}
-@-o-viewport{width:device-width}
-@viewport{width:device-width}
+@include jacket( "main" ) {
 
-// Box sizing reset
-*, *:before, *:after { 
-  box-sizing: border-box;
-}
+	// Viewport Rules - Mainly for IE11
+	@-webkit-viewport{width:device-width}
+	@-moz-viewport{width:device-width}
+	@-ms-viewport{width:device-width}
+	@-o-viewport{width:device-width}
+	@viewport{width:device-width}
 
-a {
-	color: inherit;
-	text-decoration: none;
-}
+	// Box sizing reset
+	*, *:before, *:after { 
+	  box-sizing: border-box;
+	}
 
-img {
-	display: block;
-	width: 100%;
-	height: auto;
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
 }

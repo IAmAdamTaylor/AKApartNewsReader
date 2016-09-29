@@ -1,53 +1,58 @@
 // Global layout styles
 
-body {
-	padding-bottom: 2em;
+@include jacket( "main" ) {
+
+	body {
+		padding-bottom: 2em;
+	}
+
+	main {
+		text-align: center;
+	}
+
+	// Remove the default margin bottom on these elements in favour of the lobotomised owl selector
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol,
+	form {
+		margin-bottom: 0;
+	}
+
+	// Lobotomised owl selector to add margin between each sibling element
+	body * {
+		margin-top: 0;
+	}
+	body * + * {
+		margin-top: 1.5em;
+	}
+
+	// Favour less margin for elements directly after headings, so that the content connects with the heading
+	h1 + *,
+	h2 + *,
+	h3 + *,
+	h4 + *,
+	h5 + *,
+	h6 + * {
+		margin-top: .5em;
+	}
+
+	.container {
+		width: 95%;
+		max-width: $container-max-width;
+
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.content {
+		margin-top: 3em;
+	}
+
 }
 
-main {
-	text-align: center;
-}
-
-// Remove the default margin bottom on these elements in favour of the lobotomised owl selector
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-form {
-	margin-bottom: 0;
-}
-
-// Lobotomised owl selector to add margin between each sibling element
-body * {
-	margin-top: 0;
-}
-body * + * {
-	margin-top: 1.5em;
-}
-
-// Favour less margin for elements directly after headings, so that the content connects with the heading
-h1 + *,
-h2 + *,
-h3 + *,
-h4 + *,
-h5 + *,
-h6 + * {
-	margin-top: .5em;
-}
-
-.container {
-	width: 95%;
-	max-width: $container-max-width;
-
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.content {
-	margin-top: 3em;
-}

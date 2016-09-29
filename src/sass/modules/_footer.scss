@@ -1,5 +1,9 @@
 // Footer
 
-.footer__social {
-	margin-top: .5em;
+@include jacket( "feed" ) {
+
+	.footer__social {
+		margin-top: .5em;
+	}
+
 }

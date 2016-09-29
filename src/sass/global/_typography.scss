@@ -1,37 +1,41 @@
 // Global typography styles
 
-// General typography
-body {
-	font-family: $body-stack;
-	line-height: 1.4;
+@include jacket( "main" ) {
 
-	.fonts-loaded & {
-		font-family: $body-stack-lazyloaded;
-	}
-}
+	// General typography
+	body {
+		font-family: $body-stack;
+		line-height: 1.4;
 
-// Scale the main content @ small breakpoint
-main {
-	@include respond( 28.125rem, "max-width" ) {
-		font-size: 14px;
+		.fonts-loaded & {
+			font-family: $body-stack-lazyloaded;
+		}
 	}
 
-	@include respond( 93.75rem ) {
-		font-size: 18px;
+	// Scale the main content @ small breakpoint
+	main {
+		@include respond( 28.125rem, "max-width" ) {
+			font-size: 14px;
+		}
+
+		@include respond( 93.75rem ) {
+			font-size: 18px;
+		}
 	}
-}
 
-.small {
-	font-size: .9em;
-}
+	.small {
+		font-size: .9em;
+	}
 
-// For screen readers only, Hides the element visually.
-.sr-only {
-	width: 1px; 
-  height: 1px; 
-  
-  position: absolute !important;
-  
-  overflow: hidden; 
-	clip: rect(1px, 1px, 1px, 1px); 
+	// For screen readers only, Hides the element visually.
+	.sr-only {
+		width: 1px; 
+	  height: 1px; 
+	  
+	  position: absolute !important;
+	  
+	  overflow: hidden; 
+		clip: rect(1px, 1px, 1px, 1px); 
+	}
+
 }

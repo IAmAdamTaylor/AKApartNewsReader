@@ -17,7 +17,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="<?php echo $view->getMetaDescription() ?>">
 
-	<style type="text/css"><?php include 'public/css/style.min.css'; ?></style>
+	<style type="text/css"><?php 
+		include 'public/css/main.min.css'; 
+
+		if ( 'about.php' !== $view->getTemplate() ) {
+			include 'public/css/feed.min.css'; 
+		}
+	?></style>
 
 	<?php if ( 'about.php' === $view->getTemplate() ): ?>
 		<?php // Include styles only used on the about page here ?>

@@ -9,7 +9,7 @@
 	function transferFocus( e ) {
     var $target = document.getElementById( this.getAttribute( 'href' ).substring( 1 ) );
 		
-    if ( $target.length ) {
+    if ( null !== $target ) {
     	$target.focus();
     }
 		

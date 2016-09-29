@@ -65,9 +65,9 @@ $isExpanded = $this->isExpanded();
 
 						<footer class="feed-item__footer">
 
-							<p class="feed-item__date small"><?php echo $result->getMachineReadableDate() ?></p>
+							<p class="feed-item__date small"><?php echo $result->getRelativeDate() ?></p>
 							<?php // Because the above date may represent a period, put the full date here ?>
-							<meta itemprop="datePublished" content="<?php echo $result->getMachineDate() ?>">
+							<meta itemprop="datePublished" content="<?php echo $result->getMachineReadableDate() ?>">
 
 							<div class="feed-item__share">
 								<a class="social social--with-tooltip" href="https://facebook.com/sharer/sharer.php?u=<?php echo urlencode( $permalink ) ?>">

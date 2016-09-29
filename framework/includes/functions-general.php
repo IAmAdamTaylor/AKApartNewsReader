@@ -125,7 +125,7 @@ function trailingslashit( $string ) {
  * @return string           
  */
 function _n( $singular, $plural, $value ) {
-	if ( 1 === $value ) {
+	if ( 1 == $value ) {
 		return $singular;
 	}
 

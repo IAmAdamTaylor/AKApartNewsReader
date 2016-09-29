@@ -16,6 +16,7 @@ class Parser implements ParserInterface
 	 */
 	const TITLE_WEIGHTING = 1.0;
 	const DESCRIPTION_WEIGHTING = 0.5;
+	const DATE_WEIGHTING = 0.1;
 	
 	function __construct( $terms )
 	{
@@ -87,6 +88,10 @@ class Parser implements ParserInterface
 
 		// Combine them, with weightings
 		$relevance = ( $title_relevance * self::TITLE_WEIGHTING ) + ( $description_relevance * self::DESCRIPTION_WEIGHTING );
+
+		// Decrease the relevance for every day this has been published
+		// Should allow newer items to come to the top, as long as they have the same amount of terms
+		$relevance -= $item->getDaysSincePublished() * self::DATE_WEIGHTING;
 
 		return $relevance;
 	}

@@ -135,6 +135,18 @@ class Item implements ItemInterface
 		return $date;
 	}
 
+	public function getDaysSincePublished()
+	{
+		$dateTimezone = new DateTimeZone( 'Europe/London' );
+		$date = new RelativeDateTime( $this->timestamp, $dateTimezone );
+		$now = new DateTime( 'now', $dateTimezone );
+
+		$relativeInterval = $date->diff( $now );
+		$days = $relativeInterval->getTotalSeconds() / $relativeInterval::DAY_IN_SECONDS;
+
+		return $days;
+	}
+
 	private function _getImageData( $item )
 	{
 		// Get the image data for the item

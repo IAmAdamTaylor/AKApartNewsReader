@@ -31,6 +31,9 @@ require_once INCLUDES_PATH . 'functions-templates.php';
 require_once INCLUDES_PATH . 'functions-sanitisers.php';
 require_once INCLUDES_PATH . 'functions-minifiers.php';
 
+// Include global namespace classes
+require_once INCLUDES_PATH . 'RelativeDateTime.php';
+
 fix_server_vars();
 
 // Register the autoloader

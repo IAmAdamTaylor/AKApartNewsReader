@@ -50,7 +50,7 @@ class Controller
 		return array(
 			'syria'  => $amount--,
 			'aleppo' => $amount--,
-			'hilary clinton' => $amount--,
+			'hillary clinton' => $amount--,
 			'donald trump' => $amount--,
 			'iphone' => $amount--,
 			'samsung' => $amount--,

@@ -5,6 +5,8 @@
  * User has searched, results were found.
  */
 
+use RelativeDate\DateTime as RelativeDateTime;
+
 get_header( $this );
 
 $results = $this->getProperty( 'results' );
@@ -37,33 +39,35 @@ $isExpanded = $this->isExpanded();
 				$title = $result->title;
 				$permalink = esc_attr( $result->permalink );
 			?>
-			<article class="grid__item feed-item <?php echo ( ( 1 === $resultsCount ) ? 'one' : '' ) ?>">
+			<article class="grid__item feed-item <?php echo ( ( 1 === $resultsCount ) ? 'one' : '' ) ?>" itemscope itemtype="https://schema.org/NewsArticle">
 
 				<div class="feed-item__inner <?php echo ( ( !$isExpanded ) ? 'feed-item__inner--no-image' : '' ) ?>">
 
 					<header class="feed-item__header">
-						<h3 class="feed-item__title"><a href="<?php echo $permalink; ?>"><?php echo $title; ?></a></h3>
-						<p class="feed-item__attribution small"><a href="<?php echo esc_attr( $result->feedData->baseURL ) ?>"><?php echo $result->feedData->displayBaseURL ?></a></p>
+						<h3 class="feed-item__title"><a href="<?php echo $permalink; ?>" itemprop="url"><span itemprop="headline"></span><?php echo $title; ?><span></span></a></h3>
+						<p class="feed-item__attribution small" itemprop="dateline"><a href="<?php echo esc_attr( $result->feedData->baseURL ) ?>"><?php echo $result->feedData->displayBaseURL ?></a></p>
 					</header>
 
-					<a class="feed-item__thumbnail <?php echo ( ( !$isExpanded ) ? 'js-lazy-load' : '' ) ?> " href="<?php echo $permalink; ?>" data-image-object="<?php echo esc_attr_json( $result->imageJSON ) ?>">
+					<a class="feed-item__thumbnail <?php echo ( ( !$isExpanded ) ? 'js-lazy-load' : '' ) ?> " href="<?php echo $permalink; ?>" data-image-object="<?php echo esc_attr_json( $result->imageJSON ) ?>" itemprop="url">
 
 						<?php if ( $isExpanded ): ?>
-							<img src="<?php echo $result->imageData['src'] ?>" alt="<?php echo $result->imageData['alt'] ?>" width="<?php echo $result->imageData['width'] ?>" height="<?php echo $result->imageData['height'] ?>">								
+							<img src="<?php echo $result->imageData['src'] ?>" alt="<?php echo $result->imageData['alt'] ?>" width="<?php echo $result->imageData['width'] ?>" height="<?php echo $result->imageData['height'] ?>" itemprop="thumbnailUrl">								
 						<?php endif ?>
 
 					</a>
 
 					<p class="feed-item__excerpt small">
-						<span><?php echo $result->description; ?></span>
-						<a class="inline-link feed-item__link" href="<?php echo $permalink; ?>">Read on <?php echo $result->feedData->displayBaseURL ?></a>
+						<span itemprop="articleBody"><?php echo $result->description; ?></span>
+						<a class="inline-link feed-item__link" href="<?php echo $permalink; ?>" itemprop="url">Read on <?php echo $result->feedData->displayBaseURL ?></a>
 					</p>
 						
 					<?php if ( $isExpanded ): ?>
 
 						<footer class="feed-item__footer">
 
-							<time class="feed-item__date small" datetime="2016-12-31">31<sup>st</sup> December 2016</time>
+							<p class="feed-item__date small"><?php echo $result->getMachineReadableDate() ?></p>
+							<?php // Because the above date may represent a period, put the full date here ?>
+							<meta itemprop="datePublished" content="<?php echo $result->getMachineDate() ?>">
 
 							<div class="feed-item__share">
 								<a class="social social--with-tooltip" href="https://facebook.com/sharer/sharer.php?u=<?php echo urlencode( $permalink ) ?>">

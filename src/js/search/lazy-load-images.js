@@ -20,6 +20,8 @@
 			}
 	  }
 
+	  $img.setAttribute( 'itemprop', 'thumbnailUrl' );
+
 	  $element.appendChild( $img );
 	}
 } )( window, document );

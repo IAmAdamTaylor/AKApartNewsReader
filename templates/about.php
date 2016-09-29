@@ -17,13 +17,13 @@ get_header( $this );
 		<h3 class="title title--secondary">About this project</h3>
 
 		<p>This project was created as a contest entry for the <a href="https://a-k-apart.com/">A K Apart contest</a>. Every page on the project loads 10KB (or under) of data and is fully usable without JavaScript. Lazy loaded media, like the images in the search results, were specifically excluded from the contest rules and don't count towards the 10KB limit.</p>
-		<p>This project was made to be usable in any browser on any device. It's compatible with all modern browsers, Internet Explorer 8+ and Safari 5.1+. It's also fully responsive down to 270px, which means it <a href="http://www.macrumors.com/2014/11/18/apple-watch-resolutions/">should fit on even the Apple Watch</a>!</p>
+		<p>This project was made to be usable in any browser on any device. It's compatible with all modern browsers, Internet Explorer 8+ and Safari 5.1+. It's fully responsive down to 270px, which means it <a href="http://www.macrumors.com/2014/11/18/apple-watch-resolutions/">should fit on even the Apple Watch</a>!</p>
 
 		<section>
 			
 			<h4 class="title title--tertiary">The Idea</h4>
 
-			<p>I knew that I wanted to aim for something that continued to be useful after the contest had finished. I also wanted to create something that would showcase my full range of skills, both front and back end.</p>
+			<p>I knew that I wanted to aim for something that continued to be useful after the contest had finished. I wanted to create something that would showcase my full range of skills, both front and back end.</p>
 			<p>Since I wanted an interactive element, rather than a static page, my first thought was a search form. Once I decided that I wanted to display large, colourful images, it evolved into the idea to let users search for news articles and show them the most relevant results.</p>
 
 		</section>
@@ -34,7 +34,7 @@ get_header( $this );
 
 			<p>Since the size limit was so small, I knew the design would have to be simple &amp; efficient. I went with a very minimalist layout, focusing specifically on the content. I made the decision to only show the top 5 results by default, which helps to keep the initial page load under 10KB.</p>
 
-			<p>The results are ranked by how many search terms appear within them, with the more relevant items being sorted to the top. The location each term is found in is also taken into account; terms found in the title are ranked as more important than those in the description. Finally, I implemented an absolute/relative date parser and reduced the relevance of older items.</p>
+			<p>The results are ranked by how many search terms appear within them, with the more relevant items being sorted to the top. The location each term is found in is taken into account; terms found in the title are ranked as more important than those in the description. Finally, I implemented an absolute/relative date parser and reduced the relevance of older items.</p>
 
 			<p>There are 3 levels of caching included to make sure the results are lightning fast every time. Firstly, any terms, that find results, are cached and included in the <a href="index.php">Trending Searches</a>. Secondly, the results found (and their relevancy) are cached to speed up similar searches. Finally, the PHP library I used to read the RSS feed caches the response from each feed.</p>
 			
@@ -51,7 +51,7 @@ get_header( $this );
 
 			<p>Once the core functionality had been created, I tested everything and fixed any pressure points. To help keep under the limit, I added the <a href="http://gulpjs.com/">Gulp task runner</a> to optimise the assets as much as possible, and <a href="https://gist.github.com/tovic/d7b310dea3b33e4732c0">a PHP function</a> to minify the HTML before output.</p>
 
-			<p>The grid of results adapts it's layout to accomodate any number of results from 1 to 101. Behind the scenes, it uses Flexbox with a flex-basis to prevent the items from getting too small and a simple container queries implementation to switch the layout as needed.</p>
+			<p>The grid of results adapts it's layout to accomodate any number of results from 1 to 101. Behind the scenes, it uses Flexbox with a flex-basis to prevent the items from getting too small and a simple container queries implementation to switch the layout as needed. I added microdata to allow spiders and bots to better process the results.</p>
 
 			<p>Results already loaded very quickly, but to help speed up the perceived performance I added skeleton screens that would load as the search was made and then fill with content as it was receieved.</p>
 

@@ -55,6 +55,8 @@ get_header( $this );
 
 			<p>Results already loaded very quickly, but to help speed up the perceived performance I added skeleton screens that would load as the search was made and then fill with content as it was receieved.</p>
 
+			<p>To squeeze certain pages in under the limit, I limited the initial content of the page and used a small AJAX snippet to request an expanded view.</p>
+
 			<p>After all of this, I tested it in every browser I could find, including the JAWS screen reader, to make sure it was as compatible as possible.</p>
 
 		</section>

@@ -16,7 +16,7 @@ class Parser implements ParserInterface
 	 */
 	const TITLE_WEIGHTING = 1.0;
 	const DESCRIPTION_WEIGHTING = 0.5;
-	const DATE_WEIGHTING = 0.1;
+	const DATE_WEIGHTING = -0.33;
 	
 	function __construct( $terms )
 	{
@@ -50,7 +50,7 @@ class Parser implements ParserInterface
 			$relevance = $this->_calculateRelevance( $item );
 
 			// Filter out non matching items			
-			if ( $relevance > 0 ) {
+			if ( false !== $relevance ) {
 				
 				$results[] = array(
 					'relevance' => $relevance,
@@ -73,6 +73,11 @@ class Parser implements ParserInterface
 		$description_relevance = 0;
 
 		foreach ($this->_terms as $term) {
+
+			// Filter out short terms like 'and', 'the' or single numbers, e.g. 'iPhone 7'
+			if ( strlen( $term ) < 3 ) {
+				continue;
+			}
 			
 			// Check if term is in title
 			if ( false !== strpos( $title, $term ) ) {
@@ -86,12 +91,16 @@ class Parser implements ParserInterface
 
 		}
 
+		if ( 0 === ( $title_relevance + $description_relevance ) ) {
+			return false;
+		}
+
 		// Combine them, with weightings
 		$relevance = ( $title_relevance * self::TITLE_WEIGHTING ) + ( $description_relevance * self::DESCRIPTION_WEIGHTING );
 
 		// Decrease the relevance for every day this has been published
 		// Should allow newer items to come to the top, as long as they have the same amount of terms
-		$relevance -= $item->getDaysSincePublished() * self::DATE_WEIGHTING;
+		$relevance += $item->getDaysSincePublished() * self::DATE_WEIGHTING;
 
 		return $relevance;
 	}
@@ -104,7 +113,16 @@ class Parser implements ParserInterface
 	 */
 	public function usortByRelevance( $a, $b ) 
 	{
-		return $b['relevance'] - $a['relevance'];
+		$floatVal = $b['relevance'] - $a['relevance'];
+		$compare = 0;
+
+		if ( $floatVal > 0 ) {
+		 	$compare = 1;
+	  } else if ( $floatVal < 0 ) {
+	  	$compare = -1;
+	  } 
+
+		return $compare;
 	}
 
 	public function setTerms( $terms )

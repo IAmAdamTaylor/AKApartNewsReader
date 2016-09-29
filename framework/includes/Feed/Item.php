@@ -268,9 +268,6 @@ class Item implements ItemInterface
 	private function _trimLength( $string, $num_words = 25 )
 	{
 		$string_words = explode( ' ', $string );
-		// echo '<pre style="text-align:left;">'; 
-		// var_dump( $string_words ); 
-		// echo '</pre>';
 		$string = '';
 
 		for ( $i = 0; $i < min( $num_words, count( $string_words ) ); $i++ ) { 

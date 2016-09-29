@@ -18,10 +18,10 @@
 	<meta name="description" content="<?php echo $view->getMetaDescription() ?>">
 
 	<style type="text/css"><?php 
-		include 'public/css/main.min.css'; 
+		requireAsset( 'public/css/main.min.css' );
 
 		if ( 'about.php' !== $view->getTemplate() ) {
-			include 'public/css/feed.min.css'; 
+			requireAsset( 'public/css/feed.min.css' );
 		}
 	?></style>
 
@@ -141,12 +141,7 @@
 			
 	<?php endif ?>
 </head>
-<?php
-	
-	$supportsExpandedView = ( method_exists( $view, 'isExpanded' ) );
-
-?>
-<body class="<?php echo $view->getBodyClass( ( $supportsExpandedView ? 'has-expanded-view' : '' ) ); ?>">
+<body class="<?php echo $view->getBodyClass( ( supportsExpandedView( $view ) ? 'has-expanded-view' : '' ) ); ?>">
 
 	<a class="skip-link button sr-only" id="skip-to-content" href="#content">Skip to content</a>
 

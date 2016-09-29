@@ -99,16 +99,16 @@ class View implements ViewInterface
 		return $class;
 	}
 
+	public function isExpanded()
+	{
+		return $this->_model->_isExpanded;
+	}
+
 	public function getProperty( $name ) {
 		if ( isset( $this->_model->{$name} ) ) {
 			return $this->_model->{$name};
 		} else {
 			return '';
 		}
-	}
-
-	public function isExpanded()
-	{
-		return $this->_model->_isExpanded;
 	}
 }

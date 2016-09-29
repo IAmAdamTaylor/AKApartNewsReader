@@ -166,3 +166,27 @@ function maybeUcwords( $value ) {
 	// Combine the words back together
 	return implode( ' ', $value_parts );
 }
+
+function requireAsset( $path ) {
+	if ( file_exists( $path ) && is_readable( $path ) ) {
+		require_once $path;
+	}
+}
+
+function getScriptPath() {
+	$url_parts = parse_url( $_SERVER['REQUEST_URI'] );
+
+	$path = basename( $url_parts['path'] ) . '?';
+	if ( isset( $url_parts['query'] ) && '' !== $url_parts['query'] ) {
+		$path .= $url_parts['query'];
+	}
+
+	return $path;
+}
+
+function supportsExpandedView( $view ) {
+	return
+		'home/success.php' === $view->getTemplate() ||
+		'about.php' === $view->getTemplate()
+	;
+}

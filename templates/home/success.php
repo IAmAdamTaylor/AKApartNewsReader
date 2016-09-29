@@ -16,11 +16,15 @@ $rawResultsCount = $this->getProperty( 'rawResultsCount' );
 $isExpanded = $this->isExpanded();
 
 ?>
+
+<?php if ( $isExpanded ): ?>
 	
-<?php get_template_part( $this, 'search-form' ); ?>
-<p>
-	<a class="inline-link" href="index.php">Show trending searches</a>
-</p>
+	<?php get_template_part( $this, 'search-form' ); ?>
+	<p>
+		<a class="inline-link" href="index.php">Show trending searches</a>
+	</p>
+
+<?php endif ?>	
 
 <section class="content" id="results">
 	
@@ -48,7 +52,7 @@ $isExpanded = $this->isExpanded();
 						<p class="feed-item__attribution small" itemprop="dateline"><a href="<?php echo esc_attr( $result->feedData->baseURL ) ?>"><?php echo $result->feedData->displayBaseURL ?></a></p>
 					</header>
 
-					<a class="feed-item__thumbnail <?php echo ( ( !$isExpanded ) ? 'js-lazy-load' : '' ) ?> " href="<?php echo $permalink; ?>" data-image-object="<?php echo esc_attr_json( $result->imageJSON ) ?>" itemprop="url">
+					<a class="feed-item__thumbnail" href="<?php echo $permalink; ?>" itemprop="url">
 
 						<?php if ( $isExpanded ): ?>
 							<img src="<?php echo $result->imageData['src'] ?>" alt="<?php echo $result->imageData['alt'] ?>" width="<?php echo $result->imageData['width'] ?>" height="<?php echo $result->imageData['height'] ?>" itemprop="thumbnailUrl">								

@@ -16,4 +16,4 @@
     e.stopPropagation();
 	}
 
-} )( window, document );
+}( window, document ) );

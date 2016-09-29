@@ -1,5 +1,5 @@
 /*! EnhanceJS: a progressive enhancement boilerplate. Copyright 2014 @scottjehl, Filament Group, Inc. Licensed MIT */
-(function( window, undefined ) {
+( function( window, document, undefined ) {
 
 	// Enable JS strict mode
 	"use strict";
@@ -65,4 +65,4 @@
   	window.document.documentElement.classList.add( 'fonts-loaded' );
 	});
 
-}( this ));
+}( window, document ) );

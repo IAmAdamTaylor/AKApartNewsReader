@@ -63,8 +63,13 @@ class Controller
 		$this->_model->resultsCount = count( $slicedResults );
 	}
 
-	public function enableExpandedView()
+	/**
+	 * Enable the expanded view.
+	 * Increases file size so use sparingly and only over AJAX.
+	 * @param  boolean $onOff Optional, whether to enable or disable the expanded view.
+	 */
+	public function enableExpandedView( $onOff = true )
 	{
-		$this->_model->_isExpanded = true;
+		$this->_model->_isExpanded = $onOff;
 	}
 }

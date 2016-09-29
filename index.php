@@ -15,7 +15,11 @@ if ( isset( $_GET['search'] ) ) {
 
 }
 
-$controller->enableExpandedView();
+if ( isset( $_GET['expanded'] ) && 1 == $_GET['expanded'] ) {
+
+	$controller->enableExpandedView();
+
+}
 
 ob_start();
 

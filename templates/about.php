@@ -6,6 +6,8 @@
 
 get_header( $this );
 
+$isExpanded = $this->isExpanded();
+
 ?>
 
 <article class="content article">
@@ -63,36 +65,40 @@ get_header( $this );
 
 	</section>
 
-	<section>
+	<?php if ( $isExpanded ): ?>
 		
-		<h3 class="title title--secondary">About Me</h3>
+		<section>
+			
+			<h3 class="title title--secondary">About Me</h3>
 
-		<p>I'm a Web Developer with 3 years agency experience. I started my career quite late, when I was 22, as a back end developer. The first language I worked with was PHP and my first real development job introduced me to WordPress. I became really interested in the front end and how we, as developers, can improve the user experience. Whether it's creating an interesting animation or parsing an XML API, I'm right at home!</p>
-		<p class="social-section small">
-			<a class="social social--badge social--twitter" href="https://www.twitter.com/IAmAdamTaylor">
-				<svg class="social__icon social__icon--medium" fill="#414141" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#twitter"></use></svg>
-				<span class="social__title">Follow me on Twitter</span>
-			</a>
-			<br class="social-section__clearer">
-			<a class="social social--badge social--github" href="https://www.github.com/ThisProjectFilePath">
-				<svg class="social__icon social__icon--medium" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><use xlink:href="#github"></use></svg>
-				<span class="social__title">View this project on GitHub</span>
-			</a>
-		</p>
+			<p>I'm a Web Developer with 3 years agency experience. I started my career quite late, when I was 22, as a back end developer. The first language I worked with was PHP and my first real development job introduced me to WordPress. I became really interested in the front end and how we, as developers, can improve the user experience. Whether it's creating an interesting animation or parsing an XML API, I'm right at home!</p>
+			<p class="social-section small">
+				<a class="social social--badge social--twitter" href="https://www.twitter.com/IAmAdamTaylor">
+					<svg class="social__icon social__icon--medium" fill="#414141" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#twitter"></use></svg>
+					<span class="social__title">Follow me on Twitter</span>
+				</a>
+				<br class="social-section__clearer">
+				<a class="social social--badge social--github" href="https://www.github.com/ThisProjectFilePath">
+					<svg class="social__icon social__icon--medium" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><use xlink:href="#github"></use></svg>
+					<span class="social__title">View this project on GitHub</span>
+				</a>
+			</p>
 
-	</section>
+		</section>
 
-	<section class="article__demo">
+		<section class="article__demo">
+			
+			<h3 class="title title--secondary">Try it out!</h3>
+			<p>Enter your search terms and we&rsquo;ll find the latest&nbsp;news&nbsp;for&nbsp;you.</p>
+
+			<?php get_template_part( $this, 'search-form' ); ?>
+			<p>
+				<a href="index.php">Show trending searches</a>
+			</p>
+
+		</section>
 		
-		<h3 class="title title--secondary">Try it out!</h3>
-		<p>Enter your search terms and we&rsquo;ll find the latest&nbsp;news&nbsp;for&nbsp;you.</p>
-
-		<?php get_template_part( $this, 'search-form' ); ?>
-		<p>
-			<a href="index.php">Show trending searches</a>
-		</p>
-
-	</section>
+	<?php endif ?>
 
 </article>
 

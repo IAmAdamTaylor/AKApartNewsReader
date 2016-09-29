@@ -6,7 +6,7 @@
 
 ?>
 
-			<?php if ( 'home/success.php' === $view->getTemplate() ): ?>
+			<?php if ( 'home/success.php' === $view->getTemplate() && $view->isExpanded() ): ?>
 				
 				<div class="footer content">
 					<a class="small inline-link" href="about.php">How was this made?</a>
@@ -29,14 +29,18 @@
 		</div>
 	</main>
 
-	<script type="text/javascript"><?php 
-		include 'public/js/libs.min.js'; 
+	<script type="text/javascript">var pageBaseUrl = '<?php echo getScriptPath();  ?>&';<?php 
+		requireAsset( 'public/js/libs.min.js' );
 		
 		if ( 'about.php' !== $view->getTemplate() ) {
-			include 'public/js/feed.min.js'; 
+			requireAsset( 'public/js/feed.min.js' );
 		}
 
-		include 'public/js/main.min.js'; 
+		requireAsset( 'public/js/main.min.js' );
+
+		if ( supportsExpandedView( $view ) && !$view->isExpanded() ) {
+			requireAsset( 'public/js/expanded.min.js' );
+		} 
 	?></script>
 	
 </body>

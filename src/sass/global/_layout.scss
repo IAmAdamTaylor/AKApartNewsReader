@@ -2,6 +2,11 @@
 
 @include jacket( "main" ) {
 
+	html,
+	body {
+		width: 100%;
+	}
+
 	body {
 		padding-bottom: 2em;
 	}

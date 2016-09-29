@@ -125,11 +125,6 @@ gulp.task('scripts', function() {
     .pipe( rename( {suffix: '.min'} ) )
     .pipe( uglify() )
     .pipe( gulp.dest( paths.scripts.out ) )
-    .pipe( sourcemaps.write( 'maps', {
-        includeContent: false,
-        sourceRoot: rootDir( nodePath.join( paths.scripts.in, folder ) )
-    } ) )
-    .pipe( gulp.dest( paths.scripts.out ) )
     .pipe( notify( { message: 'Scripts task [' + folder + '] complete', onLast: true } ) );
   } );
 });

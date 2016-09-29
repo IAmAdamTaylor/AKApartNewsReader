@@ -109,7 +109,7 @@ class Item implements ItemInterface
 		return $this->permalink === $item->permalink;
 	}
 
-	public function getDate()
+	public function getMachineReadableDate()
 	{
 		$dateTimezone = new DateTimeZone( 'Europe/London' );
 		$date = new DateTime( $this->timestamp, $dateTimezone );

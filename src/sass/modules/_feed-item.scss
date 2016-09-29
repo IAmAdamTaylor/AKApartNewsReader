@@ -72,6 +72,9 @@
 		padding-top: 0;
 	}
 }
+.feed-item__inner--no-image {
+	padding-top: $feed-item-padding;
+}
 
 .feed-item__title {
 	font-size: 1em;

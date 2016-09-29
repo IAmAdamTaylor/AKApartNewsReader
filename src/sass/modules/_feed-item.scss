@@ -11,7 +11,7 @@
 
 		// Feature first 2 items - only if there is more than 4 items
 		&:nth-last-child(n + 5):first-child, &:nth-last-child(n + 5):first-child + & {
-			min-width: 50%;
+			flex-basis: 50%;
 		}
 
 		@include respond( $feed-show-image-breakpoint) {

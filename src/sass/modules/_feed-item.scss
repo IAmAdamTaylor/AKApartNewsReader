@@ -8,6 +8,30 @@
 	flex-basis: 290px;
 	max-width: 100%;
 
+	// Optimise display for only 1 element. Not using only-child for IE8 compatibility
+	&.one {
+		.feed-item__inner {
+			position: relative;
+			z-index: 0;
+
+			padding-top: $feed-item-padding;
+			padding-right: 21%;
+
+			@include respond( $feed-show-image-breakpoint - $em-pixel, "max-width" ) {
+				padding-right: $feed-item-padding;
+			}
+		}
+
+		.feed-item__thumbnail {
+			width: 18%;
+
+			position: absolute;
+			top: $feed-item-padding;
+			right: $feed-item-padding;
+			z-index: 1;
+		}
+	}
+
   @include respond( 28.125rem - $em-pixel, "max-width" ) {
   	font-size: 1.1em;
   }

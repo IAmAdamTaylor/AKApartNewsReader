@@ -33,7 +33,7 @@
 		include 'public/js/libs.min.js'; 
 		
 		if ( 'about.php' !== $view->getTemplate() ) {
-			include 'public/js/search.min.js'; 
+			include 'public/js/feed.min.js'; 
 		}
 
 		include 'public/js/main.min.js'; 

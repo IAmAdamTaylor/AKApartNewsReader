@@ -56,7 +56,7 @@ $isExpanded = $this->isExpanded();
 
 					<p class="feed-item__excerpt small">
 						<span><?php echo $result->description; ?></span>
-						<a class="inline-link feed-item__link small" href="<?php echo $permalink; ?>">Read on <?php echo $result->feedData->displayBaseURL ?></a>
+						<a class="inline-link feed-item__link" href="<?php echo $permalink; ?>">Read on <?php echo $result->feedData->displayBaseURL ?></a>
 					</p>
 						
 					<?php if ( $isExpanded ): ?>

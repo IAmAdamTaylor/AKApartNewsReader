@@ -31,9 +31,6 @@ require_once INCLUDES_PATH . 'functions-templates.php';
 require_once INCLUDES_PATH . 'functions-sanitisers.php';
 require_once INCLUDES_PATH . 'functions-minifiers.php';
 
-// Include global namespace classes
-require_once INCLUDES_PATH . 'RelativeDateTime.php';
-
 fix_server_vars();
 
 // Register the autoloader
@@ -45,6 +42,8 @@ $loader->register();
 $namespace_dirs = array(
 	// CustomException: Abstract for easily creating custom exception objects.
 	'CustomException',
+	// RelativeDate: Extensions of the DateTime classes for handling relative dates.
+	'RelativeDate',
 	// Cache: Handles cache storage and retrieval. Other objects may implement the ControllerInterface
 	'Cache',
 	// WebApp: Handles the request response cycle and loads templates.

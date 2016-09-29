@@ -100,6 +100,11 @@ gulp.task('styles', function() {
     .pipe( rename( {suffix: '.min'} ) )
     .pipe( cssnano( {autoprefixer: false} ) )
     .pipe( gulp.dest( paths.sass.out ) )
+    // .pipe( sourcemaps.write( 'maps', {
+    //     includeContent: false,
+    //     sourceRoot: rootDir( stripBasePath( paths.sass.in ) )
+    // } ) )
+    // .pipe( gulp.dest( paths.sass.out ) )
     .pipe( notify( { message: 'Styles task complete', onLast: true } ) );
 });
 

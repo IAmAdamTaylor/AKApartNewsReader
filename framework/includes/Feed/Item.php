@@ -1,8 +1,11 @@
 <?php
 
 namespace Feed;
+use RelativeDate\DateTime as RelativeDateTime;
 use SimplePie_Item;
 use StdClass;
+use DateTimeZone;
+use DateTime;
 
 /**
  * Structure to hold properties of a feed item.
@@ -52,6 +55,7 @@ class Item implements ItemInterface
 		$this->title = $item->get_title();
 		$this->description = $item->get_description();
 		$this->permalink = $item->get_permalink();
+		$this->timestamp = $item->get_date('Y-m-d H:i:s');
 
 		$imageData = $this->_getImageData( $item );
 
@@ -82,6 +86,7 @@ class Item implements ItemInterface
 		$this->title = $item[ 'title' ];
 		$this->description = $item[ 'description' ];
 		$this->permalink = $item[ 'permalink' ];
+		$this->timestamp = $item[ 'timestamp' ];
 
 		$this->imageData = $item[ 'imageData' ];
 		$this->imageJSON = json_encode( $item[ 'imageData' ] );
@@ -102,6 +107,32 @@ class Item implements ItemInterface
 	{
 		// Check that the permalinks of each item are equal
 		return $this->permalink === $item->permalink;
+	}
+
+	public function getDate()
+	{
+		$dateTimezone = new DateTimeZone( 'Europe/London' );
+		$date = new DateTime( $this->timestamp, $dateTimezone );
+
+		return $date->format( 'Y-m-d' );
+	}
+
+	public function getRelativeDate()
+	{
+		$dateTimezone = new DateTimeZone( 'Europe/London' );
+		$date = new RelativeDateTime( $this->timestamp, $dateTimezone );
+		$now = new DateTime( 'now', $dateTimezone );
+
+		$relativeInterval = $date->diff( $now );
+		$relativeLimit = $relativeInterval::WEEK_IN_SECONDS * 2;
+
+		if ( $relativeInterval->getTotalSeconds() >= $relativeLimit ) {
+			$date = $date->format( 'j<sup>S</sup> F Y' );
+		} else {
+			$date = $relativeInterval->format();
+		}
+
+		return $date;
 	}
 
 	private function _getImageData( $item )

@@ -6,6 +6,10 @@
 
 	$skipLink.addEventListener('click', transferFocus);
 
+	/**
+	 * Transfer focus to an anchor element's targeted href.
+	 * @param  Element e 
+	 */
 	function transferFocus( e ) {
     var $target = document.getElementById( this.getAttribute( 'href' ).substring( 1 ) );
 		

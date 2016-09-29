@@ -1,5 +1,6 @@
 // Stop users submitting blank search if required attr isn't implemented
 // No implementation in IE8, IE9 and Safari (so load everywhere)
+
 ( function( window, document, undefined ) {
 	
 	var $form = document.getElementById( 'search-form' ),

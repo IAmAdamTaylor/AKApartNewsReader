@@ -1,3 +1,5 @@
+// AJAX wrapper to get the expanded view if a page supports it
+
 ( function( window, document, undefined ) {
 
 	var $main = document.querySelector( 'main' ),

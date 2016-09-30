@@ -8,24 +8,7 @@
 	if ( hasExpanded && null !== $main ) {
 
 		// This page has an expanded view
-		var xhr = new XMLHttpRequest();
-		xhr.open( 'GET', pageBaseUrl + 'expanded=1' );
-		xhr.onreadystatechange = function() {
-	    if ( 4 == xhr.readyState && 200 == xhr.status ) {
-	    	
-	    	// Good response, parse for main content and return
-	    	var $wrapper = document.createElement( 'div' );
-	    	$wrapper.innerHTML = xhr.responseText;
-
-	    	var $mainResponse = $wrapper.querySelector( 'main' );
-
-	    	if ( null !== $mainResponse ) {
-	    		$main.innerHTML = $mainResponse.innerHTML;
-	    	}
-
-	    }
-		};
-		xhr.send();
+		ajax( pageBaseUrl + 'expanded=1' );
 
 	}
 	

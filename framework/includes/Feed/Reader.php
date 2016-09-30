@@ -160,14 +160,14 @@ class Reader implements ReaderInterface
 			'http://feeds.bbci.co.uk/news/rss.xml',
 			// BBC World News
 			'http://feeds.bbci.co.uk/news/world/rss.xml',
-			// BBC Tech News
-			'http://feeds.bbci.co.uk/news/technology/rss.xml',
-			// Guardian Most Popular
-			'https://www.theguardian.com/uk/rss',
 			// Guardian World News
 			'https://www.theguardian.com/world/rss',
-			// Guardian Tech News
-			'https://www.theguardian.com/uk/technology/rss',
+			// The Independant World
+			'http://www.independent.co.uk/news/world/rss',
+			// The Times World
+			'http://www.thetimes.co.uk/tto/news/world/rss',
+			// CNN World News
+			'http://rss.cnn.com/rss/edition_world.rss',
 		);
 
 		$this->_feed->set_feed_url( $feeds );

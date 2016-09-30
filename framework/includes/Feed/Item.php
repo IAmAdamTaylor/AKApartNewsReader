@@ -28,6 +28,7 @@ class Item implements ItemInterface
 
 		// Strip any HTML tags found in the feed
 		$this->title = strip_tags( $this->title );
+		$this->title = str_replace( '&amp;apos;', '\'', $this->title );
 		$this->title = str_replace( '&amp;', '&', esc_html( $this->title ) );
 
 		// Replace line breaks with spaces before stripping description
@@ -150,7 +151,16 @@ class Item implements ItemInterface
 	private function _getImageData( $item )
 	{
 		// Get the image data for the item
-		$imageData = $item->get_item_tags( SIMPLEPIE_NAMESPACE_MEDIARSS, 'content' );
+		$imageData = $item->get_item_tags( SIMPLEPIE_NAMESPACE_MEDIARSS, 'group' );
+
+		if ( null !== $imageData ) {
+			$imageData = $imageData[0][ 'child' ][ SIMPLEPIE_NAMESPACE_MEDIARSS ][ 'content' ];
+		}
+
+		// Try another tag combination
+		if ( null === $imageData ) {
+			$imageData = $item->get_item_tags( SIMPLEPIE_NAMESPACE_MEDIARSS, 'content' );
+		}
 
 		// If no data found try getting from the meda::thumbnail tag
 		if ( null === $imageData ) {

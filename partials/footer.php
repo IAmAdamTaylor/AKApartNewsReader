@@ -20,7 +20,7 @@
 							<svg class="social__icon social__icon--dark social__icon--large" fill="#414141" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#twitter"></use></svg>
 							<span class="sr-only">Follow me on Twitter</span>
 						</a>
-						<a class="social" href="https://www.github.com/ThisProjectFilePath">
+						<a class="social" href="https://github.com/IAmAdamTaylor/AKApartNewsReader">
 							<svg class="social__icon social__icon--dark social__icon--large" fill="#414141" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><use xlink:href="#github"></use></svg>
 							<span class="sr-only">View on GitHub</span>
 						</a>

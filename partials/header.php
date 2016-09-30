@@ -27,119 +27,122 @@
 
 	<?php if ( 'about.php' === $view->getTemplate() ): ?>
 		<?php // Include styles only used on the about page here ?>
-
-		<?php // Expanded styles here, output into buffer ?>
-		<?php ob_start(); ?>
 			
-			<style type="text/css">
-				p a {
-					color: #639;
-					font-weight: 700;
+		<style type="text/css">
+			p a {
+				color: #639;
+				font-weight: 700;
 
-					transition: color .1s;
+				transition: color .1s;
 
-				}
-				p a:hover,
-				p a:focus {
-					color: #8040bf;
-				  text-decoration: underline;
-				}
+			}
+			p a:hover,
+			p a:focus {
+				color: #8040bf;
+			  text-decoration: underline;
+			}
 
-				section {
-					padding-top: 1em;
-				}
+			section {
+				padding-top: 1em;
+			}
 
-				.title {
-					letter-spacing: .1em;
-				}
+			.content {
+				margin-top: 2em;
+			}
 
-				.site-name {
-					letter-spacing: .2em;
-				}
+			.title {
+				letter-spacing: .1em;
+			}
 
-				.article {
-					text-align: left;
-				}
+			.site-name {
+				letter-spacing: .2em;
+			}
 
-				.article__demo {
-					margin-top: 2em;
-				}
+			.article {
+				text-align: left;
+			}
 
+			.article__main {
+		    margin-top: 0;
+		    padding-top: 0;
+		  }
+
+			.article__demo {
+				margin-top: 2em;
+			}
+
+			.social-section__clearer {
+				display: none;
+			}
+
+			.social > * {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			.social--badge ~ .social--badge {
+				margin-left: 1.5em;
+			}
+
+			.social--badge {
+				display: inline-block;
+
+				margin-top: 0;
+				padding: .5em 1em;
+				border-radius: .2em;
+
+				color: #fff;
+
+				-webkit-transition: background-color .1s;
+				-ms-transition: background-color .1s;
+				transition: background-color .1s;
+			}
+			.social--badge:hover {
+				color: #fff;
+			}
+
+			.social--twitter {
+				background-color: #1da1f2;
+			}
+			.social--twitter:hover {
+				background-color: #1383c7;
+			}
+
+			.social--github {
+				background-color: #333;
+			}
+			.social--github:hover {
+				background-color: #0e0e0e;
+			}
+
+			.social__title {
+				margin-top: 0;
+				margin-left: .5em;
+				font-size: 1.1em;
+			}
+
+			@media only screen and (max-width: 34.375rem) {
 				.social-section__clearer {
+					display: block;
+				}
+				.social--badge ~ .social--badge {
+					margin-left: 0;
+					margin-top: 1em;
+				}
+			}
+
+			@media only print {
+				.article__demo,
+				.social-section {
 					display: none;
 				}
+			}
+		</style>
 
-				.social > * {
-					display: inline-block;
-					vertical-align: middle;
-				}
-
-				.social--badge ~ .social--badge {
-					margin-left: 1.5em;
-				}
-
-				.social--badge {
-					display: inline-block;
-
-					margin-top: 0;
-					padding: .5em 1em;
-					border-radius: .2em;
-
-					color: #fff;
-
-					-webkit-transition: background-color .1s;
-					-ms-transition: background-color .1s;
-					transition: background-color .1s;
-				}
-				.social--badge:hover {
-					color: #fff;
-				}
-
-				.social--twitter {
-					background-color: #1da1f2;
-				}
-				.social--twitter:hover {
-					background-color: #1383c7;
-				}
-
-				.social--github {
-					background-color: #333;
-				}
-				.social--github:hover {
-					background-color: #0e0e0e;
-				}
-
-				.social__title {
-					margin-top: 0;
-					margin-left: .5em;
-					font-size: 1.1em;
-				}
-
-				@media only screen and (max-width: 34.375rem) {
-					.social-section__clearer {
-						display: block;
-					}
-					.social--badge ~ .social--badge {
-						margin-left: 0;
-						margin-top: 1em;
-					}
-				}
-			</style>
-
-		<?php
-			// Output minified CSS
-			$buffer = ob_get_clean();
-			// Remove comments
-			$buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
-			// Remove space after colons
-			$buffer = str_replace(': ', ':', $buffer);
-			// Remove whitespace
-			$buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
-
-			echo $buffer;
-		?>
-			
 	<?php endif ?>
+
+	<link rel="stylesheet" type="text/css" media="print" href="public/css/print.min.css">
+
 </head>
 <body class="<?php echo $view->getBodyClass( ( supportsExpandedView( $view ) ? 'has-expanded-view' : '' ) ); ?>">
 

@@ -12,9 +12,9 @@ $isExpanded = $this->isExpanded();
 
 <article class="content article">
 
-	<h2 class="title title--primary">How was this made?</h2>
+	<h2 class="sr-only">How was this made?</h2>
 
-	<section>
+	<section class="article__main">
 
 		<h3 class="title title--secondary">About this project</h3>
 
@@ -44,10 +44,10 @@ $isExpanded = $this->isExpanded();
 				
 				<p>Throughout the project, I tried to follow best practices regarding both my front and back end code. The back end uses PHP 5.3's namespacing features and follows a MVC architecture pattern, with each class holding a single responsibility. The front end showcases semantic HTML, a mobile-first approach (where it made sense - some styles use less code if applied with "max-width") and follows accessibility guidelines.</p>
 
-			<?php endif ?>
+				<p>I used the <a href="http://simplepie.org/">SimplePie PHP Library</a> to read the RSS feeds, and a combination of <a href="https://github.com/filamentgroup/enhance/blob/master/enhance.js">Filament Group's enhance.js</a> and <a href="https://github.com/bramstein/fontfaceobserver">Bram Stein's FontFaceObserver</a> to lazy load the <a href="https://fonts.google.com/specimen/PT+Sans">PT Sans font from Google Fonts</a>.</p>
+				<p>All SVG icons used in this project are downloaded from <a href="https://icomoon.io/app/#/select/library">IcoMoon App</a> and then optimised with <a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>.</p>
 
-			<p>I used the <a href="http://simplepie.org/">SimplePie PHP Library</a> to read the RSS feeds, and a combination of <a href="https://github.com/filamentgroup/enhance/blob/master/enhance.js">Filament Group's enhance.js</a> and <a href="https://github.com/bramstein/fontfaceobserver">Bram Stein's FontFaceObserver</a> to lazy load the <a href="https://fonts.google.com/specimen/PT+Sans">PT Sans font from Google Fonts</a>.</p>
-			<p>All SVG icons used in this project are downloaded from <a href="https://icomoon.io/app/#/select/library">IcoMoon App</a> and then optimised with <a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>.</p>
+			<?php endif ?>
 
 		</section>
 
@@ -64,6 +64,8 @@ $isExpanded = $this->isExpanded();
 			<p>To squeeze certain pages in under the limit, I limited the initial content of the page and used a small AJAX snippet to request an expanded view.</p>
 
 			<p>After all of this, I tested it in every browser I could find to make sure it was as compatible as possible.</p>
+
+			<p>Oh, and have you tried printing it yet? :)</p>
 
 		</section>
 

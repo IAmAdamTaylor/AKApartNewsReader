@@ -45,6 +45,7 @@ $focus-ring-color: $purple;
 
   $body-stack: #{$sans-serif-fallback};
 	$body-stack-lazyloaded: "PT Sans", #{$sans-serif-fallback};
+	$body-stack-print: "Roboto", "Droid Sans", "Ubuntu", "Liberation Sans", "Trebuchet MS", "Helvetica Neue" Helvetica, Arial, "Lucida Grande", Tahoma, Verdana, sans-serif;
   $heading-stack: #{$sans-serif-fallback};
 
 // Layout

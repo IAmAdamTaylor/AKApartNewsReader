@@ -48,9 +48,8 @@
 
 				var requestURL = $form.getAttribute( 'action' ) + '?' + $input.getAttribute( 'name' ) + '=' + $input.value,
 					$skeletonTemplate = document.getElementById( 'skeleton' ),
-					skeletons = '';
-				
-				ajax( requestURL + '&expanded=1' );
+					skeletons = '',
+					xhr = ajax( requestURL + '&expanded=1' );
 
 				// Replace the history state
 				history.pushState( {}, $input.value + siteName, requestURL );
@@ -60,9 +59,13 @@
 				for (var i = 0; i < 5; i++) {
 					skeletons += $skeletonTemplate.innerHTML.substring( 2, $skeletonTemplate.innerHTML.length - 2 );
 				}
-				document.getElementById( 'results-title' ).innerHTML = 'Finding latest news&hellip;';
-				document.getElementById( 'feed-wrapper' ).innerHTML = skeletons;
-			  document.dispatchEvent( new Event('DOMContentReplaced') );
+
+				// Only add skeleton screens if the AJAX hasn't returned
+				if ( !(4 == xhr.readyState && 200 == xhr.status) ) {
+					document.getElementById( 'results-title' ).innerHTML = 'Finding latest news&hellip;';
+					document.getElementById( 'feed-wrapper' ).innerHTML = skeletons;
+				  document.dispatchEvent( new Event('DOMContentReplaced') );
+				}
 
 				e.preventDefault();
 		    e.stopPropagation();

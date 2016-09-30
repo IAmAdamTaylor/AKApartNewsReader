@@ -23,7 +23,7 @@ function throttle(fn, threshold, scope) {
 
 function replaceContent( selector, newContent ) {
   var $element = document.querySelector( selector ),
-      $wrapper = document.createElement( 'div' ),
+      $wrapper = document.createElement( 'html' ),
       $elementResponse;
   
   $wrapper.innerHTML = newContent;
@@ -31,11 +31,17 @@ function replaceContent( selector, newContent ) {
 
   if ( null !== $element && null !== $elementResponse ) {
     $element.innerHTML = $elementResponse.innerHTML;
+    document.querySelector( 'body' ).setAttribute( 'class', $wrapper.querySelector( 'body' ).getAttribute( 'class' ) );
   }
 
   document.dispatchEvent( new Event('DOMContentReplaced') );
 }
 
+/**
+ * Send off an AJAX request to get new content.
+ * @param  string requestURL The URL to get content.
+ * @return XMLHttpRequest
+ */
 function ajax( requestURL ) {
   var xhr = new XMLHttpRequest();
 
@@ -49,4 +55,5 @@ function ajax( requestURL ) {
     }
   };
   xhr.send();
+  return xhr;
 }

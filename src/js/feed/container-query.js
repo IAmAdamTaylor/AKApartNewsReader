@@ -2,7 +2,7 @@
 
 ( function( window, document, undefined ) {
 
-	var minWidth = 400,
+	var minWidth = 580,
 			$allItems = document.querySelectorAll( '.js-feed-item' ),
 			$monitor,
 

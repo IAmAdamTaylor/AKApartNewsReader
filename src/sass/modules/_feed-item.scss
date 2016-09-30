@@ -17,7 +17,7 @@
 		@include respond( $feed-show-image-breakpoint) {
 			// Sometimes individual items can drop onto a row on their own.
 			// This constraint stops them becoming too massive
-			max-width: 40rem;
+			max-width: 100%;
 
 			// If the constraint above is applied, center the item
 			margin-left: auto;

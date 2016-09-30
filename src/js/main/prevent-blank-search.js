@@ -1,42 +1,47 @@
-// Stop users submitting blank search if required attr isn't implemented
-// No implementation in IE8, IE9 and Safari (so load everywhere)
+// Search form events
 
 ( function( window, document, undefined ) {
 	
-	var $form = document.getElementById( 'search-form' ),
-			$input = document.getElementById( 'search' );
+	document.addEventListener( 'submit', function(e) {
+		if ( !e.target || e.target.id != 'search-form') {
+			return;
+		}
 
-	if ( null !== $form && null !== $input ) {
-		$form.addEventListener( 'submit', function(e) {
-			if ( 0 === $input.value.length ) {
+		var $form = e.target,
+				$input = $form.querySelector( '#search' );
 
-				var $error = document.getElementById( 'search-error' );
+		// Stop users submitting blank search if required attr isn't implemented
+		// No implementation in IE8, IE9 and Safari (so load everywhere)
+		if ( 0 === $input.value.length ) {
 
-				if ( null === $error ) {
-					$error = document.createElement('p');
-					$error.classList.add( 'error', 'small' );
-					$error.setAttribute( 'id', 'search-error' );
-					$error.setAttribute( 'aria-live', 'polite' );
-				} 
+			var $error = document.getElementById( 'search-error' );
 
-				$error.innerHTML = 'You must enter some terms to search for.';
+			if ( null === $error ) {
+				$error = document.createElement('p');
+				$error.classList.add( 'error', 'small' );
+				$error.setAttribute( 'id', 'search-error' );
+				$error.setAttribute( 'aria-live', 'polite' );
+			} 
 
-				$form.classList.add( 'shake' );
-				$form.parentNode.appendChild( $error );
+			$error.innerHTML = 'You must enter some terms to search for.';
 
-				// Reset once animation finishes
-				setTimeout(function() {
-					$form.classList.remove( 'shake' );
-				}, 1000);
+			$form.classList.add( 'shake' );
+			$form.parentNode.appendChild( $error );
 
-				// Focus input ready for entry
-				$input.focus();
+			// Reset once animation finishes
+			setTimeout(function() {
+				$form.classList.remove( 'shake' );
+			}, 1000);
 
-				e.preventDefault();
-		    e.stopPropagation();
-		    return false;
-			}
-		} );
-	}
+			// Focus input ready for entry
+			$input.focus();
+
+			e.preventDefault();
+	    e.stopPropagation();
+	    return false;
+
+		}
+
+	} );
 
 }( window, document ) );

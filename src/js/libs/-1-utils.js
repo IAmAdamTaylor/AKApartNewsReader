@@ -52,8 +52,25 @@ function ajax( requestURL ) {
       // Good response, parse for main content and return
       replaceContent( 'main', xhr.responseText );
 
+      // Replace state on load so forwards button works correctly
+      if ( window.history && window.history.pushState ) {
+        history.replaceState( { url: location.href, title: document.title }, document.title, location.href );
+      }
     }
   };
   xhr.send();
   return xhr;
+}
+
+function showSkeletons() {
+  var $skeletonTemplate = document.getElementById( 'skeleton' ),
+      skeletons = '';
+
+  // Create skeleton screens
+    for (var i = 0; i < 5; i++) {
+      skeletons += $skeletonTemplate.innerHTML.substring( 2, $skeletonTemplate.innerHTML.length - 2 );
+    }
+    document.getElementById( 'results-title' ).innerHTML = 'Finding latest news&hellip;';
+    document.getElementById( 'feed-wrapper' ).innerHTML = skeletons;
+    document.dispatchEvent( new Event('DOMContentReplaced') );
 }

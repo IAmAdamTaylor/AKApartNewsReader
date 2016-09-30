@@ -77,40 +77,52 @@
 
 	} );
 
-	document.addEventListener( 'click', function(e) {
-		console.log( e.target );
-		if ( !e.target || e.target.parentNode.getAttribute('data-type') != 'search-tag') {
-			return;
-		}		
+	if ( window.history && window.history.pushState ) {
 
-		if ( window.history && window.history.pushState ) {
+		document.addEventListener( 'click', function(e) {
+			
+			if ( !e.target || e.target.parentNode.getAttribute('data-type') != 'search-tag') {
+				return;
+			}		
 
 			var requestURL = e.target.parentNode.href,
-				$skeletonTemplate = document.getElementById( 'skeleton' ),
-				skeletons = '';
+					title = e.target.textContent.replace(/^\s/, '').replace(/\s$/, '');
 			
 			ajax( requestURL + '&expanded=1' );
 
-			var title = e.target.textContent.replace(/^\s/, '').replace(/\s$/, '');
+			showSkeletons();
 
 			// Replace the history state
-			history.pushState( {}, title + siteName, requestURL );
+			history.pushState( { url: requestURL, title: title + siteName }, title + siteName, requestURL );
 			document.querySelector( 'title' ).innerHTML = title + siteName;
-
-			// Create skeleton screens
-			for (var i = 0; i < 5; i++) {
-				skeletons += $skeletonTemplate.innerHTML.substring( 2, $skeletonTemplate.innerHTML.length - 2 );
-			}
-			document.getElementById( 'results-title' ).innerHTML = 'Finding latest news&hellip;';
-			document.getElementById( 'feed-wrapper' ).innerHTML = skeletons;
-		  document.dispatchEvent( new Event('DOMContentReplaced') );
 
 			e.preventDefault();
 	    e.stopPropagation();
 	    return false;
 
-		}
+		} );
 
-	} );
+		window.addEventListener( 'popstate', function( e ) {
+			console.log( e );
+			var requestURL = '';
+
+			document.querySelector( 'title' ).innerHTML = e.state.title;
+
+			// This was a search page, show the skeletons
+			if ( -1 !== e.state.url.indexOf( 'search=' ) ) {
+				requestURL = e.state.url + '&expanded=1';
+				showSkeletons();
+			} else {
+				requestURL = e.state.url + '?expanded=1';
+			}
+			
+			ajax( requestURL );
+
+		} );
+
+		// Store the intial state
+		history.replaceState( { url: location.href, title: document.title }, document.title, location.href );
+
+	}
 
 }( window, document ) );

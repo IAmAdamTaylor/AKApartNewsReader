@@ -43,7 +43,7 @@ $isExpanded = $this->isExpanded();
 				$title = $result->title;
 				$permalink = esc_attr( $result->permalink );
 			?>
-			<article class="grid__item feed-item <?php echo ( ( 1 === $resultsCount ) ? 'one' : '' ) ?>" itemscope itemtype="https://schema.org/NewsArticle">
+			<article class="grid__item feed-item <?php echo ( ( 1 === $resultsCount ) ? 'one' : '' ) ?> js-feed-item" itemscope itemtype="https://schema.org/NewsArticle">
 
 				<div class="feed-item__inner <?php echo ( ( !$isExpanded ) ? 'feed-item__inner--no-image' : '' ) ?>">
 

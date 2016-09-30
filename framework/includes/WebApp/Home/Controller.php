@@ -16,14 +16,22 @@ class Controller
 	var $_model;
 
 	/**
+	 * The amount of results to show.
+	 * @var integer
+	 */
+	var $_resultsLimit;
+
+	/**
 	 * The maximum amount of results to be shown in a non expanded view.
 	 * @var integer
 	 */
-	const RESULTS_LIMIT = 5;
+	const DEFAULT_RESULTS_LIMIT = 5;
+	const INCREASED_RESULTS_LIMIT = 10;
 	
 	function __construct( $model )
 	{
 		$this->_model = $model;
+		$this->_resultsLimit = self::DEFAULT_RESULTS_LIMIT;
 	}
 
 	/**
@@ -62,7 +70,7 @@ class Controller
 		}
 
 		// Slice the results up to the limit
-		$slicedResults = array_slice( $results, 0, self::RESULTS_LIMIT, true );
+		$slicedResults = array_slice( $results, 0, $this->_resultsLimit, true );
 
 		// Pass the raw results and the sliced ones to the model
 		$this->_model->rawResults = $results;
@@ -80,5 +88,9 @@ class Controller
 	public function enableExpandedView( $onOff = true )
 	{
 		$this->_model->_isExpanded = !!$onOff;
+
+		if ( true === !!$onOff ) {
+			$this->_resultsLimit = self::INCREASED_RESULTS_LIMIT;
+		}
 	}
 }

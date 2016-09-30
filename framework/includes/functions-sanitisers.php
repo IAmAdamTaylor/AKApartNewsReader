@@ -46,6 +46,14 @@ function check_invalid_utf_8( $string, $strip = false ){
 	return '';
 }
 
+/**
+ * Escape special characters.
+ * @param  string  $string        
+ * @param  integer  $quote_style   The quote style to escape.
+ * @param  boolean $charset       
+ * @param  boolean $double_encode 
+ * @return string                 
+ */
 function _esc_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = false, $double_encode = false ) {
 	$string = (string) $string;
 
@@ -122,6 +130,11 @@ function esc_attr( $text ) {
 	return esc_string( $text, ENT_COMPAT );
 }	
 
+/**
+ * Sanitise JSON output for attributes.
+ * @param  string $text 
+ * @return string       
+ */
 function esc_attr_json( $text ) {
 	return esc_string( $text, ENT_COMPAT );
 }

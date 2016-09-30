@@ -40,7 +40,11 @@ $isExpanded = $this->isExpanded();
 
 			<p>There are 3 levels of caching included to make sure the results return as quickly as possible every time. Firstly, any terms, that find results, are cached and included in the <a href="index.php">Trending Searches</a>. Secondly, the results found (and their relevancy) are cached to speed up similar searches. Finally, the PHP library I used to read the RSS feed caches the response from each feed.</p>
 			
-			<p>Throughout the project, I tried to follow best practices regarding both my front and back end code. The back end uses PHP 5.3's namespacing features and follows a MVC architecture pattern, with each class holding a single responsibility. The front end showcases semantic HTML, a mobile-first approach (where it made sense - some styles use less code if applied with "max-width") and follows accessibility guidelines.</p>
+			<?php if ( $isExpanded ): ?>
+				
+				<p>Throughout the project, I tried to follow best practices regarding both my front and back end code. The back end uses PHP 5.3's namespacing features and follows a MVC architecture pattern, with each class holding a single responsibility. The front end showcases semantic HTML, a mobile-first approach (where it made sense - some styles use less code if applied with "max-width") and follows accessibility guidelines.</p>
+
+			<?php endif ?>
 
 			<p>I used the <a href="http://simplepie.org/">SimplePie PHP Library</a> to read the RSS feeds, and a combination of <a href="https://github.com/filamentgroup/enhance/blob/master/enhance.js">Filament Group's enhance.js</a> and <a href="https://github.com/bramstein/fontfaceobserver">Bram Stein's FontFaceObserver</a> to lazy load the <a href="https://fonts.google.com/specimen/PT+Sans">PT Sans font from Google Fonts</a>.</p>
 			<p>All SVG icons used in this project are downloaded from <a href="https://icomoon.io/app/#/select/library">IcoMoon App</a> and then optimised with <a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>.</p>
@@ -59,7 +63,7 @@ $isExpanded = $this->isExpanded();
 
 			<p>To squeeze certain pages in under the limit, I limited the initial content of the page and used a small AJAX snippet to request an expanded view.</p>
 
-			<p>After all of this, I tested it in every browser I could find, including the JAWS screen reader, to make sure it was as compatible as possible.</p>
+			<p>After all of this, I tested it in every browser I could find to make sure it was as compatible as possible.</p>
 
 		</section>
 

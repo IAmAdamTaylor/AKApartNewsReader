@@ -24,7 +24,7 @@
 			margin-right: auto;
 		}
 
-	  @include respond( 28.125rem - $em-pixel, "max-width" ) {
+	  @include respond( 28.125rem - $rem-pixel, "max-width" ) {
 	  	font-size: 1.1em;
 	  }
 
@@ -41,7 +41,7 @@
 				padding-top: $feed-item-padding;
 				padding-right: 21%;
 
-				@include respond( $feed-show-image-breakpoint - $em-pixel, "max-width" ) {
+				@include respond( $feed-show-image-breakpoint - $rem-pixel, "max-width" ) {
 					padding-right: $feed-item-padding;
 				}
 			}

@@ -18,7 +18,6 @@
 	    	$wrapper.innerHTML = xhr.responseText;
 
 	    	var $mainResponse = $wrapper.querySelector( 'main' );
-	    	console.log( xhr.readyState, xhr.status, $mainResponse );
 
 	    	if ( null !== $mainResponse ) {
 	    		$main.innerHTML = $mainResponse.innerHTML;

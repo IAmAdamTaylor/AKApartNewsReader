@@ -6,7 +6,11 @@
 
 ?>
 
-			<?php if ( 'home/success.php' === $view->getTemplate() && $view->isExpanded() ): ?>
+			<?php if ( 
+				( 'home/success.php' === $view->getTemplate() && $view->isExpanded() ) ||
+				'home/blank.php' === $view->getTemplate() ||
+				'home/error.php' === $view->getTemplate()
+			): ?>
 				
 				<div class="footer content">
 					<a class="small inline-link" href="about.php">How was this made?</a>

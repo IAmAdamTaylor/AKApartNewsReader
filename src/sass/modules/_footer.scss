@@ -2,6 +2,15 @@
 
 @include jacket( "feed" ) {
 
+	.home-error-php,
+	.home-blank-php {
+		.footer {
+			@include respond( 25rem + $rem-pixel ) {
+				display: none;
+			}
+		}
+	}
+
 	.footer__social {
 		margin-top: .5em;
 	}

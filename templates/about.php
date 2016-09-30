@@ -38,7 +38,7 @@ $isExpanded = $this->isExpanded();
 
 			<p>The results are ranked by how many search terms appear within them, with the more relevant items being sorted to the top. The location each term is found in is taken into account; terms found in the title are ranked as more important than those in the description. Finally, I implemented an absolute/relative date parser and reduced the relevance of older items.</p>
 
-			<p>There are 3 levels of caching included to make sure the results are lightning fast every time. Firstly, any terms, that find results, are cached and included in the <a href="index.php">Trending Searches</a>. Secondly, the results found (and their relevancy) are cached to speed up similar searches. Finally, the PHP library I used to read the RSS feed caches the response from each feed.</p>
+			<p>There are 3 levels of caching included to make sure the results return as quickly as possible every time. Firstly, any terms, that find results, are cached and included in the <a href="index.php">Trending Searches</a>. Secondly, the results found (and their relevancy) are cached to speed up similar searches. Finally, the PHP library I used to read the RSS feed caches the response from each feed.</p>
 			
 			<p>Throughout the project, I tried to follow best practices regarding both my front and back end code. The back end uses PHP 5.3's namespacing features and follows a MVC architecture pattern, with each class holding a single responsibility. The front end showcases semantic HTML, a mobile-first approach (where it made sense - some styles use less code if applied with "max-width") and follows accessibility guidelines.</p>
 

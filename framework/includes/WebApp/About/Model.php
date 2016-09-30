@@ -4,6 +4,10 @@ namespace WebApp\About;
 use WebApp\Page\ModelInterface;
 use StdClass;
 	
+/**
+ * WebApp\About\Model
+ * The model (MVC) for the about page.
+ */
 class Model implements ModelInterface
 {
 	/**
@@ -41,6 +45,10 @@ class Model implements ModelInterface
 		$this->head->meta_description = 'Read about how this project was made and about the developer who created it.';
 	}
 
+	/**
+	 * Set the state of the model.
+	 * @param integer $state
+	 */
 	public function setState( $state )
 	{
 		if ( $this->_state !== $state ) {
@@ -49,6 +57,10 @@ class Model implements ModelInterface
 		return $this;
 	}
 
+	/**
+	 * Get the state of the model.
+	 * @return integer
+	 */
 	public function getState()
 	{
 		return $this->_state;

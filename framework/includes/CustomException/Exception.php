@@ -2,6 +2,10 @@
 
 namespace CustomException;
 
+/**
+ * CustomException\Exception
+ * @see http://php.net/manual/en/language.exceptions.php Class provided by ask at nilpo dot com in User notes section.
+ */
 abstract class Exception extends \Exception implements ExceptionInterface
 {
     protected $message = 'Unknown exception';     // Exception message

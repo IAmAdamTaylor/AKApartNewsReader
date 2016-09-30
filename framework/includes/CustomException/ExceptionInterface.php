@@ -2,6 +2,10 @@
 
 namespace CustomException;
 
+/**
+ * CustomException\ExceptionInterface
+ * @see http://php.net/manual/en/language.exceptions.php Class provided by ask at nilpo dot com in User notes section.
+ */
 interface ExceptionInterface
 {
     /* Protected methods inherited from Exception class */

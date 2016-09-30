@@ -3,6 +3,10 @@
 namespace WebApp\Home;
 use Search\Controller as SearchController;
 
+/**
+ * WebApp\Home\Controller
+ * The controller (MVC) for the home page.
+ */
 class Controller
 {
 	/**
@@ -22,6 +26,11 @@ class Controller
 		$this->_model = $model;
 	}
 
+	/**
+	 * Handle the user making a search.
+	 * Gets the results and sets them on the model.
+	 * @param  string $search_terms 
+	 */
 	function handleSearch( $search_terms ) 
 	{
 		$model = $this->_model;
@@ -70,6 +79,6 @@ class Controller
 	 */
 	public function enableExpandedView( $onOff = true )
 	{
-		$this->_model->_isExpanded = $onOff;
+		$this->_model->_isExpanded = !!$onOff;
 	}
 }

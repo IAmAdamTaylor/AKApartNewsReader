@@ -3,8 +3,19 @@
 namespace Search\Terms\Trending;
 use Search\Terms\Cache\Controller as TermsCache;
 
+/**
+ * Search\Terms\Trending\Controller
+ * Handles getting and displaying the trending terms list.
+ */
 class Controller
 {
+	/**
+	 * Get the trending terms.
+	 * Uses the terms cache and adds faux terms if there are not enough, or the cache is empty.
+	 * @param  integer $limit         The maximum amount of terms to get.
+	 * @param  array   $exclude_terms An array of terms to filter out of the list.
+	 * @return array
+	 */
 	public function getTerms( $limit = 10, $exclude_terms = array() )
 	{
 		// Convert param to array
@@ -48,12 +59,10 @@ class Controller
 
 		// Using decrementer to ensure faux terms display in the same order shown
 		return array(
+			'donald trump' => $amount--,
+			'hillary clinton' => $amount--,
 			'syria'  => $amount--,
 			'aleppo' => $amount--,
-			'hillary clinton' => $amount--,
-			'donald trump' => $amount--,
-			'iphone' => $amount--,
-			'samsung' => $amount--,
 		);
 	}
 }

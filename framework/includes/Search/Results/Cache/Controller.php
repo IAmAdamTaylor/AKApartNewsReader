@@ -6,8 +6,9 @@ use Cache\Manager as CacheManager;
 use Feed\Item as FeedItem;
 
 /**
+ * Search\Results\Cache\Controller
  * Cache handler for the search results.
- * Cache will be an array of SimplePie_Item objects.
+ * Cache will be an array of Feed\Item objects.
  */
 class Controller implements CacheInterface
 {
@@ -38,7 +39,7 @@ class Controller implements CacheInterface
 	/**
 	 * Get the results from the cache file.
 	 * @param  string $key The terms searched for.
-	 * @return array       An array of SimplePie_Item objects.
+	 * @return array       An array of Feed\Item objects.
 	 */
 	public function get( $key ) 
 	{
@@ -71,7 +72,7 @@ class Controller implements CacheInterface
 	/**
 	 * Store a set of results into the cache.
 	 * @param  string $key   The terms searched for.
-	 * @param  array $value  An array of SimplePie_Item objects.
+	 * @param  array $value  An array of Feed\Item objects.
 	 * @return self 				 For chaining
 	 */
 	public function store( $key, $value ) 
@@ -127,6 +128,11 @@ class Controller implements CacheInterface
 		return $this->_cacheFolder . $key . '.json';
 	}
 
+	/**
+	 * Sanitise the string passed, so that it can be used as a file name.
+	 * @param  string $file_name 
+	 * @return string
+	 */
 	private function _sanitiseFileName( $file_name ) 
 	{
 		$file_name = trim( $file_name );

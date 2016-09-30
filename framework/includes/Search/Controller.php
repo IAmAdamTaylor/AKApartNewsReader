@@ -5,7 +5,11 @@ use Search\Results\Cache\Controller as ResultsCache;
 use Search\Terms\Cache\Controller as TermsCache;
 use Search\Parser;
 use Feed\Reader as FeedReader;
-	
+
+/**
+ * Search\Controller
+ * Orchestrates the search and passes off to other classes as needed.
+ */
 class Controller implements ControllerInterface
 {
 	/**
@@ -19,6 +23,11 @@ class Controller implements ControllerInterface
 		$this->setSearchTerms( $search_terms );
 	}
 
+	/**
+	 * Set the search terms.
+	 * @param string $search_terms 
+	 * @return $this
+	 */
 	public function setSearchTerms( $search_terms )
 	{
 		if ( !is_string( $search_terms ) ) {
@@ -31,11 +40,19 @@ class Controller implements ControllerInterface
 		return $this;
 	}
 
+	/**
+	 * Get the search terms.
+	 * @return string
+	 */
 	public function getSearchTerms()
 	{
 		return $this->_search_terms;
 	}
 
+	/**
+	 * Get results for the search terms.
+	 * @return array 
+	 */
 	public function getResults()
 	{
 		// Check cached results

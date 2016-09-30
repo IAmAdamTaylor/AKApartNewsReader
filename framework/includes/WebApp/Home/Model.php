@@ -4,6 +4,10 @@ namespace WebApp\Home;
 use WebApp\Page\ModelInterface;
 use StdClass;
 	
+/**
+ * WebApp\Home\Model
+ * The model (MVC) for the home page.
+ */
 class Model implements ModelInterface
 {
 	/**
@@ -41,6 +45,11 @@ class Model implements ModelInterface
 		$this->head->meta_description = 'Serving you the latest news, 10KB at a time.';
 	}
 
+	/**
+	 * Set the state of the model.
+	 * @param integer $state 
+	 * @return $this
+	 */
 	public function setState( $state )
 	{
 		if ( $this->_state !== $state ) {
@@ -49,6 +58,10 @@ class Model implements ModelInterface
 		return $this;
 	}
 
+	/**
+	 * Get the state of the model.
+	 * @return integer
+	 */
 	public function getState()
 	{
 		return $this->_state;

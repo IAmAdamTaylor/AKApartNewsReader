@@ -4,6 +4,7 @@ namespace Search\Terms\Cache;
 use Cache\ControllerInterface as CacheInterface;
 
 /**
+ * Search\Terms\Cache\Controller
  * Cache handler for the search terms.
  * The cache will be an array containing each term and the amount of times that term has been searched for, like:
  * array(
@@ -27,6 +28,11 @@ class Controller implements CacheInterface
 		$this->_cacheFile = CACHE_BASE_PATH . self::CACHE_LOCATION;
 	}
 
+	/**
+	 * Get a value from the cache.
+	 * @param  string $key Optional, leave blank to get all terms.
+	 * @return array       An array of terms.
+	 */
 	public function get( $key = '' ) 
 	{
 		// Check the cache file exists
@@ -51,6 +57,12 @@ class Controller implements CacheInterface
 		return $terms;
 	}
 
+	/**
+	 * Store a value in the cache.
+	 * @param  string $key   
+	 * @param  integer $value Optional, if passed it sets the amount exactly, if not the current value is incremented.
+	 * @return $this
+	 */
 	public function store( $key, $value = null ) 
 	{
 		// Get the existing cache
@@ -83,6 +95,11 @@ class Controller implements CacheInterface
 		return $this;
 	}
 
+	/**
+	 * Remove a value from the cache.
+	 * @param  string $key
+	 * @return $this 
+	 */
 	public function invalidate( $key ) 
 	{
 		// Get the existing cache

@@ -6,6 +6,10 @@ use Cache\Manager as CacheManager;
 use SimplePie_Autoloader;
 use SimplePie;
 
+/**
+ * Feed\Reader
+ * Reads in the RSS feeds and converts the items to Feed\Item objects.
+ */
 class Reader implements ReaderInterface
 {
 	/**
@@ -48,6 +52,10 @@ class Reader implements ReaderInterface
 	 */
 	const CACHE_LOCATION = 'simplepie/';
 	
+	/**
+	 * Constructor.
+	 * Sets up the SimplePie instance ready to read.
+	 */
 	function __construct()
 	{
 		$cacheManager = CacheManager::instance();
@@ -74,6 +82,11 @@ class Reader implements ReaderInterface
 		$this->_feed->handle_content_type();
 	}
 
+	/**
+	 * Get a set of items from the feed.
+	 * @param  integer $paged The page number to get.
+	 * @return array         
+	 */
 	public function getItems( $paged = 1 )
 	{
 		$start = 0;
@@ -95,6 +108,12 @@ class Reader implements ReaderInterface
 		return $items;
 	}
 
+	/**
+	 * Get a set of unique items from the feed.
+	 * An item is considered unique by it's permalink.
+	 * @param  integer $paged The page number to get.
+	 * @return array
+	 */
 	public function getUniqueItems( $paged = 1 )
 	{
 		$items = $this->getItems( $paged );
@@ -126,6 +145,10 @@ class Reader implements ReaderInterface
 		return $unique_items;
 	}
 
+	/**
+	 * Enable page view mode.
+	 * @param  boolean $flag 
+	 */
 	public function enablePaging( $flag )
 	{
 		// !!, Convert the flag to an equivalent boolean value
@@ -175,7 +198,6 @@ class Reader implements ReaderInterface
 
 	/**
 	 * Set the length we want to cache the feed for, in seconds.
-	 * @return integer
 	 */
 	private function _setCacheDuration()
 	{

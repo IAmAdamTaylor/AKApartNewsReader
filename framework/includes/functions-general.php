@@ -132,6 +132,11 @@ function _n( $singular, $plural, $value ) {
 	return $plural;
 }
 
+/**
+ * Uppercase all words, except for certain ones.
+ * @param  string $value The string with words to uppercase.
+ * @return string        
+ */
 function maybeUcwords( $value ) {
 	// Uppercase the words of the value passed if it doesn't meet the conditions
 	$specific_case_words = array(
@@ -167,12 +172,20 @@ function maybeUcwords( $value ) {
 	return implode( ' ', $value_parts );
 }
 
+/**
+ * Checks that an asset exists and if it does, requires it.
+ * @param  string $path The path to the asset.
+ */
 function requireAsset( $path ) {
 	if ( file_exists( $path ) && is_readable( $path ) ) {
 		require_once $path;
 	}
 }
 
+/**
+ * Get the current URL path for JavaScript to call AJAX requests against.
+ * @return string
+ */
 function getScriptPath() {
 	$url_parts = parse_url( $_SERVER['REQUEST_URI'] );
 
@@ -184,6 +197,11 @@ function getScriptPath() {
 	return $path;
 }
 
+/**
+ * Check if a page has an expanded view.
+ * @param  WebApp\Page\ViewInterface $view The view for the page.
+ * @return boolean
+ */
 function supportsExpandedView( $view ) {
 	return
 		'home/success.php' === $view->getTemplate() ||

@@ -3,6 +3,10 @@
 namespace RelativeDate;
 use DateInterval as _DateInterval;
 
+/**
+ * RelativeDate\DateInterval
+ * A relative version of the DateInterval class, can return periods such as '2 days ago', '34 minutes ago'.
+ */
 class DateInterval extends _DateInterval
 {
 	/**

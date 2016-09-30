@@ -2,6 +2,10 @@
 
 namespace Search;
 
+/**
+ * Search\Parser
+ * Parses the search results and decides how relevant they are.
+ */
 class Parser implements ParserInterface
 {
 	/**
@@ -23,6 +27,12 @@ class Parser implements ParserInterface
 		$this->setTerms( $terms );
 	}
 
+	/**
+	 * Get the results (items) sorted by relevance.
+	 * The relevance key will not be returned.
+	 * @param  array $items An array of Feed\Item objects.
+	 * @return array
+	 */
 	public function getResults( $items )
 	{
 		$results = $this->getRawResults( $items );
@@ -41,6 +51,12 @@ class Parser implements ParserInterface
 		return $results;
 	}
 
+	/**
+	 * Get the raw set of unsorted results.
+	 * The relevance key will be returned.
+	 * @param  array $items An array of Feed\Item objects.
+	 * @return array
+	 */
 	public function getRawResults( $items )
 	{
 		$results = array();
@@ -64,6 +80,11 @@ class Parser implements ParserInterface
 		return $results;
 	}
 
+	/**
+	 * Calculate the relevance of an item.
+	 * @param  Feed\Item $item 
+	 * @return float       
+	 */
 	private function _calculateRelevance( $item )
 	{
 		$title = strtolower( $item->rawTitle );
@@ -125,6 +146,11 @@ class Parser implements ParserInterface
 		return $compare;
 	}
 
+	/**
+	 * Set the search terms to parse.
+	 * @param string $terms
+	 * @return $this
+	 */
 	public function setTerms( $terms )
 	{
 		if ( is_string( $terms ) ) {
@@ -140,6 +166,10 @@ class Parser implements ParserInterface
 		return $this;
 	}
 
+	/**
+	 * Get the search terms
+	 * @return string
+	 */
 	public function getTerms()
 	{
 		return $this->_terms;

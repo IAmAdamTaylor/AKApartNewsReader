@@ -3,6 +3,10 @@
 namespace WebApp\About;
 use Search\Controller as SearchController;
 
+/**
+ * WebApp\About\Controller
+ * The controller (MVC) for the about page.
+ */
 class Controller
 {
 	/**
@@ -23,6 +27,6 @@ class Controller
 	 */
 	public function enableExpandedView( $onOff = true )
 	{
-		$this->_model->_isExpanded = $onOff;
+		$this->_model->_isExpanded = !!$onOff;
 	}
 }

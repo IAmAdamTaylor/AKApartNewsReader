@@ -2,6 +2,10 @@
 
 namespace Cache;
 		
+/**
+ * Cache\Manager
+ * Handles creating and deleting cache folders.
+ */
 class Manager implements ManagerInterface
 {
 	/**

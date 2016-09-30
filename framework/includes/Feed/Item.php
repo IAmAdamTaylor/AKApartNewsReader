@@ -8,10 +8,16 @@ use DateTimeZone;
 use DateTime;
 
 /**
+ * Feed\Item
  * Structure to hold properties of a feed item.
  */
 class Item implements ItemInterface
 {
+	/**
+	 * Constructor.
+	 * Maps any items passed, if their type is understood and standardises the data.
+	 * @param mixed $item 
+	 */
 	function __construct( $item )
 	{
 		if ( is_a( $item , 'SimplePie_Item' ) ) {
@@ -110,6 +116,11 @@ class Item implements ItemInterface
 		return $this->permalink === $item->permalink;
 	}
 
+	/**
+	 * Get a machine readable version of the date.
+	 * Useful for bots and spiders to read.
+	 * @return string 
+	 */
 	public function getMachineReadableDate()
 	{
 		$dateTimezone = new DateTimeZone( 'Europe/London' );
@@ -118,6 +129,10 @@ class Item implements ItemInterface
 		return $date->format( 'Y-m-d' );
 	}
 
+	/**
+	 * Get the date relative to now.
+	 * @return string
+	 */
 	public function getRelativeDate()
 	{
 		$dateTimezone = new DateTimeZone( 'Europe/London' );
@@ -136,6 +151,10 @@ class Item implements ItemInterface
 		return $date;
 	}
 
+	/**
+	 * Get the number of days since the news item was published.
+	 * @return integer
+	 */
 	public function getDaysSincePublished()
 	{
 		$dateTimezone = new DateTimeZone( 'Europe/London' );
@@ -148,6 +167,12 @@ class Item implements ItemInterface
 		return $days;
 	}
 
+	/**
+	 * Get a standardised set of attributes that can be placed on an img tag from the media available.
+	 * Favours the largest image for high res feeds.
+	 * @param  SimplePie_Item $item 
+	 * @return array       
+	 */
 	private function _getImageData( $item )
 	{
 		// Get the image data for the item
@@ -222,6 +247,10 @@ class Item implements ItemInterface
 		return $imageData;
 	}
 
+	/**
+	 * Get a set of default image data if the function above cannot find an image to use.
+	 * @return array
+	 */
 	private function _getDefaultImageData()
 	{
 		return array(
@@ -232,6 +261,11 @@ class Item implements ItemInterface
 		);
 	}
 
+	/**
+	 * Format the feed base URL for display. Should show as example.com.
+	 * @param  string $baseURL 
+	 * @return string
+	 */
 	private function _formatBaseUrlForDisplay( $baseURL )
 	{
 		$url_parts = parse_url( $baseURL );
@@ -275,6 +309,12 @@ class Item implements ItemInterface
 		return trim( $string );
 	}
 
+	/**
+	 * Trim a string to a specific number of words.
+	 * @param  string  $string    
+	 * @param  integer $num_words 
+	 * @return string             
+	 */
 	private function _trimLength( $string, $num_words = 25 )
 	{
 		$string_words = explode( ' ', $string );

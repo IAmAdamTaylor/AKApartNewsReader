@@ -5,6 +5,10 @@ use DateInterface;
 use DateTime as _DateTime;
 use DateTimeZone;
 
+/**
+ * RelativeDate\DateTime
+ * A relative version of the DateTime class, returns a RelativeDate\DateInterval instead of the standard DateInterval.
+ */
 class DateTime extends _DateTime
 {
 	/**

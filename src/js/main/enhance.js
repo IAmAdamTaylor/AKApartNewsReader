@@ -42,8 +42,11 @@
 
 	/* Load custom fonts
 		*/
-	var fontsKey = "https://fonts.googleapis.com/css?family=PT+Sans:400,700";
+	var fontsKey = "https://fonts.googleapis.com/css?family=PT+Sans:400,700",
+			printKey = "public/css/print.min.css";
+	
 	loadCSS( fontsKey );
+	loadCSS( printKey, false, "print" );
 
 	// Use Font Face Observer to add class when loaded
   var font = new FontFaceObserver('PT Sans', {

@@ -141,8 +141,6 @@
 
 	<?php endif ?>
 
-	<link rel="stylesheet" type="text/css" media="print" href="public/css/print.min.css">
-
 </head>
 <body class="<?php echo $view->getBodyClass( ( supportsExpandedView( $view ) ? 'has-expanded-view' : '' ) ); ?>">
 

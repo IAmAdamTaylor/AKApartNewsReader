@@ -65,7 +65,9 @@ $isExpanded = $this->isExpanded();
 
 			<p>After all of this, I tested it in every browser I could find to make sure it was as compatible as possible.</p>
 
-			<p>Oh, and have you tried printing it yet? :)</p>
+			<?php if ( $isExpanded ): ?>
+				<p>Oh, and have you tried printing it yet? :)</p>
+			<?php endif ?>
 
 		</section>
 

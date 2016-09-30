@@ -21,20 +21,20 @@ function throttle(fn, threshold, scope) {
   };
 };
 
-function replaceMainContent( newContent ) {
-  var $main = document.querySelector( 'main' ),
+function replaceContent( selector, newContent ) {
+  var $element = document.querySelector( selector ),
       $wrapper = document.createElement( 'div' ),
-      $mainResponse;
+      $elementResponse;
   
   $wrapper.innerHTML = newContent;
-  $mainResponse = $wrapper.querySelector( 'main' );
+  $elementResponse = $wrapper.querySelector( selector );
 
-  if ( null !== $main && null !== $mainResponse ) {
-    $main.innerHTML = $mainResponse.innerHTML;
+  if ( null !== $element && null !== $elementResponse ) {
+    $element.innerHTML = $elementResponse.innerHTML;
   }
 
-  document.dispatchEvent( new Event('mainContentReplaced') );
-};
+  document.dispatchEvent( new Event('DOMContentReplaced') );
+}
 
 function ajax( requestURL ) {
   var xhr = new XMLHttpRequest();
@@ -44,7 +44,7 @@ function ajax( requestURL ) {
     if ( 4 == xhr.readyState && 200 == xhr.status ) {
       
       // Good response, parse for main content and return
-      replaceMainContent( xhr.responseText );
+      replaceContent( 'main', xhr.responseText );
 
     }
   };

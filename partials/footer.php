@@ -33,7 +33,7 @@
 		</div>
 	</main>
 
-	<script type="text/javascript">var pageBaseUrl = '<?php echo getScriptPath();  ?>&';<?php 
+	<script type="text/javascript">var pageBaseUrl = '<?php echo getScriptPath();  ?>&', siteName = ' | <?php echo SITE_NAME ?>';<?php 
 		requireAsset( 'public/js/libs.min.js' );
 		
 		if ( 'about.php' !== $view->getTemplate() ) {
@@ -46,6 +46,7 @@
 			requireAsset( 'public/js/expanded.min.js' );
 		} 
 	?></script>
-	
+
+	<script id="skeleton">/*<article class="grid__item feed-item skeleton js-skeleton-item"><div class="feed-item__inner"><div class="feed-item__thumbnail"></div></div></article>*/</script> 
 </body>
 </html>

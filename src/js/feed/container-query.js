@@ -46,7 +46,7 @@
 		updateMonitor();
 
 		// Listen out for AJAX reloading the page
-		document.addEventListener( 'mainContentReplaced', updateMonitor );
+		document.addEventListener( 'DOMContentReplaced', updateMonitor );
 
 		// If we have elements to monitor, then attach the resize event
 		window.addEventListener( 'resize', throttle( checkMonitor, 150 ) );

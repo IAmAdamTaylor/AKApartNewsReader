@@ -55,6 +55,14 @@
 				z-index: 1;
 			}
 		}
+
+		&.skeleton {
+			min-height: 520px;
+
+			.feed-item__thumbnail {
+				min-height: 260px;
+			}
+		}
 	}
 
 	.feed-item__inner {

@@ -28,14 +28,14 @@ $isExpanded = $this->isExpanded();
 
 <section class="content" id="results">
 	
-	<h2 class="title title--secondary">
+	<h2 class="title title--secondary" id="results-title">
 		<?php if ( $rawResultsCount !== $resultsCount ): ?>
 			Top 
 		<?php endif ?>
 		<?php echo sprintf( _n( '%d result', '%d results', $resultsCount ), $resultsCount ) ?> for &ldquo;<?php echo esc_html( $this->getProperty( 'search_terms' ) ); ?>&rdquo;
 	</h2>
 	
-	<div class="grid feed-items">
+	<div class="grid" id="feed-wrapper">
 
 		<?php foreach ($results as $result): ?>				
 

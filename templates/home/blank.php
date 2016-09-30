@@ -22,16 +22,16 @@ get_header( $this );
 	?>
 	<?php if ( count( $terms ) > 0 ): ?>
 		
-		<h2 class="title title--secondary">Trending searches</h2>
+		<h2 class="title title--secondary" id="results-title">Trending searches</h2>
 
 		<div class="tags">
 
-			<div class="grid">
+			<div class="grid" id="feed-wrapper">
 				
 				<?php foreach ($terms as $term => $term_amount): ?>
 					<?php $term = maybeUcwords( $term ); ?>
 
-					<a class="grid__item tag" href="index.php?search=<?php echo esc_attr( urlencode( $term ) ) ?>">
+					<a class="grid__item tag" href="index.php?search=<?php echo esc_attr( urlencode( $term ) ) ?>" data-type="search-tag">
 						<span class="tag__inner">
 							<svg class="tag__icon" width="32" height="32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#plus"></use></svg>
 							<?php echo esc_html( $term ) ?>

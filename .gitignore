@@ -11,9 +11,6 @@
 /node_modules
 /package.json
 
-# Ignore built Gulp fles
-/public/
-
 # Ignore cache files
 /cache/
 

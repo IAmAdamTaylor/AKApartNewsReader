@@ -6,11 +6,6 @@
 *.bak
 *.sql
 
-# Ignore Task runner files
-/gulpfile.js
-/node_modules
-/package.json
-
 # Ignore cache files
 /cache/
 
